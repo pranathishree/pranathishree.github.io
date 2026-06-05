@@ -2,7 +2,9 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Maximize2, ExternalLink, Calendar, Users, Mic, Laptop, Cpu, X, Volume2, Sparkles } from "lucide-react";
+import { Play, Maximize2, ExternalLink, Calendar, X, Volume2, Sparkles } from "lucide-react";
+import portfolioData from "@/data/portfolio.json";
+import LucideIcon from "@/components/LucideIcon";
 
 interface MediaItem {
   id: string;
@@ -12,10 +14,11 @@ interface MediaItem {
   description: string;
   date: string;
   skills: string[];
-  thumbnailBg: string; // Tailwind gradient/color class
+  thumbnailBg: string;
   mediaType: "video" | "image" | "presentation";
   relatedLink?: string;
   embedLabel?: string;
+  icon: string;
 }
 
 export default function InAction() {
@@ -23,91 +26,19 @@ export default function InAction() {
   const [lightboxItem, setLightboxItem] = useState<MediaItem | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  const { inAction } = portfolioData;
+
   const tabs = [
     { id: "all", label: "All Moments" },
     { id: "speaking", label: "Public Speaking" },
     { id: "presentations", label: "Presentations" },
     { id: "leadership", label: "Leadership" },
-    { id: "internship", label: "QNX Learning" },
+    { id: "internship", label: "QNX Learning" }
   ] as const;
 
-  const mediaItems: MediaItem[] = [
-    {
-      id: "speak-1",
-      category: "speaking",
-      title: "University Event Hosting & Anchoring",
-      subtitle: "GITAM University Annual Summit",
-      description: "Hosted the opening ceremony and moderated panel discussions with industry guests on technological entrepreneurship.",
-      date: "Oct 2025",
-      skills: ["Public Speaking", "Communication", "Event Hosting", "Stage Anchoring"],
-      thumbnailBg: "from-purple-950/40 via-[#121115] to-purple-900/20",
-      mediaType: "video",
-      embedLabel: "Panel Discussion Anchoring - GITAM Summit",
-    },
-    {
-      id: "pres-1",
-      category: "presentations",
-      title: "AI Fraud Company Detection System Demo",
-      subtitle: "Engineering Capstone Showcase",
-      description: "Presented a comprehensive walkthrough of the fraud classification pipeline, NLP techniques, and data dashboard.",
-      date: "Nov 2025",
-      skills: ["Product Demo", "NLP", "Technical Presentation"],
-      thumbnailBg: "from-slate-900 via-[#121115] to-slate-950",
-      mediaType: "video",
-      relatedLink: "#projects",
-      embedLabel: "Technical walkthrough & classifier demo",
-    },
-    {
-      id: "lead-1",
-      category: "leadership",
-      title: "Head of Press & Communications",
-      subtitle: "Namma Sportika",
-      description: "Led the media operations, public relations campaigns, and press releases for the regional sports championship.",
-      date: "2024 – 2025",
-      skills: ["Team Leadership", "Crisis Management", "Public Relations", "Brand Comm"],
-      thumbnailBg: "from-amber-950/30 via-[#121115] to-amber-900/10",
-      mediaType: "image",
-      embedLabel: "Press desk briefing - Namma Sportika",
-    },
-    {
-      id: "qnx-1",
-      category: "internship",
-      title: "Real-Time Kernel Concepts & Scheduling Log",
-      subtitle: "QNX Learning Journey",
-      description: "Visualized breakdown of preemptive scheduling models, resource manager structures, and message-passing protocols under QNX Neutrino.",
-      date: "Jan 2026",
-      skills: ["QNX RTOS", "Embedded Systems", "Technical Writing"],
-      thumbnailBg: "from-emerald-950/30 via-[#121115] to-emerald-900/10",
-      mediaType: "presentation",
-      embedLabel: "Slide deck: RTOS scheduling under QNX",
-    },
-    {
-      id: "speak-2",
-      category: "speaking",
-      title: "Product Pitch & Strategic Case Study",
-      subtitle: "National Product Management Hackathon",
-      description: "Delivered a high-energy startup pitch to venture capitalist judges detailing pricing strategy and the go-to-market plan.",
-      date: "Dec 2025",
-      skills: ["Product Pitching", "Market Strategy", "Communication"],
-      thumbnailBg: "from-rose-950/30 via-[#121115] to-rose-900/10",
-      mediaType: "video",
-      embedLabel: "Case Strategy presentation - StayReal Pitch",
-    },
-    {
-      id: "lead-2",
-      category: "leadership",
-      title: "Sports Committee Management",
-      subtitle: "University Sports Council Coordination",
-      description: "Co-managed operations, logistics, budget allocations, and inter-departmental match scheduling for over 1,500 athletes.",
-      date: "2023 – Present",
-      skills: ["Event Operations", "Logistics", "Budgeting", "Team Collaboration"],
-      thumbnailBg: "from-blue-950/30 via-[#121115] to-blue-900/10",
-      mediaType: "image",
-      embedLabel: "Inter-University Sports Coordination Session",
-    },
-  ];
-
-  const filteredItems = activeTab === "all" ? mediaItems : mediaItems.filter((item) => item.category === activeTab);
+  const filteredItems = activeTab === "all" 
+    ? (inAction.mediaItems as MediaItem[]) 
+    : (inAction.mediaItems as MediaItem[]).filter((item) => item.category === activeTab);
 
   const handleOpenLightbox = (item: MediaItem) => {
     setLightboxItem(item);
@@ -130,103 +61,111 @@ export default function InAction() {
           <div>
             <span className="text-xs font-mono tracking-[0.25em] text-[#8c889e] uppercase mb-3 flex items-center gap-2">
               <span className="h-[1px] w-8 bg-mauve-accent"></span>
-              IMPACT SHOWCASE
+              {inAction.sectionTitle}
             </span>
             <h2 className="font-serif text-4xl md:text-6xl text-gold-highlight font-normal">
-              Leadership In Action
+              {inAction.heading}
             </h2>
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex flex-wrap gap-2 bg-charcoal-surface/60 border border-charcoal-border p-1.5 rounded-full overflow-x-auto max-w-full">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 rounded-full text-xs font-medium tracking-wide transition-all cursor-pointer ${
-                  activeTab === tab.id
-                    ? "bg-mauve-accent text-[#0a0a0c] font-semibold shadow-[0_4px_12px_rgba(212,191,249,0.2)]"
-                    : "text-[#b2adc4] hover:text-mauve-accent"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+          <div className="flex flex-wrap gap-6 border-b border-charcoal-border/30 pb-2 overflow-x-auto max-w-full">
+            {tabs.map((tab) => {
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className="relative pb-3 text-xs font-mono tracking-widest uppercase transition-colors duration-300 cursor-pointer whitespace-nowrap focus:outline-none"
+                >
+                  <span className={isActive ? "text-rose-accent font-semibold" : "text-[#8c889e] hover:text-[#e0ddf0]"}>
+                    {tab.label}
+                  </span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeInActionTabUnderline"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-rose-accent to-mauve-accent shadow-[0_2px_8px_rgba(255,197,217,0.4)]"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Media Grid */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item) => (
-              <motion.div
-                layout
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                onClick={() => handleOpenLightbox(item)}
-                className="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-charcoal-border hover:border-mauve-accent/20 flex flex-col justify-between h-full min-h-[360px]"
-              >
-                {/* Media Thumbnail representation */}
-                <div className={`h-48 w-full bg-gradient-to-br ${item.thumbnailBg} border-b border-charcoal-border relative flex items-center justify-center p-6 text-center overflow-hidden`}>
-                  {/* Backdrop subtle overlay animation */}
-                  <div className="absolute inset-0 bg-[#0A0A0C]/20 group-hover:bg-[#0A0A0C]/0 transition-colors duration-300" />
-                  
-                  {/* Tech graphic/concept representation */}
-                  <div className="flex flex-col items-center gap-2 relative z-10">
-                    {item.category === "speaking" && <Mic size={28} className="text-mauve-accent group-hover:scale-110 transition-transform duration-300" />}
-                    {item.category === "presentations" && <Laptop size={28} className="text-gold-highlight group-hover:scale-110 transition-transform duration-300" />}
-                    {item.category === "leadership" && <Users size={28} className="text-mauve-accent group-hover:scale-110 transition-transform duration-300" />}
-                    {item.category === "internship" && <Cpu size={28} className="text-gold-highlight group-hover:scale-110 transition-transform duration-300" />}
-                    <span className="font-serif italic text-base text-gold-highlight tracking-wide mt-2">
-                      {item.subtitle}
-                    </span>
-                  </div>
-
-                  {/* Hover Actions */}
-                  <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="p-2 rounded-full bg-charcoal-surface/80 border border-charcoal-border text-gold-highlight">
-                      {item.mediaType === "video" ? <Play size={14} fill="currentColor" /> : <Maximize2 size={14} />}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Narrative Details */}
-                <div className="p-6 flex flex-col justify-between flex-grow">
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-[9px] font-mono tracking-widest text-[#8c889e] uppercase">
-                        {item.category.toUpperCase()}
-                      </span>
-                      <span className="text-[9px] font-mono text-[#8c889e] flex items-center gap-1">
-                        <Calendar size={10} /> {item.date}
+            {filteredItems.map((item) => {
+              const iconColorClass = item.category === "speaking" || item.category === "leadership" ? "text-mauve-accent" : "text-gold-highlight";
+              return (
+                <motion.div
+                  layout
+                  key={item.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4 }}
+                  onClick={() => handleOpenLightbox(item)}
+                  className="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-charcoal-border hover:border-mauve-accent/20 flex flex-col justify-between h-full min-h-[360px]"
+                >
+                  {/* Media Thumbnail representation */}
+                  <div className={`h-48 w-full bg-gradient-to-br ${item.thumbnailBg} border-b border-charcoal-border relative flex items-center justify-center p-6 text-center overflow-hidden`}>
+                    {/* Backdrop subtle overlay animation */}
+                    <div className="absolute inset-0 bg-[#0A0A0C]/20 group-hover:bg-[#0A0A0C]/0 transition-colors duration-300" />
+                    
+                    {/* Tech graphic/concept representation */}
+                    <div className="flex flex-col items-center gap-2 relative z-10">
+                      <LucideIcon name={item.icon} size={28} className={`${iconColorClass} group-hover:scale-110 transition-transform duration-300`} />
+                      <span className="font-sans italic text-base text-[#e0ddf0] tracking-wide mt-2">
+                        {item.subtitle}
                       </span>
                     </div>
 
-                    <h3 className="text-base font-semibold text-gold-highlight mb-2 group-hover:text-mauve-accent transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-[#b2adc4] leading-relaxed mb-4">
-                      {item.description}
-                    </p>
+                    {/* Hover Actions */}
+                    <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="p-2 rounded-full bg-charcoal-surface/80 border border-charcoal-border text-gold-highlight">
+                        {item.mediaType === "video" ? <Play size={14} fill="currentColor" /> : <Maximize2 size={14} />}
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Skills badges */}
-                  <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-charcoal-border/30">
-                    {item.skills.map((skill, sIdx) => (
-                      <span
-                        key={sIdx}
-                        className="text-[9px] font-mono px-2 py-1 rounded bg-charcoal-surface border border-charcoal-border text-[#8c889e]"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                  {/* Narrative Details */}
+                  <div className="p-6 flex flex-col justify-between flex-grow">
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-[9px] font-mono tracking-widest text-[#8c889e] uppercase">
+                          {item.category.toUpperCase()}
+                        </span>
+                        <span className="text-[9px] font-mono text-[#8c889e] flex items-center gap-1">
+                          <Calendar size={10} /> {item.date}
+                        </span>
+                      </div>
+
+                      <h3 className="text-base font-semibold text-gold-highlight mb-2 group-hover:text-mauve-accent transition-colors duration-300">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-[#b2adc4] leading-relaxed mb-4">
+                        {item.description}
+                      </p>
+                    </div>
+
+                    {/* Skills badges */}
+                    <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-charcoal-border/30">
+                      {item.skills.map((skill, sIdx) => (
+                        <span
+                          key={sIdx}
+                          className="text-[9px] font-mono px-2 py-1 rounded bg-charcoal-surface border border-charcoal-border text-[#8c889e]"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
       </div>
@@ -238,7 +177,7 @@ export default function InAction() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0A0A0C]/95 backdrop-blur-md"
+            className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-[#0A0A0C]/95 backdrop-blur-md"
           >
             <motion.div
               initial={{ scale: 0.95, y: 20 }}
@@ -279,7 +218,7 @@ export default function InAction() {
                       </button>
                     </div>
                   ) : (
-                    // Mock Thumbnail overlay with big Play button
+                    // Mock Thumbnail overlay with play button
                     <div className={`absolute inset-0 bg-gradient-to-br ${lightboxItem.thumbnailBg} flex flex-col items-center justify-center p-6 text-center`}>
                       <div className="absolute inset-0 bg-[#0A0A0C]/40" />
                       
@@ -293,7 +232,7 @@ export default function InAction() {
                         <span className="font-mono text-xs tracking-widest text-[#e0ddf0]">
                           {lightboxItem.mediaType === "video" ? "PLAY EVENT RECORDING" : "OPEN FULLSCREEN VIEW"}
                         </span>
-                        <p className="font-serif italic text-base text-gold-highlight max-w-sm">
+                        <p className="font-sans italic text-base text-[#e0ddf0] max-w-sm">
                           {lightboxItem.embedLabel}
                         </p>
                       </div>

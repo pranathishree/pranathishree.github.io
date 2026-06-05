@@ -2,67 +2,12 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Cpu, Terminal, Compass, Briefcase, Users, Star } from "lucide-react";
-
-interface SkillItem {
-  name: string;
-  level: number; // Percentage for progress indicator
-}
-
-interface SkillCategory {
-  title: string;
-  icon: React.ReactNode;
-  description: string;
-  skills: SkillItem[];
-}
+import portfolioData from "@/data/portfolio.json";
+import LucideIcon from "@/components/LucideIcon";
 
 export default function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-
-  const categories: SkillCategory[] = [
-    {
-      title: "Technical Systems",
-      icon: <Terminal className="text-mauve-accent" size={20} />,
-      description: "Writing code, mapping data, and configuring low-level vehicle operating layers.",
-      skills: [
-        { name: "QNX RTOS", level: 85 },
-        { name: "Embedded Systems", level: 80 },
-        { name: "C Language", level: 85 },
-        { name: "SQL Database", level: 85 },
-        { name: "JavaScript", level: 80 },
-        { name: "HTML / CSS", level: 90 },
-        { name: "Figma UI/UX", level: 85 },
-      ],
-    },
-    {
-      title: "Product & Business",
-      icon: <Briefcase className="text-gold-highlight" size={20} />,
-      description: "Bridging the gap between engineering efforts and commercial success metrics.",
-      skills: [
-        { name: "Product Roadmapping", level: 90 },
-        { name: "PRD Writing", level: 90 },
-        { name: "User Story Mapping", level: 85 },
-        { name: "Feature Prioritization", level: 90 },
-        { name: "Market Research", level: 85 },
-        { name: "Competitive Analysis", level: 85 },
-        { name: "KPI Definition & Metrics", level: 80 },
-        { name: "Go-To-Market Strategy", level: 80 },
-      ],
-    },
-    {
-      title: "Leadership & Strategy",
-      icon: <Users className="text-mauve-accent" size={20} />,
-      description: "Coordinating multi-functional efforts and articulating clear strategic visions.",
-      skills: [
-        { name: "Public Speaking", level: 95 },
-        { name: "Communication", level: 95 },
-        { name: "Team Collaboration", level: 90 },
-        { name: "Leadership", level: 90 },
-        { name: "Crisis Management", level: 85 },
-        { name: "Analytical Thinking", level: 90 },
-      ],
-    },
-  ];
+  const { skills } = portfolioData;
 
   return (
     <section id="skills" className="py-24 relative overflow-hidden dot-pattern">
@@ -73,16 +18,16 @@ export default function Skills() {
         <div className="flex flex-col mb-16 md:mb-20">
           <span className="text-xs font-mono tracking-[0.25em] text-[#8c889e] uppercase mb-3 flex items-center gap-2">
             <span className="h-[1px] w-8 bg-mauve-accent"></span>
-            SKILLS VISUALIZATION
+            {skills.sectionTitle}
           </span>
           <h2 className="font-serif text-4xl md:text-6xl text-gold-highlight font-normal">
-            A Multi-Disciplinary Toolkit
+            {skills.heading}
           </h2>
         </div>
 
         {/* Categories Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {categories.map((category, catIdx) => (
+          {skills.categories.map((category, catIdx) => (
             <motion.div
               key={catIdx}
               initial={{ opacity: 0, y: 30 }}
@@ -95,7 +40,7 @@ export default function Skills() {
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-10 w-10 rounded-xl bg-charcoal-surface border border-charcoal-border flex items-center justify-center flex-shrink-0">
-                    {category.icon}
+                    <LucideIcon name={category.icon} className={catIdx % 2 === 0 ? "text-mauve-accent" : "text-gold-highlight"} size={20} />
                   </div>
                   <h3 className="text-lg font-semibold text-gold-highlight">
                     {category.title}

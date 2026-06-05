@@ -2,49 +2,24 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Send, CheckCircle, Sparkles } from "lucide-react";
+import { Send, CheckCircle, Sparkles } from "lucide-react";
+import portfolioData from "@/data/portfolio.json";
+import LucideIcon from "@/components/LucideIcon";
 
-const GithubIcon = ({ size = 20, className = "" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-    <path d="M9 18c-4.51 2-5-2-7-2" />
-  </svg>
-);
-
-const LinkedinIcon = ({ size = 20, className = "" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect width="4" height="12" x="2" y="9" rx="1" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-);
+interface SocialLink {
+  name: string;
+  value: string;
+  href: string;
+  icon: string;
+  label: string;
+}
 
 export default function Contact() {
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const { contact } = portfolioData;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,30 +38,6 @@ export default function Contact() {
     setTimeout(() => setIsSuccess(false), 5000);
   };
 
-  const socialLinks = [
-    {
-      name: "Email",
-      value: "pranathishree16@gmail.com",
-      href: "mailto:pranathishree16@gmail.com",
-      icon: <Mail size={18} className="text-mauve-accent" />,
-      label: "Direct Email Link",
-    },
-    {
-      name: "LinkedIn",
-      value: "linkedin.com/in/pranathi-shree",
-      href: "https://linkedin.com/in/pranathi-shree",
-      icon: <LinkedinIcon size={18} className="text-gold-highlight" />,
-      label: "Professional Profile",
-    },
-    {
-      name: "GitHub",
-      value: "github.com/pranathishree",
-      href: "https://github.com/pranathishree",
-      icon: <GithubIcon size={18} className="text-mauve-accent" />,
-      label: "Code Repositories",
-    },
-  ];
-
   return (
     <section id="contact" className="py-24 relative overflow-hidden dot-pattern">
       {/* Background glow ambient layers */}
@@ -98,10 +49,10 @@ export default function Contact() {
         <div className="flex flex-col mb-16 md:mb-20">
           <span className="text-xs font-mono tracking-[0.25em] text-[#8c889e] uppercase mb-3 flex items-center gap-2">
             <span className="h-[1px] w-8 bg-mauve-accent"></span>
-            CONNECTION HUB
+            {contact.sectionTitle}
           </span>
           <h2 className="font-serif text-4xl md:text-6xl text-gold-highlight font-normal">
-            Start A Conversation
+            {contact.heading}
           </h2>
         </div>
 
@@ -111,37 +62,40 @@ export default function Contact() {
           <div className="lg:col-span-5 flex flex-col justify-between h-full">
             <div>
               <p className="text-lg text-[#b2adc4] font-normal leading-relaxed mb-8 max-w-md">
-                Whether you want to discuss QNX, embedded vehicle stacks, a product roadmap challenge, or public speaking anchoring, I'd love to connect.
+                {contact.description}
               </p>
 
               <div className="flex flex-col gap-6">
-                {socialLinks.map((link, idx) => (
-                  <a
-                    key={idx}
-                    href={link.href}
-                    target={link.name !== "Email" ? "_blank" : undefined}
-                    rel={link.name !== "Email" ? "noreferrer" : undefined}
-                    className="glass-card p-6 rounded-2xl flex items-center gap-4 transition-all duration-300 hover:translate-x-1 group"
-                  >
-                    <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-charcoal-surface border border-charcoal-border flex-shrink-0 group-hover:border-mauve-accent/20 transition-colors">
-                      {link.icon}
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono tracking-widest text-[#8c889e] uppercase block mb-0.5">
-                        {link.name} ({link.label})
-                      </span>
-                      <span className="text-sm font-semibold text-gold-highlight group-hover:text-mauve-accent transition-colors duration-300">
-                        {link.value}
-                      </span>
-                    </div>
-                  </a>
-                ))}
+                {(contact.socialLinks as SocialLink[]).map((link, idx) => {
+                  const iconColorClass = link.name === "LinkedIn" ? "text-gold-highlight" : "text-mauve-accent";
+                  return (
+                    <a
+                      key={idx}
+                      href={link.href}
+                      target={link.name !== "Email" ? "_blank" : undefined}
+                      rel={link.name !== "Email" ? "noreferrer" : undefined}
+                      className="glass-card p-6 rounded-2xl flex items-center gap-4 transition-all duration-300 hover:translate-x-1 group"
+                    >
+                      <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-charcoal-surface border border-charcoal-border flex-shrink-0 group-hover:border-mauve-accent/20 transition-colors">
+                        <LucideIcon name={link.icon} className={iconColorClass} size={18} />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-mono tracking-widest text-[#8c889e] uppercase block mb-0.5">
+                          {link.name} ({link.label})
+                        </span>
+                        <span className="text-sm font-semibold text-gold-highlight group-hover:text-mauve-accent transition-colors duration-300">
+                          {link.value}
+                        </span>
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
             </div>
 
             <div className="mt-12 text-xs font-mono text-[#8c889e] flex items-center gap-2">
               <Sparkles size={14} className="text-mauve-accent" />
-              <span>Designed & Built to Premium Founder Standards.</span>
+              <span>{contact.designedAndBuilt}</span>
             </div>
           </div>
 

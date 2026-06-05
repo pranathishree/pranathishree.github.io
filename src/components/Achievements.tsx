@@ -2,10 +2,12 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Award, Shield, Mic, LayoutGrid, Globe, Flame } from "lucide-react";
+import { Globe } from "lucide-react";
+import portfolioData from "@/data/portfolio.json";
+import LucideIcon from "@/components/LucideIcon";
 
 interface Achievement {
-  icon: React.ReactNode;
+  icon: string;
   title: string;
   description: string;
   badgeText?: string;
@@ -13,45 +15,7 @@ interface Achievement {
 }
 
 export default function Achievements() {
-  const achievements: Achievement[] = [
-    {
-      icon: <Shield className="text-mauve-accent" size={20} />,
-      title: "QNX SDV Software Intern",
-      description: "Working on real-time vehicle systems and exploring hypervisor partition security frameworks.",
-      badgeText: "Professional",
-      theme: "mauve",
-    },
-    {
-      icon: <Award className="text-gold-highlight" size={20} />,
-      title: "Head of Press & Communications",
-      description: "Appointed to lead all public relations campaigns and media briefings for the Namma Sportika tournament.",
-      badgeText: "Leadership",
-      theme: "gold",
-    },
-    {
-      icon: <Mic className="text-mauve-accent" size={20} />,
-      title: "Event Host & Stage Anchor",
-      description: "Anchored prestigious university summits, hosted panel discussions, and pitched ideas before VC panels.",
-      badgeText: "Communication",
-      theme: "mauve",
-    },
-    {
-      icon: <LayoutGrid className="text-gold-highlight" size={20} />,
-      title: "Product Strategy Case Studies",
-      description: "Built end-to-end strategic spec sheets for Amazon Prime Video 2.0 and StayReal vacation platforms.",
-      badgeText: "Strategy",
-      theme: "gold",
-    },
-    {
-      icon: <Flame className="text-mauve-accent" size={20} />,
-      title: "Hackathon Competitor",
-      description: "Represented GITAM University in national-level product management and software hackathons.",
-      badgeText: "Innovation",
-      theme: "mauve",
-    },
-  ];
-
-  const languages = ["English", "Kannada", "Telugu", "Tamil", "Hindi"];
+  const { achievements } = portfolioData;
 
   return (
     <section id="achievements" className="py-24 relative overflow-hidden dot-pattern">
@@ -62,17 +26,18 @@ export default function Achievements() {
         <div className="flex flex-col mb-16 md:mb-20">
           <span className="text-xs font-mono tracking-[0.25em] text-[#8c889e] uppercase mb-3 flex items-center gap-2">
             <span className="h-[1px] w-8 bg-mauve-accent"></span>
-            HONORS & MILESTONES
+            {achievements.sectionTitle}
           </span>
           <h2 className="font-serif text-4xl md:text-6xl text-gold-highlight font-normal">
-            Key Achievements
+            {achievements.heading}
           </h2>
         </div>
 
         {/* Achievements Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {achievements.map((item, idx) => {
+          {(achievements.achievementsList as Achievement[]).map((item, idx) => {
             const borderTheme = item.theme === "gold" ? "gradient-border-gold" : "gradient-border-mauve";
+            const iconColorClass = item.theme === "gold" ? "text-gold-highlight" : "text-mauve-accent";
             return (
               <motion.div
                 key={idx}
@@ -85,7 +50,7 @@ export default function Achievements() {
                 <div>
                   <div className="flex justify-between items-center mb-6">
                     <div className="h-10 w-10 rounded-xl bg-[#0A0A0C] border border-charcoal-border flex items-center justify-center">
-                      {item.icon}
+                      <LucideIcon name={item.icon} className={iconColorClass} size={20} />
                     </div>
                     {item.badgeText && (
                       <span className="text-[9px] font-mono tracking-wider bg-charcoal-surface border border-charcoal-border px-2.5 py-1 rounded-full text-gold-highlight uppercase">
@@ -127,7 +92,7 @@ export default function Achievements() {
               </h3>
               
               <div className="flex flex-wrap gap-1.5">
-                {languages.map((lang, lIdx) => (
+                {achievements.languages.map((lang, lIdx) => (
                   <span
                     key={lIdx}
                     className="text-[10px] font-mono bg-mauve-muted text-mauve-accent px-2.5 py-1.5 rounded-lg border border-mauve-accent/15"

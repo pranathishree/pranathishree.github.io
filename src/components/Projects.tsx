@@ -2,7 +2,9 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, X, ShieldAlert, Video, Home, TrendingUp } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
+import portfolioData from "@/data/portfolio.json";
+import LucideIcon from "@/components/LucideIcon";
 
 const GithubIcon = ({ size = 20, className = "" }) => (
   <svg
@@ -34,75 +36,13 @@ interface Project {
   impact: string;
   demoUrl: string;
   githubUrl: string;
-  icon: React.ReactNode;
+  icon: string;
   theme: "mauve" | "gold";
 }
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  const projects: Project[] = [
-    {
-      id: "ai-fraud",
-      title: "AI Fraud Company Detection System",
-      category: "Technical / NLP & ML",
-      description: "Built a machine learning fraud detection platform to identify fake companies, fraudulent job ads, and online recruiter scams.",
-      gridClass: "lg:col-span-8",
-      highlights: ["HTML/CSS/JS", "TF-IDF NLP", "Naive Bayes", "K-Means Clustering"],
-      problem: "Fake job advertisements and fraudulent company listings exploit job seekers, leading to identity theft and financial scams. Tracking these fake entities manually at scale is inefficient.",
-      solution: "Implemented an analysis dashboard running Python-based NLP models. We used TF-IDF vectorization to process text content, Naive Bayes for company categorization, and K-Means clustering to discover anomaly clusters and red flags.",
-      impact: "Significantly improved detection rates of automated scam postings. Created a red-flag warning dashboard indicating high-risk attributes like vague descriptions, unverified emails, and suspicious domains.",
-      demoUrl: "#",
-      githubUrl: "https://github.com/pranathishree",
-      icon: <ShieldAlert size={24} className="text-mauve-accent" />,
-      theme: "mauve",
-    },
-    {
-      id: "prime-2",
-      title: "Amazon Prime Video 2.0",
-      category: "Product Strategy",
-      description: "Formulated a user retention strategy and feature roadmap targeting Gen Z audiences, introducing social features.",
-      gridClass: "lg:col-span-4",
-      highlights: ["Retention Strategy", "PrimeSync Feature", "Product Roadmap", "KPI Definition"],
-      problem: "Stagnant engagement rates and user churn on Prime Video, particularly within the Gen Z demographic who prefer shared interactive media experiences rather than isolated streaming.",
-      solution: "Designed 'PrimeSync' – a native, low-latency co-watching experience integrated with localized chat. Created a comprehensive product spec (PRD) detailing user stories, UX wireframes, and target launch milestones.",
-      impact: "Defined core success metrics (e.g., Weekly Co-Watching Hours, Cohort Retention Rate, Feature Adoption Rate) to improve monthly active users (MAU) and session times.",
-      demoUrl: "#",
-      githubUrl: "https://github.com/pranathishree",
-      icon: <Video size={24} className="text-gold-highlight" />,
-      theme: "gold",
-    },
-    {
-      id: "stayreal",
-      title: "StayReal – Trust Every Stay",
-      category: "Product Strategy",
-      description: "Designed a traveler safety verification strategy and matching mechanism to solve vacation rental discrepancies.",
-      gridClass: "lg:col-span-4",
-      highlights: ["Reality Match Score™", "Listing Verification", "Traveler Safety", "Trust Optimization"],
-      problem: "Vacation rental bait-and-switch listings and photoshopped images cause extreme traveler distress and degrade platform booking confidence.",
-      solution: "Conceptualized 'Reality Match Score™' - a verification mechanism utilizing spatial AI and metadata checks. Designed structured traveler safety certificates and listing compliance guidelines.",
-      impact: "Reduced customer service disputes regarding listing differences, directly increasing return-booking metrics in simulations and testing prototypes.",
-      demoUrl: "#",
-      githubUrl: "https://github.com/pranathishree",
-      icon: <Home size={24} className="text-gold-highlight" />,
-      theme: "gold",
-    },
-    {
-      id: "scorptech",
-      title: "Scorptech Growth Strategy",
-      category: "Business Growth Strategy",
-      description: "Constructed a 90-day growth and B2B client acquisition roadmap incorporating viral loop mechanisms.",
-      gridClass: "lg:col-span-8",
-      highlights: ["B2B Outreach", "Growth Hacking", "Referral Loops", "90-Day Roadmap"],
-      problem: "Inefficient early-stage B2B marketing channels and high client acquisition costs preventing Scorptech from scaling its services.",
-      solution: "Constructed a structured 90-day go-to-market plan featuring multi-channel email sequencing, a two-sided B2B referral system, and organic industry influencer partner networks.",
-      impact: "Outlined a predictable outreach model detailing concrete weekly targets, acquisition cost estimates, and conversion funnel optimizations.",
-      demoUrl: "#",
-      githubUrl: "https://github.com/pranathishree",
-      icon: <TrendingUp size={24} className="text-mauve-accent" />,
-      theme: "mauve",
-    },
-  ];
+  const { projects } = portfolioData;
 
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
@@ -114,17 +54,18 @@ export default function Projects() {
         <div className="flex flex-col mb-16 md:mb-20">
           <span className="text-xs font-mono tracking-[0.25em] text-[#8c889e] uppercase mb-3 flex items-center gap-2">
             <span className="h-[1px] w-8 bg-mauve-accent"></span>
-            PORTFOLIO Bento
+            {projects.sectionTitle}
           </span>
           <h2 className="font-serif text-4xl md:text-6xl text-gold-highlight font-normal">
-            Strategic Initiatives & Engineering
+            {projects.heading}
           </h2>
         </div>
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {projects.map((project, index) => {
+          {(projects.projectsList as Project[]).map((project, index) => {
             const borderTheme = project.theme === "gold" ? "gradient-border-gold" : "gradient-border-mauve";
+            const iconColorClass = project.theme === "gold" ? "text-gold-highlight" : "text-mauve-accent";
             return (
               <motion.div
                 key={project.id}
@@ -138,7 +79,7 @@ export default function Projects() {
                 <div>
                   <div className="flex justify-between items-start mb-6">
                     <div className="h-12 w-12 rounded-2xl bg-[#0A0A0C] border border-charcoal-border flex items-center justify-center">
-                      {project.icon}
+                      <LucideIcon name={project.icon} size={24} className={iconColorClass} />
                     </div>
                     <span className="text-[10px] font-mono tracking-wider text-mauve-accent bg-mauve-muted px-3 py-1 rounded-full">
                       {project.category}
@@ -178,7 +119,7 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0A0A0C]/90 backdrop-blur-md"
+            className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-[#0A0A0C]/90 backdrop-blur-md"
           >
             {/* Modal Body */}
             <motion.div

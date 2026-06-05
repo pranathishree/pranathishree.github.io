@@ -1,4 +1,5 @@
 import SpotlightEffect from "@/components/SpotlightEffect";
+import portfolioData from "@/data/portfolio.json";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -59,16 +60,16 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col text-center md:text-left">
             <span className="font-serif text-xl tracking-wide text-gold-highlight font-normal">
-              PRANATHI SHREE D A
+              {portfolioData.personal.name}
             </span>
             <span className="text-[10px] tracking-[0.2em] font-mono text-[#8c889e] uppercase mt-0.5">
-              Future Product Leader
+              {portfolioData.personal.role}
             </span>
           </div>
           
           <div className="text-[11px] font-mono text-[#8c889e] tracking-wider text-center md:text-right">
-            <p>© {new Date().getFullYear()} Pranathi Shree D A. All rights reserved.</p>
-            <p className="mt-1 opacity-60">Computer Science & Business Systems Student</p>
+            <p>© {new Date().getFullYear()} {portfolioData.personal.name}. All rights reserved.</p>
+            <p className="mt-1 opacity-60">{portfolioData.personal.tagline}</p>
           </div>
         </div>
       </footer>

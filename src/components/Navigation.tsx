@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { Menu, X, ArrowUpRight, FileDown } from "lucide-react";
+import portfolioData from "@/data/portfolio.json";
 
 interface NavItem {
   label: string;
@@ -85,7 +86,7 @@ export default function Navigation() {
       />
 
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-500 ${
           isScrolled 
             ? "glass-navbar py-3 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]" 
             : "bg-transparent py-6"
@@ -99,10 +100,10 @@ export default function Navigation() {
             className="group flex flex-col cursor-pointer"
           >
             <span className="font-serif text-2xl tracking-wide font-normal text-gold-highlight group-hover:text-mauve-accent transition-colors duration-300">
-              PRANATHI SHREE
+              {portfolioData.personal.name}
             </span>
             <span className="text-[9px] tracking-[0.2em] font-mono text-[#8c889e] uppercase -mt-1 group-hover:text-gold-hover transition-colors duration-300">
-              Technology & Strategy
+              {portfolioData.personal.subRole}
             </span>
           </a>
 

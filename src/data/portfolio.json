@@ -1,0 +1,598 @@
+{
+
+  "personal": {
+    "name": "Pranathi Shree",
+    "role": "Future Product Leader",
+    "subRole": "Technology, Product Strategy & Leadership",
+    "monogram": "PR",
+    "tagline": "Computer Science & Business Systems Student & Software Intern combining technical problem-solving, product strategy, and leadership."
+  },
+
+  "hero": {
+    "internshipBadge": "SOFTWARE INTERN @ QNX / SDVs",
+
+    "mainHeading": {
+      "prefix": "Building Technology",
+      "gradient": "That Creates",
+      "suffix": "Business Impact"
+    },
+
+    "subtitle": "Computer Science & Business Systems Student combining technical problem-solving, product strategy, and leadership to build future-ready solutions.",
+    "ctaExplore": "Explore Projects",
+    "ctaContact": "Get in Touch",
+    "stats": [
+      { "value": "4+", "label": "Projects", "desc": "Technical & Strategic" },
+      { "value": "8.33", "label": "CGPA", "desc": "GITAM University" },
+      { "value": "5", "label": "Languages", "desc": "Multilingual Communication" },
+      { "value": "3+", "label": "Leadership Roles", "desc": "Public & Organization" }
+    ],
+
+    "floatingCards": [
+      {
+        "type": "focus",
+        "label": "FOCUS",
+        "value": "Product Strategy",
+        "icon": "Award"
+      },
+      {
+        "type": "systems",
+        "label": "SYSTEMS",
+        "value": "QNX / Embedded RTOS",
+        "icon": "Briefcase"
+      },
+      {
+        "type": "speaker",
+        "label": "SPEAKER",
+        "value": "Public Speaker",
+        "icon": "Sparkles"
+      }
+    ]
+
+  },
+
+  "about": {
+    "sectionTitle": "ABOUT ME",
+    "heading": "Bridging Code, Product, & Business",
+    "descriptionParagraphs": [
+      "I am a Computer Science & Business Systems student with a unique academic path that combines technical engineering with business management methodologies. This dual training allows me to look at code through the lens of business value and product longevity.",
+      "Currently, I am working as a Software Intern exploring QNX-based Software Defined Vehicle systems. Learning real-time operating systems (RTOS) and studying how vehicle systems are transitioning to standardized software stacks has opened my eyes to the future of automotive IoT and embedded architectures.",
+      "My goal is to step into product leadership, taking product concepts from early user research and technical specification writing through design iterations in Figma, all the way to launch and go-to-market execution."
+    ],
+    "quote": "Building technology is exciting, but building technology that aligns with commercial logic and solves core user problems is what truly drives change.",
+    "interests": [
+      {
+        "title": "Product Management",
+        "icon": "Compass",
+        "description": "Defining product roadmaps, detailing specifications, and aligning engineering with customer needs."
+      },
+      {
+        "title": "Automotive Technology & Embedded Systems",
+        "icon": "Cpu",
+        "description": "Diving into QNX RTOS, Software Defined Vehicles (SDVs), and automotive safety layers."
+      },
+      {
+        "title": "AI Applications",
+        "icon": "Sparkles",
+        "description": "Applying natural language processing and clustering model techniques to real-world datasets."
+      },
+      {
+        "title": "Startup Ecosystems",
+        "icon": "TrendingUp",
+        "description": "Formulating business growth hacks, outreach roadmaps, and B2B engagement strategies."
+      }
+    ]
+  },
+
+  "experience": {
+    "sectionTitle": "PROFESSIONAL EXPERIENCE",
+    "heading": "Where Systems Meet Strategy",
+    "jobs": [
+      {
+        "status": "ACTIVE",
+        "role": "Software Intern",
+        "company": "QNX / Software Defined Vehicles (SDVs)",
+        "timeline": "2025 – Present",
+        "coreTechStack": [
+          "QNX Neutrino",
+          "C / C++",
+          "RTOS APIs",
+          "Embedded Systems"
+        ],
+        "milestones": [
+          {
+            "icon": "Server",
+            "title": "Real-Time Operating Systems (RTOS)",
+            "description": "Learning the fundamentals of real-time scheduling, memory management, and microkernel architecture.",
+            "details": [
+              "Inter-process communication (IPC)",
+              "Priority inheritance & preemptive scheduling",
+              "System latency optimization"
+            ]
+          },
+          {
+            "icon": "Layers",
+            "title": "Automotive Software Architecture",
+            "description": "Understanding software configurations and layers in modern connected cars (SDVs).",
+            "details": [
+              "AUTOSAR standards concept",
+              "Hypervisor partition isolation",
+              "Message-passing services"
+            ]
+          },
+          {
+            "icon": "Cpu",
+            "title": "Embedded Systems Development",
+            "description": "Exploring board support packages (BSPs), device drivers, and low-level system APIs.",
+            "details": [
+              "C programming for memory-constrained targets",
+              "Hardware abstraction layers",
+              "Debugging on real-time targets"
+            ]
+          },
+          {
+            "icon": "ShieldCheck",
+            "title": "System-Level Interaction Analysis",
+            "description": "Examining interactions between device hardware, operating system, and application software layers.",
+            "details": [
+              "Resource manager structures",
+              "POSIX conformance mapping",
+              "Safety-critical system diagnostics"
+            ]
+          }
+        ]
+      },
+      {
+        "status": "INACTIVE",
+        "role": "Product & Tech Lead",
+        "company": "Student Innovation Cell",
+        "timeline": "2024 – 2025",
+        "coreTechStack": [
+          "Product Strategy",
+          "Figma",
+          "Market Analysis",
+          "React"
+        ],
+        "milestones": [
+          {
+            "icon": "Compass",
+            "title": "Product Strategy & Specs",
+            "description": "Defining development roadmaps and specification wireframes for campus software.",
+            "details": [
+              "Authored 3 Product Requirement Documents (PRDs)",
+              "Prioritized backlog based on user feedback surveys",
+              "Organized cross-team design workshops"
+            ]
+          },
+          {
+            "icon": "Users",
+            "title": "Outreach & Engagement",
+            "description": "Formulating campaign designs, go-to-market strategies, and user growth actions.",
+            "details": [
+              "Designed growth hacks increasing platform users by 40%",
+              "Coordinated outreach roadmap for tournament sponsorship",
+              "Led press releases and public relation briefings"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "projects": {
+    "sectionTitle": "PORTFOLIO Bento",
+    "heading": "Strategic Initiatives & Engineering",
+    "projectsList": [
+      {
+        "id": "ai-fraud",
+        "title": "AI Fraud Company Detection System",
+        "category": "Technical / NLP & ML",
+        "description": "Built a machine learning fraud detection platform to identify fake companies, fraudulent job ads, and online recruiter scams.",
+        "gridClass": "lg:col-span-8",
+        "highlights": [
+          "HTML/CSS/JS",
+          "TF-IDF NLP",
+          "Naive Bayes",
+          "K-Means Clustering"
+        ],
+        "problem": "Fake job advertisements and fraudulent company listings exploit job seekers, leading to identity theft and financial scams. Tracking these fake entities manually at scale is inefficient.",
+        "solution": "Implemented an analysis dashboard running Python-based NLP models. We used TF-IDF vectorization to process text content, Naive Bayes for company categorization, and K-Means clustering to discover anomaly clusters and red flags.",
+        "impact": "Significantly improved detection rates of automated scam postings. Created a red-flag warning dashboard indicating high-risk attributes like vague descriptions, unverified emails, and suspicious domains.",
+        "demoUrl": "#",
+        "githubUrl": "https://github.com/pranathishree",
+        "icon": "ShieldAlert",
+        "theme": "mauve"
+      },
+      {
+        "id": "prime-2",
+        "title": "Amazon Prime Video 2.0",
+        "category": "Product Strategy",
+        "description": "Formulated a user retention strategy and feature roadmap targeting Gen Z audiences, introducing social features.",
+        "gridClass": "lg:col-span-4",
+        "highlights": [
+          "Retention Strategy",
+          "PrimeSync Feature",
+          "Product Roadmap",
+          "KPI Definition"
+        ],
+        "problem": "Stagnant engagement rates and user churn on Prime Video, particularly within the Gen Z demographic who prefer shared interactive media experiences rather than isolated streaming.",
+        "solution": "Designed 'PrimeSync' – a native, low-latency co-watching experience integrated with localized chat. Created a comprehensive product spec (PRD) detailing user stories, UX wireframes, and target launch milestones.",
+        "impact": "Defined core success metrics (e.g., Weekly Co-Watching Hours, Cohort Retention Rate, Feature Adoption Rate) to improve monthly active users (MAU) and session times.",
+        "demoUrl": "#",
+        "githubUrl": "https://github.com/pranathishree",
+        "icon": "Video",
+        "theme": "gold"
+      },
+      {
+        "id": "stayreal",
+        "title": "StayReal – Trust Every Stay",
+        "category": "Product Strategy",
+        "description": "Designed a traveler safety verification strategy and matching mechanism to solve vacation rental discrepancies.",
+        "gridClass": "lg:col-span-4",
+        "highlights": [
+          "Reality Match Score™",
+          "Listing Verification",
+          "Traveler Safety",
+          "Trust Optimization"
+        ],
+        "problem": "Vacation rental bait-and-switch listings and photoshopped images cause extreme traveler distress and degrade platform booking confidence.",
+        "solution": "Conceptualized 'Reality Match Score™' - a verification mechanism utilizing spatial AI and metadata checks. Designed structured traveler safety certificates and listing compliance guidelines.",
+        "impact": "Reduced customer service disputes regarding listing differences, directly increasing return-booking metrics in simulations and testing prototypes.",
+        "demoUrl": "#",
+        "githubUrl": "https://github.com/pranathishree",
+        "icon": "Home",
+        "theme": "gold"
+      },
+      {
+        "id": "scorptech",
+        "title": "Scorptech Growth Strategy",
+        "category": "Business Growth Strategy",
+        "description": "Constructed a 90-day growth and B2B client acquisition roadmap incorporating viral loop mechanisms.",
+        "gridClass": "lg:col-span-8",
+        "highlights": [
+          "B2B Outreach",
+          "Growth Hacking",
+          "Referral Loops",
+          "90-Day Roadmap"
+        ],
+        "problem": "Inefficient early-stage B2B marketing channels and high client acquisition costs preventing Scorptech from scaling its services.",
+        "solution": "Constructed a structured 90-day go-to-market plan featuring multi-channel email sequencing, a two-sided B2B referral system, and organic industry influencer partner networks.",
+        "impact": "Outlined a predictable outreach model detailing concrete weekly targets, acquisition cost estimates, and conversion funnel optimizations.",
+        "demoUrl": "#",
+        "githubUrl": "https://github.com/pranathishree",
+        "icon": "TrendingUp",
+        "theme": "mauve"
+      }
+    ]
+  },
+
+  "inAction": {
+    "sectionTitle": "IMPACT SHOWCASE",
+    "heading": "Leadership In Action",
+    "mediaItems": [
+      {
+        "id": "speak-1",
+        "category": "speaking",
+        "title": "University Event Hosting & Anchoring",
+        "subtitle": "GITAM University Annual Summit",
+        "description": "Hosted the opening ceremony and moderated panel discussions with industry guests on technological entrepreneurship.",
+        "date": "Oct 2025",
+        "skills": [
+          "Public Speaking",
+          "Communication",
+          "Event Hosting",
+          "Stage Anchoring"
+        ],
+        "thumbnailBg": "from-purple-950/40 via-[#121115] to-purple-900/20",
+        "mediaType": "video",
+        "embedLabel": "Panel Discussion Anchoring - GITAM Summit",
+        "icon": "Mic"
+      },
+      {
+        "id": "pres-1",
+        "category": "presentations",
+        "title": "AI Fraud Company Detection System Demo",
+        "subtitle": "Engineering Capstone Showcase",
+        "description": "Presented a comprehensive walkthrough of the fraud classification pipeline, NLP techniques, and data dashboard.",
+        "date": "Nov 2025",
+        "skills": [
+          "Product Demo",
+          "NLP",
+          "Technical Presentation"
+        ],
+        "thumbnailBg": "from-slate-900 via-[#121115] to-slate-950",
+        "mediaType": "video",
+        "relatedLink": "#projects",
+        "embedLabel": "Technical walkthrough & classifier demo",
+        "icon": "Laptop"
+      },
+      {
+        "id": "lead-1",
+        "category": "leadership",
+        "title": "Head of Press & Communications",
+        "subtitle": "Namma Sportika",
+        "description": "Led the media operations, public relations campaigns, and press releases for the regional sports championship.",
+        "date": "2024 – 2025",
+        "skills": [
+          "Team Leadership",
+          "Crisis Management",
+          "Public Relations",
+          "Brand Comm"
+        ],
+        "thumbnailBg": "from-amber-950/30 via-[#121115] to-amber-900/10",
+        "mediaType": "image",
+        "embedLabel": "Press desk briefing - Namma Sportika",
+        "icon": "Users"
+      },
+      {
+        "id": "qnx-1",
+        "category": "internship",
+        "title": "Real-Time Kernel Concepts & Scheduling Log",
+        "subtitle": "QNX Learning Journey",
+        "description": "Visualized breakdown of preemptive scheduling models, resource manager structures, and message-passing protocols under QNX Neutrino.",
+        "date": "Jan 2026",
+        "skills": [
+          "QNX RTOS",
+          "Embedded Systems",
+          "Technical Writing"
+        ],
+        "thumbnailBg": "from-emerald-950/30 via-[#121115] to-emerald-900/10",
+        "mediaType": "presentation",
+        "embedLabel": "Slide deck: RTOS scheduling under QNX",
+        "icon": "Cpu"
+      },
+      {
+        "id": "speak-2",
+        "category": "speaking",
+        "title": "Product Pitch & Strategic Case Study",
+        "subtitle": "National Product Management Hackathon",
+        "description": "Delivered a high-energy startup pitch to venture capitalist judges detailing pricing strategy and the go-to-market plan.",
+        "date": "Dec 2025",
+        "skills": [
+          "Product Pitching",
+          "Market Strategy",
+          "Communication"
+        ],
+        "thumbnailBg": "from-rose-950/30 via-[#121115] to-rose-900/10",
+        "mediaType": "video",
+        "embedLabel": "Case Strategy presentation - StayReal Pitch",
+        "icon": "Mic"
+      },
+      {
+        "id": "lead-2",
+        "category": "leadership",
+        "title": "Sports Committee Management",
+        "subtitle": "University Sports Council Coordination",
+        "description": "Co-managed operations, logistics, budget allocations, and inter-departmental match scheduling for over 1,500 athletes.",
+        "date": "2023 – Present",
+        "skills": [
+          "Event Operations",
+          "Logistics",
+          "Budgeting",
+          "Team Collaboration"
+        ],
+        "thumbnailBg": "from-blue-950/30 via-[#121115] to-blue-900/10",
+        "mediaType": "image",
+        "embedLabel": "Inter-University Sports Coordination Session",
+        "icon": "Users"
+      }
+    ]
+  },
+
+  "skills": {
+    "sectionTitle": "SKILLS VISUALIZATION",
+    "heading": "A Multi-Disciplinary Toolkit",
+    "categories": [
+      {
+        "title": "Technical Systems",
+        "icon": "Terminal",
+        "description": "Writing code, mapping data, and configuring low-level vehicle operating layers.",
+        "skills": [
+          { "name": "QNX RTOS", "level": 85 },
+          { "name": "Embedded Systems", "level": 80 },
+          { "name": "C Language", "level": 85 },
+          { "name": "SQL Database", "level": 85 },
+          { "name": "JavaScript", "level": 80 },
+          { "name": "HTML / CSS", "level": 90 },
+          { "name": "Figma UI/UX", "level": 85 }
+        ]
+      },
+      {
+        "title": "Product & Business",
+        "icon": "Briefcase",
+        "description": "Bridging the gap between engineering efforts and commercial success metrics.",
+        "skills": [
+          { "name": "Product Roadmapping", "level": 90 },
+          { "name": "PRD Writing", "level": 90 },
+          { "name": "User Story Mapping", "level": 85 },
+          { "name": "Feature Prioritization", "level": 90 },
+          { "name": "Market Research", "level": 85 },
+          { "name": "Competitive Analysis", "level": 85 },
+          { "name": "KPI Definition & Metrics", "level": 80 },
+          { "name": "Go-To-Market Strategy", "level": 80 }
+        ]
+      },
+      {
+        "title": "Leadership & Strategy",
+        "icon": "Users",
+        "description": "Coordinating multi-functional efforts and articulating clear strategic visions.",
+        "skills": [
+          { "name": "Public Speaking", "level": 95 },
+          { "name": "Communication", "level": 95 },
+          { "name": "Team Collaboration", "level": 90 },
+          { "name": "Leadership", "level": 90 },
+          { "name": "Crisis Management", "level": 85 },
+          { "name": "Analytical Thinking", "level": 90 }
+        ]
+      }
+    ]
+  },
+
+  "education": {
+    "sectionTitle": "ACADEMIC FOUNDATION",
+    "heading": "Education Journey",
+    "educationList": [
+      {
+        "degree": "B.Tech – Computer Science & Business Systems",
+        "institution": "GITAM University",
+        "period": "2023 – 2027",
+        "location": "Bengaluru, India",
+        "metricLabel": "Academic Performance",
+        "metricValue": "CGPA: 8.33 (SGPA: 8.43)",
+        "details": [
+          "Specialized program designed by Tata Consultancy Services (TCS) to bridge the gap between engineering skills and business strategy.",
+          "Coursework: Software Engineering, Data Structures, Design Thinking, Marketing Management, Finance, Business Analytics, Computer Architecture."
+        ]
+      },
+      {
+        "degree": "Pre-University (PCMB - Physics, Chemistry, Math, Biology)",
+        "institution": "Sheshadripuram Composite PU College",
+        "period": "2021 – 2023",
+        "location": "Bengaluru, India",
+        "metricLabel": "Board Score",
+        "metricValue": "84.5%",
+        "details": [
+          "Focused study in science and mathematics, developing analytical foundations and problem-solving methodologies."
+        ]
+      },
+      {
+        "degree": "Secondary School Examination",
+        "institution": "Kendriya Vidyalaya Malleshwaram",
+        "period": "2019 – 2021",
+        "location": "Bengaluru, India",
+        "metricLabel": "Board Score",
+        "metricValue": "72.3%",
+        "details": [
+          "Foundation school curriculum with strong participation in public speaking, local debating, and sports council activities."
+        ]
+      }
+    ]
+  },
+
+  "achievements": {
+    "sectionTitle": "HONORS & MILESTONES",
+    "heading": "Key Achievements",
+    "achievementsList": [
+      {
+        "icon": "Shield",
+        "title": "QNX SDV Software Intern",
+        "description": "Working on real-time vehicle systems and exploring hypervisor partition security frameworks.",
+        "badgeText": "Professional",
+        "theme": "mauve"
+      },
+      {
+        "icon": "Award",
+        "title": "Head of Press & Communications",
+        "description": "Appointed to lead all public relations campaigns and media briefings for the Namma Sportika tournament.",
+        "badgeText": "Leadership",
+        "theme": "gold"
+      },
+      {
+        "icon": "Mic",
+        "title": "Event Host & Stage Anchor",
+        "description": "Anchored prestigious university summits, hosted panel discussions, and pitched ideas before VC panels.",
+        "badgeText": "Communication",
+        "theme": "mauve"
+      },
+      {
+        "icon": "LayoutGrid",
+        "title": "Product Strategy Case Studies",
+        "description": "Built end-to-end strategic spec sheets for Amazon Prime Video 2.0 and StayReal vacation platforms.",
+        "badgeText": "Strategy",
+        "theme": "gold"
+      },
+      {
+        "icon": "Flame",
+        "title": "Hackathon Competitor",
+        "description": "Represented GITAM University in national-level product management and software hackathons.",
+        "badgeText": "Innovation",
+        "theme": "mauve"
+      }
+    ],
+    "languages": ["English", "Kannada", "Telugu", "Tamil", "Hindi"]
+  },
+
+  "currentlyLearning": {
+    "sectionTitle": "KNOWLEDGE ACQUISITION",
+    "heading": "Currently Learning",
+    "learningList": [
+      {
+        "title": "QNX RTOS",
+        "status": "Active Deep-Dive",
+        "progress": 80,
+        "icon": "Shield",
+        "focusArea": "Preemptive scheduling, IPC, microkernel design hooks",
+        "theme": "mauve"
+      },
+      {
+        "title": "Embedded Systems",
+        "status": "Core Study",
+        "progress": 75,
+        "icon": "Cpu",
+        "focusArea": "C programming on hardware, board initialization (BSPs)",
+        "theme": "gold"
+      },
+      {
+        "title": "Product Management",
+        "status": "Advanced Study",
+        "progress": 85,
+        "icon": "Compass",
+        "focusArea": "PRD writing, user stories, feature prioritization frameworks",
+        "theme": "mauve"
+      },
+      {
+        "title": "Automotive Tech",
+        "status": "Trend Research",
+        "progress": 70,
+        "icon": "Cpu",
+        "focusArea": "Software Defined Vehicles (SDVs), AUTOSAR standards",
+        "theme": "gold"
+      },
+      {
+        "title": "Artificial Intelligence",
+        "status": "Application Building",
+        "progress": 80,
+        "icon": "Sparkles",
+        "focusArea": "NLP vectorization, Clustering algorithms, model inference",
+        "theme": "mauve"
+      },
+      {
+        "title": "Startup Growth",
+        "status": "Strategy Execution",
+        "progress": 75,
+        "icon": "TrendingUp",
+        "focusArea": "Go-to-market strategies, B2B acquisition loops",
+        "theme": "gold"
+      }
+    ]
+  },
+  
+  "contact": {
+    "sectionTitle": "CONNECTION HUB",
+    "heading": "Start A Conversation",
+    "description": "Whether you want to discuss QNX, embedded vehicle stacks, a product roadmap challenge, or public speaking anchoring, I'd love to connect.",
+    "designedAndBuilt": "Designed & Built to Premium Founder Standards.",
+    "socialLinks": [
+      {
+        "name": "Email",
+        "value": "pranathishree16@gmail.com",
+        "href": "mailto:pranathishree16@gmail.com",
+        "icon": "Mail",
+        "label": "Direct Email Link"
+      },
+      {
+        "name": "LinkedIn",
+        "value": "linkedin.com/in/pranathi-shree",
+        "href": "https://linkedin.com/in/pranathi-shree",
+        "icon": "Linkedin",
+        "label": "Professional Profile"
+      },
+      {
+        "name": "GitHub",
+        "value": "github.com/pranathishree",
+        "href": "https://github.com/pranathishree",
+        "icon": "Github",
+        "label": "Code Repositories"
+      }
+    ]
+  }
+}

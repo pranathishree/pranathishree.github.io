@@ -2,68 +2,21 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { BookOpen, Cpu, Shield, Compass, Sparkles, TrendingUp, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import portfolioData from "@/data/portfolio.json";
+import LucideIcon from "@/components/LucideIcon";
 
 interface LearningTopic {
   title: string;
   status: string;
   progress: number;
-  icon: React.ReactNode;
+  icon: string;
   focusArea: string;
   theme: "mauve" | "gold";
 }
 
 export default function CurrentlyLearning() {
-  const learningTopics: LearningTopic[] = [
-    {
-      title: "QNX RTOS",
-      status: "Active Deep-Dive",
-      progress: 80,
-      icon: <Shield className="text-mauve-accent" size={18} />,
-      focusArea: "Preemptive scheduling, IPC, microkernel design hooks",
-      theme: "mauve",
-    },
-    {
-      title: "Embedded Systems",
-      status: "Core Study",
-      progress: 75,
-      icon: <Cpu className="text-gold-highlight" size={18} />,
-      focusArea: "C programming on hardware, board initialization (BSPs)",
-      theme: "gold",
-    },
-    {
-      title: "Product Management",
-      status: "Advanced Study",
-      progress: 85,
-      icon: <Compass className="text-mauve-accent" size={18} />,
-      focusArea: "PRD writing, user stories, feature prioritization frameworks",
-      theme: "mauve",
-    },
-    {
-      title: "Automotive Tech",
-      status: "Trend Research",
-      progress: 70,
-      icon: <Cpu className="text-gold-highlight" size={18} />,
-      focusArea: "Software Defined Vehicles (SDVs), AUTOSAR standards",
-      theme: "gold",
-    },
-    {
-      title: "Artificial Intelligence",
-      status: "Application Building",
-      progress: 80,
-      icon: <Sparkles className="text-mauve-accent" size={18} />,
-      focusArea: "NLP vectorization, Clustering algorithms, model inference",
-      theme: "mauve",
-    },
-    {
-      title: "Startup Growth",
-      status: "Strategy Execution",
-      progress: 75,
-      icon: <TrendingUp className="text-gold-highlight" size={18} />,
-      focusArea: "Go-to-market strategies, B2B acquisition loops",
-      theme: "gold",
-    },
-  ];
+  const { currentlyLearning } = portfolioData;
 
   return (
     <section id="currently-learning" className="py-24 relative overflow-hidden">
@@ -72,17 +25,18 @@ export default function CurrentlyLearning() {
         <div className="flex flex-col mb-16 md:mb-20">
           <span className="text-xs font-mono tracking-[0.25em] text-[#8c889e] uppercase mb-3 flex items-center gap-2">
             <span className="h-[1px] w-8 bg-mauve-accent"></span>
-            KNOWLEDGE ACQUISITION
+            {currentlyLearning.sectionTitle}
           </span>
           <h2 className="font-serif text-4xl md:text-6xl text-gold-highlight font-normal">
-            Currently Learning
+            {currentlyLearning.heading}
           </h2>
         </div>
 
         {/* Dashboard layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {learningTopics.map((topic, idx) => {
+          {(currentlyLearning.learningList as LearningTopic[]).map((topic, idx) => {
             const trackColor = topic.theme === "mauve" ? "from-mauve-accent to-mauve-hover" : "from-gold-highlight to-gold-hover";
+            const iconColorClass = topic.theme === "mauve" ? "text-mauve-accent" : "text-gold-highlight";
             return (
               <motion.div
                 key={idx}
@@ -97,7 +51,7 @@ export default function CurrentlyLearning() {
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <div className="h-8 w-8 rounded-lg bg-charcoal-surface border border-charcoal-border flex items-center justify-center">
-                        {topic.icon}
+                        <LucideIcon name={topic.icon} className={iconColorClass} size={18} />
                       </div>
                       <h3 className="font-semibold text-gold-highlight">
                         {topic.title}
