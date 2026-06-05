@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, CheckCircle, Sparkles } from "lucide-react";
+import { Send, CheckCircle, Sparkles, AlertCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import portfolioData from "@/data/portfolio.json";
 import LucideIcon from "@/components/LucideIcon";
 
@@ -14,10 +15,15 @@ interface SocialLink {
   label: string;
 }
 
+const EJS_SERVICE_ID  = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID  ?? "";
+const EJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
+const EJS_PUBLIC_KEY  = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY  ?? "";
+
 export default function Contact() {
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg]   = useState<string | null>(null);
 
   const { contact } = portfolioData;
 
@@ -26,16 +32,30 @@ export default function Contact() {
     if (!formState.name || !formState.email || !formState.message) return;
 
     setIsSubmitting(true);
-    
-    // Simulate API call delay
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormState({ name: "", email: "", message: "" });
+    setErrorMsg(null);
 
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSuccess(false), 5000);
+    try {
+      await emailjs.send(
+        EJS_SERVICE_ID,
+        EJS_TEMPLATE_ID,
+        {
+          from_name:    formState.name,
+          from_email:   formState.email,
+          message:      formState.message,
+          reply_to:     formState.email,
+        },
+        { publicKey: EJS_PUBLIC_KEY }
+      );
+
+      setIsSuccess(true);
+      setFormState({ name: "", email: "", message: "" });
+      setTimeout(() => setIsSuccess(false), 6000);
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setErrorMsg("Oops — message failed to send. Please try emailing directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -160,6 +180,21 @@ export default function Contact() {
                       />
                     </div>
 
+                    {/* Error banner */}
+                    <AnimatePresence>
+                      {errorMsg && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -6 }}
+                          className="flex items-start gap-2.5 bg-rose-accent/10 border border-rose-accent/30 rounded-xl px-4 py-3 text-xs text-rose-accent"
+                        >
+                          <AlertCircle size={14} className="shrink-0 mt-0.5" />
+                          <span>{errorMsg}</span>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
                     {/* Submit Button */}
                     <button
                       type="submit"
@@ -206,3 +241,4 @@ export default function Contact() {
     </section>
   );
 }
+
