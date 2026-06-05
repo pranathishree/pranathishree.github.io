@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal-bg: #0A0A0C;
+  --color-charcoal-surface: #121115;
+  --color-charcoal-border: rgba(212, 191, 249, 0.08);
+  --color-charcoal-border-hover: rgba(212, 191, 249, 0.15);
+  
+  --color-mauve-accent: #D4BFF9;
+  --color-mauve-hover: #C084FC;
+  --color-mauve-muted: rgba(212, 191, 249, 0.15);
+  
+  --color-gold-highlight: #F5E6C9;
+  --color-gold-hover: #E6C79C;
+  --color-gold-muted: rgba(245, 230, 201, 0.15);
+
+  --color-rose-accent: #FFC5D9;
+  --color-rose-hover: #FFA2C4;
+  --color-rose-muted: rgba(255, 197, 217, 0.15);
+  
+  --font-serif: var(--font-cinzel), serif;
+  --font-space: var(--font-inter), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+
+  --animate-twinkle: twinkle 4s ease-in-out infinite;
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.85); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
+}
+
+/* Base custom styles */
+body {
+  background-color: #0A0A0C;
+  color: #E0DDF0;
+  overflow-x: hidden;
+}
+
+/* Scrollbar customizations */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 191, 249, 0.15);
+  border-radius: 9999px;
+  border: 2px solid #0A0A0C;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 191, 249, 0.3);
+}
+
+/* Glassmorphism helpers */
+.glass-card {
+  background: rgba(18, 17, 21, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 191, 249, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(212, 191, 249, 0.15);
+  background: rgba(18, 17, 21, 0.75);
+  box-shadow: 0 8px 32px 0 rgba(212, 191, 249, 0.03);
+}
+
+.glass-navbar {
+  background: rgba(10, 10, 12, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 191, 249, 0.06);
+}
+
+/* Dot background pattern */
+.dot-pattern {
+  background-image: radial-gradient(rgba(212, 191, 249, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Custom transitions and animations */
+.text-glow {
+  text-shadow: 0 0 40px rgba(212, 191, 249, 0.2);
+}
+
+.gold-glow {
+  text-shadow: 0 0 40px rgba(245, 230, 201, 0.25);
+}
+
+/* Magnetic button interaction helpers */
+.magnetic-wrap {
+  display: inline-block;
+  position: relative;
+}
+
+/* Highlighted gradient borders for special items */
+.gradient-border-gold {
+  position: relative;
+  background: linear-gradient(#121115, #121115) padding-box,
+              linear-gradient(135deg, rgba(245, 230, 201, 0.3), rgba(212, 191, 249, 0.1)) border-box;
+  border: 1px solid transparent;
+}
+
+.gradient-border-mauve {
+  position: relative;
+  background: linear-gradient(#121115, #121115) padding-box,
+              linear-gradient(135deg, rgba(212, 191, 249, 0.3), rgba(245, 230, 201, 0.1)) border-box;
+  border: 1px solid transparent;
+}
+
+/* Timeline vertical line */
+.timeline-line {
+  background: linear-gradient(to bottom, 
+    rgba(212, 191, 249, 0) 0%, 
+    rgba(212, 191, 249, 0.3) 15%, 
+    rgba(245, 230, 201, 0.3) 85%, 
+    rgba(245, 230, 201, 0) 100%
+  );
+}
