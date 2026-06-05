@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Cinzel, Inter } from "next/font/google";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -43,6 +45,8 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-[#0A0A0C] text-[#E0DDF0] selection:bg-[#C084FC]/30 selection:text-[#E9D5FF] flex flex-col font-sans">
         {children}
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
