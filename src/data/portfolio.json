@@ -83,100 +83,30 @@
     ]
   },
 
-  "experience": {
-    "sectionTitle": "PROFESSIONAL EXPERIENCE",
-    "heading": "Where Systems Meet Strategy",
-    "jobs": [
-      {
-        "status": "ACTIVE",
-        "role": "Software Intern",
-        "company": "QNX / Software Defined Vehicles (SDVs)",
-        "timeline": "2025 – Present",
-        "coreTechStack": [
-          "QNX Neutrino",
-          "C / C++",
-          "RTOS APIs",
-          "Embedded Systems"
-        ],
-        "milestones": [
-          {
-            "icon": "Server",
-            "title": "Real-Time Operating Systems (RTOS)",
-            "description": "Learning the fundamentals of real-time scheduling, memory management, and microkernel architecture.",
-            "details": [
-              "Inter-process communication (IPC)",
-              "Priority inheritance & preemptive scheduling",
-              "System latency optimization"
-            ]
-          },
-          {
-            "icon": "Layers",
-            "title": "Automotive Software Architecture",
-            "description": "Understanding software configurations and layers in modern connected cars (SDVs).",
-            "details": [
-              "AUTOSAR standards concept",
-              "Hypervisor partition isolation",
-              "Message-passing services"
-            ]
-          },
-          {
-            "icon": "Cpu",
-            "title": "Embedded Systems Development",
-            "description": "Exploring board support packages (BSPs), device drivers, and low-level system APIs.",
-            "details": [
-              "C programming for memory-constrained targets",
-              "Hardware abstraction layers",
-              "Debugging on real-time targets"
-            ]
-          },
-          {
-            "icon": "ShieldCheck",
-            "title": "System-Level Interaction Analysis",
-            "description": "Examining interactions between device hardware, operating system, and application software layers.",
-            "details": [
-              "Resource manager structures",
-              "POSIX conformance mapping",
-              "Safety-critical system diagnostics"
-            ]
-          }
-        ]
-      },
-      {
-        "status": "INACTIVE",
-        "role": "Product & Tech Lead",
-        "company": "Student Innovation Cell",
-        "timeline": "2024 – 2025",
-        "coreTechStack": [
-          "Product Strategy",
-          "Figma",
-          "Market Analysis",
-          "React"
-        ],
-        "milestones": [
-          {
-            "icon": "Compass",
-            "title": "Product Strategy & Specs",
-            "description": "Defining development roadmaps and specification wireframes for campus software.",
-            "details": [
-              "Authored 3 Product Requirement Documents (PRDs)",
-              "Prioritized backlog based on user feedback surveys",
-              "Organized cross-team design workshops"
-            ]
-          },
-          {
-            "icon": "Users",
-            "title": "Outreach & Engagement",
-            "description": "Formulating campaign designs, go-to-market strategies, and user growth actions.",
-            "details": [
-              "Designed growth hacks increasing platform users by 40%",
-              "Coordinated outreach roadmap for tournament sponsorship",
-              "Led press releases and public relation briefings"
-            ]
-          }
-        ]
-      }
-    ]
-  },
+  "internships": [
+    {
+      "bgText": "QNX",
+    "sectionLabel": "Current Role · 2025 – Present",
+    "sectionTitlePrefix": "Software Intern —",
+    "sectionTitleHighlight": "QNX / SDV",
+    "detailsWindow": {
+      "title": "internship_details.txt",
+      "tag": "Currently Active",
+      "role": "Software Intern —",
+      "company": "QNX / SDV",
+      "keywords": "Software Defined Vehicles · Embedded Systems · Real-Time OS"
+    },
+    "responsibilitiesWindow": {
+      "title": "responsibilities.md",
+      "bullets": [
+        "Working on QNX-based software defined vehicle systems with exposure to real-time OS concepts and automotive software architecture",
+        "Studying embedded systems, process management, and software layer interaction in modern vehicle platforms",
+        "Exploring OTA update technology, secure boot, A/B partitions, and PKI infrastructure",
+        "Bridging low-level systems programming with high-level product thinking in automotive tech"
+      ]
+    }
+  }
+  ],
 
   "projects": {
     "sectionTitle": "PORTFOLIO Bento",

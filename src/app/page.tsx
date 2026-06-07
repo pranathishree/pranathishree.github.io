@@ -2,6 +2,7 @@ import React from "react";
 import HomeHero from "@/components/HomeHero";
 import About from "@/components/About";
 import Education from "@/components/Education";
+import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Impact from "@/components/Impact";
@@ -15,6 +16,7 @@ export default function Home() {
       <HomeHero />
       <About />
       <Education />
+      <Experience />
       <Skills />
       <Projects />
       <Impact />

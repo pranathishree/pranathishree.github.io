@@ -397,6 +397,25 @@ footer{padding:22px 5vw;background:rgba(16,12,8,0.98);border-top:1px solid rgba(
 .photo-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
 .photo-slot-lbl{font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink3);position:relative;z-index:1;}
 .photo-slot-icon{color:var(--ink3);font-size:22px;position:relative;z-index:1;}
+/* ── INTERNSHIP ── */
+.intern-section{background:var(--ink);position:relative;overflow:hidden;}
+.intern-bg-text{position:absolute;right:-2rem;bottom:-4rem;font-family:"DM Serif Display",serif;font-size:18rem;font-weight:400;font-style:italic;color:rgba(255,255,255,0.025);line-height:1;pointer-events:none;user-select:none;white-space:nowrap;}
+.intern-section .desk-section-label{color:rgba(245,242,236,0.4);}
+.intern-section .desk-section-title{color:#f5f2ec;}
+.intern-section .desk-section-title em{color:#6daee0;}
+.intern-section .desk-section-icon{background:rgba(255,255,255,0.08);}
+.intern-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;}
+.intern-window{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:10px;overflow:hidden;}
+.intern-window .window-bar{background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.07);}
+.intern-window .window-title{color:rgba(245,242,236,0.6);}
+.intern-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(52,199,89,0.1);border:1px solid rgba(52,199,89,0.22);color:#34c759;font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:5px 12px;border-radius:5px;margin-bottom:18px;}
+.intern-title-big{font-family:"DM Serif Display",serif;font-size:clamp(1.8rem,2.8vw,2.5rem);color:#f5f2ec;line-height:0.95;letter-spacing:-0.02em;margin-bottom:8px;}
+.intern-title-big em{font-style:italic;color:#6daee0;}
+.intern-co{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(245,242,236,0.35);}
+.intern-bullets{list-style:none;display:flex;flex-direction:column;gap:14px;}
+.intern-bullets li{font-size:13px;color:rgba(245,242,236,0.62);font-weight:300;line-height:1.65;padding-left:18px;position:relative;}
+.intern-bullets li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:1px;background:#6daee0;}
+
 /* EDU macos beige */
 .edu-section{background:var(--desk2);}
 .edu-window{background:var(--win);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,0.07);transition:box-shadow .2s,transform .15s;}

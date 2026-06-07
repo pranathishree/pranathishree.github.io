@@ -16,6 +16,10 @@ export default function Dock() {
         <div className="app-icon app-edu"><i className="ti ti-school"></i></div>
         <span className="dock-tooltip">Education</span>
       </a>
+      <a href="#experience" className="dock-item">
+        <div className="app-icon app-exp"><i className="ti ti-briefcase"></i></div>
+        <span className="dock-tooltip">Experience</span>
+      </a>
       <a href="#skills" className="dock-item">
         <div className="app-icon app-skills"><i className="ti ti-bolt"></i></div>
         <span className="dock-tooltip">Skills</span>
