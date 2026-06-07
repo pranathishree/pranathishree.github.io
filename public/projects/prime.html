@@ -1,0 +1,504 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0F171E;--surf:#1A242F;--card:#1E2D3A;--card2:#243444;
+  --blue:#00A8E1;--accent:#00CEEF;--border:#2A3F52;
+  --text:#F0F0F0;--muted:#8899A6;--dimblue:#0078A8;
+  --red:#E24B4A;--green:#27C479;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.65;}
+.page{max-width:920px;margin:0 auto;padding:48px 32px 80px;}
+.nav{display:flex;justify-content:space-between;align-items:center;padding-bottom:36px;border-bottom:1px solid var(--border);margin-bottom:56px;}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:3px;color:var(--blue);}
+.nav-meta{font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.hero{margin-bottom:80px;}
+.hero-tag{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:18px;}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:80px;line-height:.95;color:var(--text);margin-bottom:0;}
+.hero-title span{color:var(--blue);}
+.hero-sub{font-size:17px;color:var(--muted);max-width:500px;margin-top:20px;line-height:1.7;}
+.hero-meta{margin-top:36px;display:flex;gap:40px;}
+.hero-meta label{display:block;font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px;}
+.hero-meta span{font-size:15px;}
+.sec{margin-bottom:72px;}
+.sec-num{font-size:11px;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--text);margin-bottom:20px;letter-spacing:1px;}
+.divider{width:40px;height:2px;background:var(--blue);margin-bottom:32px;}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px;}
+.stat-card{background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:22px 16px;}
+.stat-val{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--blue);line-height:1;}
+.stat-label{font-size:13px;color:var(--muted);margin-top:5px;}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;}
+.card-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+.card-body{font-size:15px;color:var(--muted);line-height:1.65;}
+.hl{border-left:3px solid var(--blue);background:var(--surf);padding:20px 24px;border-radius:0 8px 8px 0;margin:24px 0;}
+.hl p{font-size:16px;color:var(--text);font-style:italic;}
+.prob-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:4px;}
+.prob-list li{display:flex;gap:14px;align-items:flex-start;font-size:15px;color:var(--muted);}
+.prob-list li::before{content:'✕';color:var(--red);font-size:13px;margin-top:3px;flex-shrink:0;font-weight:500;}
+.metric-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.metric-card{background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:22px;}
+.badge{display:inline-block;font-size:11px;letter-spacing:1px;text-transform:uppercase;background:rgba(0,168,225,0.13);color:var(--blue);padding:4px 10px;border-radius:4px;margin-bottom:14px;}
+.metric-card .val{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--accent);}
+.metric-card .desc{font-size:14px;color:var(--muted);margin-top:5px;}
+.sol-wrap{display:flex;flex-direction:column;gap:40px;margin-top:8px;}
+.sol-block{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.sol-info{padding:28px 28px 28px 28px;}
+.sol-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--border);line-height:1;margin-bottom:8px;}
+.sol-info h4{font-size:19px;font-weight:500;color:var(--text);margin-bottom:10px;}
+.sol-info p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:12px;}
+.sol-info ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.sol-info ul li{font-size:13px;color:var(--muted);display:flex;gap:10px;}
+.sol-info ul li::before{content:'→';color:var(--blue);flex-shrink:0;}
+.sol-mock{background:var(--surf);padding:20px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--border);}
+.mock-win{background:#0F171E;border-radius:8px;border:1px solid var(--border);overflow:hidden;}
+.mock-bar{background:#1A2530;padding:8px 12px;display:flex;gap:6px;align-items:center;border-bottom:1px solid var(--border);}
+.mock-dot{width:8px;height:8px;border-radius:50%;}
+.mock-body{padding:14px;}
+.mock-row{display:flex;gap:8px;margin-bottom:10px;}
+.mock-thumb{background:#1E2D3A;border-radius:5px;flex:1;height:52px;display:flex;align-items:center;justify-content:center;}
+.mock-thumb-lg{background:#1E2D3A;border-radius:5px;width:100%;height:70px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.play-icon{width:18px;height:18px;border-left:14px solid var(--blue);border-top:9px solid transparent;border-bottom:9px solid transparent;border-right:none;margin-left:4px;}
+.play-icon-sm{width:12px;height:12px;border-left:10px solid var(--blue);border-top:6px solid transparent;border-bottom:6px solid transparent;border-right:none;margin-left:3px;}
+.mock-label{font-size:11px;color:var(--blue);margin-bottom:6px;letter-spacing:.5px;}
+.mock-label2{font-size:10px;color:var(--muted);text-align:center;margin-top:4px;}
+.ad-bar{background:rgba(0,168,225,0.08);border:1px solid rgba(0,168,225,0.2);border-radius:4px;padding:6px 10px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.ad-bar span{font-size:11px;color:var(--blue);}
+.ad-bar .skip{font-size:10px;color:var(--muted);background:var(--card);padding:3px 8px;border-radius:3px;}
+.nav-tabs{display:flex;gap:6px;margin-bottom:12px;}
+.nav-tab{font-size:11px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);color:var(--muted);}
+.nav-tab.active{background:var(--blue);color:#fff;border-color:var(--blue);}
+.sync-panel{background:#1A2530;border-radius:6px;border:1px solid var(--border);padding:10px;}
+.sync-users{display:flex;gap:6px;margin-bottom:8px;}
+.sync-avatar{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:500;}
+.sync-msg{font-size:10px;color:var(--muted);background:var(--card);border-radius:4px;padding:5px 8px;margin-bottom:6px;}
+.sync-react{display:flex;gap:6px;}
+.sync-react span{font-size:14px;background:var(--card2);padding:4px 8px;border-radius:20px;}
+.priority-table{width:100%;border-collapse:collapse;}
+.priority-table th{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:12px;text-align:left;border-bottom:1px solid var(--border);}
+.priority-table td{font-size:14px;color:var(--muted);padding:14px 12px;border-bottom:1px solid var(--border);}
+.priority-table td:first-child{color:var(--text);font-weight:500;font-size:15px;}
+.b-hi{background:rgba(0,168,225,0.13);color:var(--blue);padding:3px 10px;border-radius:4px;font-size:11px;letter-spacing:1px;}
+.b-md{background:rgba(239,159,39,0.12);color:#EF9F27;padding:3px 10px;border-radius:4px;font-size:11px;letter-spacing:1px;}
+.design-section{margin-top:8px;}
+.design-mockup-wrap{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:24px;margin-bottom:24px;}
+.tv-frame{background:#0a0f14;border-radius:10px;border:2px solid var(--border);padding:0;overflow:hidden;width:100%;}
+.tv-nav{background:#161f28;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
+.tv-nav-left{display:flex;align-items:center;gap:20px;}
+.tv-brand{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--blue);letter-spacing:2px;}
+.tv-nav-links{display:flex;gap:14px;}
+.tv-nav-link{font-size:12px;color:var(--muted);}
+.tv-nav-link.active{color:var(--text);}
+.tv-nav-right{display:flex;gap:12px;align-items:center;}
+.tv-search{font-size:12px;color:var(--muted);}
+.tv-hero{background:#13202c;padding:28px 24px 20px;position:relative;}
+.tv-hero-badge{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
+.tv-hero-title{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--text);line-height:1;margin-bottom:6px;}
+.tv-hero-meta{font-size:11px;color:var(--muted);margin-bottom:14px;}
+.tv-btns{display:flex;gap:10px;}
+.tv-btn{font-size:12px;padding:8px 18px;border-radius:4px;border:none;cursor:pointer;}
+.tv-btn-primary{background:var(--blue);color:#fff;}
+.tv-btn-sec{background:rgba(255,255,255,0.08);color:var(--text);border:1px solid var(--border);}
+.tv-row-label{font-size:12px;color:var(--muted);padding:14px 24px 8px;letter-spacing:.5px;}
+.tv-thumbs{display:flex;gap:10px;padding:0 24px 20px;overflow:hidden;}
+.tv-thumb{background:#1E2D3A;border-radius:6px;flex:1;min-width:0;height:62px;display:flex;align-items:flex-end;padding:6px 8px;}
+.tv-thumb.active{border:2px solid var(--blue);}
+.tv-thumb-label{font-size:10px;color:var(--muted);}
+.continue-bar{background:#13202c;padding:10px 24px;display:flex;align-items:center;gap:12px;border-top:1px solid var(--border);}
+.cb-thumb{background:#1E2D3A;width:50px;height:34px;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.cb-info{flex:1;}
+.cb-title{font-size:12px;color:var(--text);}
+.cb-sub{font-size:11px;color:var(--muted);}
+.cb-progress{background:var(--border);height:2px;border-radius:1px;margin-top:4px;}
+.cb-fill{background:var(--blue);height:2px;border-radius:1px;width:60%;}
+.design-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.mobile-frame{background:#0a0f14;border-radius:20px;border:2px solid var(--border);overflow:hidden;max-width:200px;margin:0 auto;}
+.mob-status{background:#0F171E;padding:8px 14px 6px;display:flex;justify-content:space-between;align-items:center;}
+.mob-status span{font-size:9px;color:var(--muted);}
+.mob-player{background:#000;height:100px;display:flex;align-items:center;justify-content:center;position:relative;}
+.mob-player-ctrl{display:flex;gap:16px;align-items:center;}
+.mob-play{width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:20px solid var(--blue);}
+.mob-prog{background:#1A2530;padding:8px 14px;}
+.mob-prog-bar{background:var(--border);height:3px;border-radius:2px;margin-bottom:6px;}
+.mob-prog-fill{background:var(--blue);height:3px;border-radius:2px;width:45%;}
+.mob-prog-info{display:flex;justify-content:space-between;}
+.mob-prog-info span{font-size:9px;color:var(--muted);}
+.mob-sync-bar{background:#131F2A;padding:8px 14px;border-top:1px solid var(--border);}
+.mob-sync-title{font-size:10px;color:var(--blue);margin-bottom:6px;letter-spacing:.5px;}
+.mob-avatars{display:flex;gap:4px;margin-bottom:6px;}
+.mob-av{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:500;}
+.mob-reactions{display:flex;gap:4px;}
+.mob-reactions span{font-size:12px;background:var(--card);padding:2px 6px;border-radius:10px;}
+.tl{display:flex;gap:0;position:relative;margin-top:24px;}
+.tl::before{content:'';position:absolute;top:18px;left:30px;right:30px;height:1px;background:var(--border);z-index:0;}
+.tl-item{flex:1;position:relative;z-index:1;}
+.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--blue);margin:12px auto 14px;border:2px solid var(--bg);}
+.tl-week{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;text-align:center;margin-bottom:6px;}
+.tl-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;margin:0 5px;}
+.tl-card h5{font-size:14px;font-weight:500;color:var(--text);margin-bottom:6px;}
+.tl-card p{font-size:12px;color:var(--muted);line-height:1.55;}
+.premiere-mock{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:24px;margin-bottom:24px;}
+.premiere-inner{background:#0a0f14;border-radius:8px;overflow:hidden;}
+.prem-header{background:#13202c;padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.prem-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--blue);letter-spacing:2px;}
+.prem-badge{font-size:10px;background:rgba(0,168,225,0.15);color:var(--blue);padding:4px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;}
+.prem-body{padding:20px;}
+.prem-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px;}
+.prem-card{background:#1A2530;border-radius:6px;padding:14px;text-align:center;}
+.prem-card-icon{font-size:22px;margin-bottom:8px;}
+.prem-card-label{font-size:12px;color:var(--muted);}
+.prem-card-val{font-size:14px;color:var(--text);font-weight:500;margin-top:2px;}
+.prem-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.prem-tag{font-size:11px;background:rgba(0,168,225,0.1);color:var(--blue);padding:5px 12px;border-radius:20px;border:1px solid rgba(0,168,225,0.2);}
+.footer{margin-top:72px;padding-top:32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.footer-name{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--blue);letter-spacing:2px;}
+.footer-tag{font-size:13px;color:var(--muted);font-style:italic;}
+</style>
+
+<div class="page">
+<nav class="nav">
+  <div class="nav-brand">PRIME VIDEO</div>
+  <div class="nav-meta">PM Case Study · 2026</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">Product Portfolio</div>
+  <div class="hero-title">Amazon<br><span>Prime Video.</span></div>
+  <p class="hero-sub">Fixing the experience gap — fewer frustrations, smarter personalization, and a platform that feels as premium as it costs.</p>
+  <div class="hero-meta">
+    <div><label>Prepared by</label><span>Pranathi Shree D A</span></div>
+    <div><label>Year</label><span>2026</span></div>
+    <div><label>Domain</label><span>OTT / Product Strategy</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-num">01</div>
+  <div class="sec-title">Company Overview</div>
+  <div class="divider"></div>
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-val">200M+</div><div class="stat-label">Prime Subscribers</div></div>
+    <div class="stat-card"><div class="stat-val">240+</div><div class="stat-label">Countries & Territories</div></div>
+    <div class="stat-card"><div class="stat-val">$9B+</div><div class="stat-label">Content Investment</div></div>
+    <div class="stat-card"><div class="stat-val">Top 3</div><div class="stat-label">Global OTT Platform</div></div>
+  </div>
+  <div class="card-grid">
+    <div class="card"><div class="card-label">Mission</div><div class="card-body">Deliver a seamless, premium streaming experience through great content and user-focused design.</div></div>
+    <div class="card"><div class="card-label">Vision</div><div class="card-body">Become the most customer-centric entertainment platform — effortless streaming on every device.</div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-num">02</div>
+  <div class="sec-title">Problem Statement</div>
+  <div class="divider"></div>
+  <div class="hl"><p>Prime Video leads on value but lags on experience — users are quietly migrating to smoother platforms.</p></div>
+  <ul class="prob-list">
+    <li>Intrusive mid-stream ads despite paying for a full subscription</li>
+    <li>No social or co-watching features — streaming is now a shared experience</li>
+    <li>Slower personalization innovation compared to Netflix and Disney+</li>
+    <li>Lower premium perception weakens brand loyalty and accelerates churn</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <div class="sec-num">03</div>
+  <div class="sec-title">Goals & North Star Metrics</div>
+  <div class="divider"></div>
+  <div class="hl"><p>North Star: Increase monthly active streaming hours per subscriber by 20% within 12 months.</p></div>
+  <div class="metric-row">
+    <div class="metric-card"><div class="badge">Retention</div><div class="val">−15%</div><div class="desc">Reduce 90-day churn rate</div></div>
+    <div class="metric-card"><div class="badge">Engagement</div><div class="val">+20%</div><div class="desc">Monthly active hours per user</div></div>
+    <div class="metric-card"><div class="badge">Satisfaction</div><div class="val">4.5★</div><div class="desc">App store average rating target</div></div>
+    <div class="metric-card"><div class="badge">Social</div><div class="val">10%</div><div class="desc">Users using PrimeSync in 6 months</div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-num">04</div>
+  <div class="sec-title">Solutions</div>
+  <div class="divider"></div>
+  <div class="sol-wrap">
+
+    <div class="sol-block">
+      <div class="sol-info">
+        <div class="sol-num">01</div>
+        <h4>Smart Ad Placement</h4>
+        <p>Replace disruptive mid-stream ads with a single, short ad placed only at the very start or end of a title. Users retain the feeling of uninterrupted viewing while Amazon preserves ad revenue.</p>
+        <ul>
+          <li>One non-skippable ad — at start or end only</li>
+          <li>Zero mid-stream interruptions</li>
+          <li>Ad-free feel without losing revenue</li>
+          <li>Premium subscribers feel respected</li>
+        </ul>
+      </div>
+      <div class="sol-mock">
+        <div class="mock-win">
+          <div class="mock-bar">
+            <div class="mock-dot" style="background:#FF5F57;"></div>
+            <div class="mock-dot" style="background:#FEBC2E;"></div>
+            <div class="mock-dot" style="background:#28C840;"></div>
+          </div>
+          <div class="mock-body">
+            <div class="ad-bar">
+              <span>Ad · 0:15 remaining</span>
+              <span class="skip">Skip after 5s</span>
+            </div>
+            <div style="background:#1a2738;border-radius:5px;height:72px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+              <div style="width:0;height:0;border-top:16px solid transparent;border-bottom:16px solid transparent;border-left:24px solid #555;"></div>
+            </div>
+            <div style="font-size:10px;color:var(--muted);margin-bottom:8px;">Starting in 0:15 →</div>
+            <div class="mock-thumb-lg" style="height:52px;">
+              <div class="play-icon-sm"></div>
+            </div>
+            <div class="mock-label2">Your content begins automatically</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;font-size:11px;color:var(--muted);text-align:center;">Before: ads mid-stream &nbsp;→&nbsp; <span style="color:var(--blue);">After: one ad at start</span></div>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-info">
+        <div class="sol-num">02</div>
+        <h4>PrimeSync — Watch Together</h4>
+        <p>Reintroduce co-watching as PrimeSync. Friends sync playback in real time, send emoji reactions, and chat live. Designed for Gen Z's social-first digital habits.</p>
+        <ul>
+          <li>Synced playback for 2–5 friends</li>
+          <li>Live reactions and chat panel</li>
+          <li>No video call needed — low infrastructure cost</li>
+          <li>Launch on mobile + desktop first</li>
+          <li>Increases session length and app retention</li>
+        </ul>
+      </div>
+      <div class="sol-mock">
+        <div class="mock-win">
+          <div class="mock-bar">
+            <div class="mock-dot" style="background:#FF5F57;"></div>
+            <div class="mock-dot" style="background:#FEBC2E;"></div>
+            <div class="mock-dot" style="background:#28C840;"></div>
+          </div>
+          <div class="mock-body">
+            <div style="background:#1a2738;border-radius:5px;height:60px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;position:relative;">
+              <div class="play-icon-sm"></div>
+              <div style="position:absolute;top:6px;right:8px;font-size:10px;color:var(--blue);background:rgba(0,168,225,0.15);padding:2px 7px;border-radius:10px;">PrimeSync</div>
+            </div>
+            <div class="sync-panel">
+              <div style="font-size:10px;color:var(--blue);margin-bottom:8px;letter-spacing:.5px;">Watching with</div>
+              <div class="sync-users">
+                <div class="sync-avatar" style="background:#1D4E7A;color:#7EC8F0;">P</div>
+                <div class="sync-avatar" style="background:#1D4E3A;color:#5DCAA5;">A</div>
+                <div class="sync-avatar" style="background:#4A1D7A;color:#AFA9EC;">K</div>
+              </div>
+              <div class="sync-msg">Priya: omg this scene!</div>
+              <div class="sync-react">
+                <span>😂</span><span>❤️</span><span>🔥</span><span>😮</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;font-size:11px;color:var(--muted);text-align:center;">Live reactions + synced playback</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-num">05</div>
+  <div class="sec-title">Prioritisation</div>
+  <div class="divider"></div>
+  <table class="priority-table">
+    <thead><tr><th>Feature</th><th>Impact</th><th>Effort</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td>Smart Ad Placement</td><td>High</td><td>Low</td><td><span class="b-hi">P1</span></td></tr>
+      <tr><td>PrimeSync Phase 1</td><td>High</td><td>Medium</td><td><span class="b-hi">P1</span></td></tr>
+      <tr><td>UI/UX Redesign</td><td>High</td><td>High</td><td><span class="b-hi">P1</span></td></tr>
+      <tr><td>AI Personalisation Engine</td><td>Medium</td><td>High</td><td><span class="b-md">P2</span></td></tr>
+      <tr><td>PrimeSync Global Scale</td><td>High</td><td>Very High</td><td><span class="b-md">P2</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="sec">
+  <div class="sec-num">06</div>
+  <div class="sec-title">Design</div>
+  <div class="divider"></div>
+
+  <div class="design-mockup-wrap">
+    <div style="font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Prime Video 2.0 — TV Interface</div>
+    <div class="tv-frame">
+      <div class="tv-nav">
+        <div class="tv-nav-left">
+          <div class="tv-brand">PRIME VIDEO</div>
+          <div class="tv-nav-links">
+            <span class="tv-nav-link active">Home</span>
+            <span class="tv-nav-link">Movies</span>
+            <span class="tv-nav-link">Series</span>
+            <span class="tv-nav-link">My List</span>
+          </div>
+        </div>
+        <div class="tv-nav-right">
+          <span class="tv-search" style="font-size:13px;">&#128269;</span>
+          <span style="font-size:12px;color:var(--muted);">Profile</span>
+        </div>
+      </div>
+      <div class="tv-hero">
+        <div class="tv-hero-badge">Prime Original</div>
+        <div class="tv-hero-title">The Grand Tour</div>
+        <div class="tv-hero-meta">2024 · Adventure · 4 Seasons · 4K HDR</div>
+        <div class="tv-btns">
+          <button class="tv-btn tv-btn-primary">▶ Play</button>
+          <button class="tv-btn tv-btn-sec">+ My List</button>
+          <button class="tv-btn tv-btn-sec">PrimeSync</button>
+        </div>
+      </div>
+      <div class="continue-bar">
+        <div class="cb-thumb"><div style="width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:12px solid var(--blue);"></div></div>
+        <div class="cb-info">
+          <div class="cb-title">Continue Watching — Ep 4</div>
+          <div class="cb-sub">The Grand Tour · 42 min left</div>
+          <div class="cb-progress"><div class="cb-fill"></div></div>
+        </div>
+        <span style="font-size:12px;color:var(--blue);">Resume →</span>
+      </div>
+      <div class="tv-row-label">Recommended for you</div>
+      <div class="tv-thumbs">
+        <div class="tv-thumb active"><span class="tv-thumb-label">The Boys</span></div>
+        <div class="tv-thumb"><span class="tv-thumb-label">Rings of Power</span></div>
+        <div class="tv-thumb"><span class="tv-thumb-label">Reacher</span></div>
+        <div class="tv-thumb"><span class="tv-thumb-label">Citadel</span></div>
+        <div class="tv-thumb"><span class="tv-thumb-label">Fallout</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="design-mockup-wrap">
+    <div style="font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Prime Video 2.0 — Mobile + PrimeSync</div>
+    <div class="design-2col">
+      <div>
+        <div class="mobile-frame">
+          <div class="mob-status">
+            <span>9:41</span><span>●●●</span>
+          </div>
+          <div class="mob-player">
+            <div class="mob-player-ctrl">
+              <div style="width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-right:16px solid #555;"></div>
+              <div class="mob-play"></div>
+              <div style="width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:16px solid #555;"></div>
+            </div>
+            <div style="position:absolute;top:8px;right:10px;font-size:9px;color:var(--blue);background:rgba(0,168,225,0.15);padding:2px 6px;border-radius:8px;">PrimeSync ON</div>
+          </div>
+          <div class="mob-prog">
+            <div class="mob-prog-bar"><div class="mob-prog-fill"></div></div>
+            <div class="mob-prog-info"><span>22:14</span><span>48:00</span></div>
+          </div>
+          <div class="mob-sync-bar">
+            <div class="mob-sync-title">Watching with 3 friends</div>
+            <div class="mob-avatars">
+              <div class="mob-av" style="background:#1D4E7A;color:#7EC8F0;">P</div>
+              <div class="mob-av" style="background:#1D4E3A;color:#5DCAA5;">A</div>
+              <div class="mob-av" style="background:#4A1D7A;color:#AFA9EC;">K</div>
+            </div>
+            <div class="mob-reactions"><span>😂</span><span>🔥</span><span>❤️</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;justify-content:center;">
+        <div class="card" style="padding:16px;">
+          <div class="card-label">Clean UI</div>
+          <div class="card-body" style="font-size:13px;">Content-first layout. "Continue Watching" always above the fold. Personalized carousels. Dark mode by default.</div>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div class="card-label">Fast Load</div>
+          <div class="card-body" style="font-size:13px;">Lightweight React Native rendering. Sub 1.2s cold start. Intelligent CDN routing via AWS infrastructure.</div>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div class="card-label">PrimeSync</div>
+          <div class="card-body" style="font-size:13px;">Non-intrusive side panel. Reactions float briefly over video. Chat docks below player without blocking content.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-num">07</div>
+  <div class="sec-title">Launch Strategy</div>
+  <div class="divider"></div>
+  <div class="hl"><p>"The Streaming Premiere" — invite the most passionate voices to experience Prime Video 2.0 first. Their reactions become the campaign.</p></div>
+
+  <div class="premiere-mock">
+    <div style="font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">The Streaming Premiere Event</div>
+    <div class="premiere-inner">
+      <div class="prem-header">
+        <div class="prem-title">PRIME VIDEO 2.0 PREMIERE</div>
+        <div class="prem-badge">Invite Only · Pre-Launch</div>
+      </div>
+      <div class="prem-body">
+        <div class="prem-grid">
+          <div class="prem-card">
+            <div class="prem-card-icon" style="font-size:20px;color:var(--blue);">&#128249;</div>
+            <div class="prem-card-label">Creators Invited</div>
+            <div class="prem-card-val">50+</div>
+          </div>
+          <div class="prem-card">
+            <div class="prem-card-icon" style="font-size:20px;color:var(--blue);">&#127381;</div>
+            <div class="prem-card-label">Platforms Covered</div>
+            <div class="prem-card-val">YouTube · X · Instagram</div>
+          </div>
+          <div class="prem-card">
+            <div class="prem-card-icon" style="font-size:20px;color:var(--blue);">&#128196;</div>
+            <div class="prem-card-label">Campaign Theme</div>
+            <div class="prem-card-val">#StreamingReborn</div>
+          </div>
+        </div>
+        <div class="prem-tags">
+          <span class="prem-tag">OTT Creators</span>
+          <span class="prem-tag">Film Reviewers</span>
+          <span class="prem-tag">Influencers</span>
+          <span class="prem-tag">Before/After Challenge</span>
+          <span class="prem-tag">Organic Reactions</span>
+          <span class="prem-tag">Beta Access</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-week">Week 1</div>
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <h5>Teaser Campaign</h5>
+        <p>Cryptic "something is being fixed" posts with glitch effects. Build organic anticipation without revealing the product.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-week">Week 2</div>
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <h5>Creator Wave</h5>
+        <p>50+ OTT creators, reviewers, and filmmakers drop early-access reactions across YouTube, Instagram, and X.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-week">Weeks 3–4</div>
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <h5>Public Launch</h5>
+        <p>#StreamingReborn trending push. Before/after challenge. Simultaneous rollout on TV, mobile, and web.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>
+    <div class="footer-name">Pranathi Shree D A</div>
+    <div class="footer-tag">"Streaming should feel effortless."</div>
+  </div>
+  <div style="font-size:12px;color:var(--muted);">Prime Video PM Case Study · 2026</div>
+</footer>
+</div>

@@ -197,7 +197,7 @@
         "problem": "Fake job advertisements and fraudulent company listings exploit job seekers, leading to identity theft and financial scams. Tracking these fake entities manually at scale is inefficient.",
         "solution": "Implemented an analysis dashboard running Python-based NLP models. We used TF-IDF vectorization to process text content, Naive Bayes for company categorization, and K-Means clustering to discover anomaly clusters and red flags.",
         "impact": "Significantly improved detection rates of automated scam postings. Created a red-flag warning dashboard indicating high-risk attributes like vague descriptions, unverified emails, and suspicious domains.",
-        "demoUrl": "#",
+        "demoUrl": "/projects/ai-fraud.html",
         "githubUrl": "https://github.com/pranathishree",
         "icon": "ShieldAlert",
         "theme": "mauve"
@@ -217,7 +217,7 @@
         "problem": "Stagnant engagement rates and user churn on Prime Video, particularly within the Gen Z demographic who prefer shared interactive media experiences rather than isolated streaming.",
         "solution": "Designed 'PrimeSync' – a native, low-latency co-watching experience integrated with localized chat. Created a comprehensive product spec (PRD) detailing user stories, UX wireframes, and target launch milestones.",
         "impact": "Defined core success metrics (e.g., Weekly Co-Watching Hours, Cohort Retention Rate, Feature Adoption Rate) to improve monthly active users (MAU) and session times.",
-        "demoUrl": "#",
+        "demoUrl": "/projects/prime.html",
         "githubUrl": "https://github.com/pranathishree",
         "icon": "Video",
         "theme": "gold"
@@ -237,7 +237,7 @@
         "problem": "Vacation rental bait-and-switch listings and photoshopped images cause extreme traveler distress and degrade platform booking confidence.",
         "solution": "Conceptualized 'Reality Match Score™' - a verification mechanism utilizing spatial AI and metadata checks. Designed structured traveler safety certificates and listing compliance guidelines.",
         "impact": "Reduced customer service disputes regarding listing differences, directly increasing return-booking metrics in simulations and testing prototypes.",
-        "demoUrl": "#",
+        "demoUrl": "/projects/stayreal.html",
         "githubUrl": "https://github.com/pranathishree",
         "icon": "Home",
         "theme": "gold"
@@ -257,7 +257,7 @@
         "problem": "Inefficient early-stage B2B marketing channels and high client acquisition costs preventing Scorptech from scaling its services.",
         "solution": "Constructed a structured 90-day go-to-market plan featuring multi-channel email sequencing, a two-sided B2B referral system, and organic industry influencer partner networks.",
         "impact": "Outlined a predictable outreach model detailing concrete weekly targets, acquisition cost estimates, and conversion funnel optimizations.",
-        "demoUrl": "#",
+        "demoUrl": "/projects/scorptech.html",
         "githubUrl": "https://github.com/pranathishree",
         "icon": "TrendingUp",
         "theme": "mauve"
@@ -266,162 +266,176 @@
   },
 
   "inAction": {
-    "sectionTitle": "IMPACT SHOWCASE",
-    "heading": "Leadership In Action",
+    "sectionTitle": "Beyond the Classroom",
+    "heading": "Extracurricular Activities",
     "mediaItems": [
       {
-        "id": "speak-1",
-        "category": "speaking",
-        "title": "University Event Hosting & Anchoring",
-        "subtitle": "GITAM University Annual Summit",
-        "description": "Hosted the opening ceremony and moderated panel discussions with industry guests on technological entrepreneurship.",
-        "date": "Oct 2025",
-        "skills": [
-          "Public Speaking",
-          "Communication",
-          "Event Hosting",
-          "Stage Anchoring"
-        ],
-        "thumbnailBg": "from-purple-950/40 via-[#121115] to-purple-900/20",
-        "mediaType": "video",
-        "embedLabel": "Panel Discussion Anchoring - GITAM Summit",
-        "icon": "Mic"
+        "id": "gsc_marketing",
+        "category": "Sports Committee · GSC · 2024 – Present",
+        "title": "Marketing & Content — GITAM Sports Committee",
+        "description": "Worked on marketing campaigns and event promotions that increased student participation and online engagement for university sports events. Created content and promotional material for social media and on-campus channels.",
+        "images": ["/basketball_gitamblr.jpeg", "/marketing&content.jpeg"]
       },
       {
-        "id": "pres-1",
-        "category": "presentations",
-        "title": "AI Fraud Company Detection System Demo",
-        "subtitle": "Engineering Capstone Showcase",
-        "description": "Presented a comprehensive walkthrough of the fraud classification pipeline, NLP techniques, and data dashboard.",
-        "date": "Nov 2025",
-        "skills": [
-          "Product Demo",
-          "NLP",
-          "Technical Presentation"
-        ],
-        "thumbnailBg": "from-slate-900 via-[#121115] to-slate-950",
-        "mediaType": "video",
-        "relatedLink": "#projects",
-        "embedLabel": "Technical walkthrough & classifier demo",
-        "icon": "Laptop"
+        "id": "namma_sportika",
+        "category": "Head of Press & Communications · 2025",
+        "title": "Namma Sportika 2.0 — GITAM University",
+        "description": "Led all press and communication work for one of the university's biggest sports events, managing announcements, media coordination, and cross-team information flow under pressure.",
+        "images": ["/nammaSport.jpeg", "/IdCardNammaSport.jpeg"]
       },
       {
-        "id": "lead-1",
-        "category": "leadership",
-        "title": "Head of Press & Communications",
-        "subtitle": "Namma Sportika",
-        "description": "Led the media operations, public relations campaigns, and press releases for the regional sports championship.",
-        "date": "2024 – 2025",
-        "skills": [
-          "Team Leadership",
-          "Crisis Management",
-          "Public Relations",
-          "Brand Comm"
-        ],
-        "thumbnailBg": "from-amber-950/30 via-[#121115] to-amber-900/10",
-        "mediaType": "image",
-        "embedLabel": "Press desk briefing - Namma Sportika",
-        "icon": "Users"
+        "id": "prerana_events",
+        "category": "Event Host & Anchor · 2024 – Present",
+        "title": "Prerana & Major University Events",
+        "description": "Hosted large-scale university events including Prerana, managing live audience interaction, stage presence, and event flow. Prepared and delivered event scripts, adapted in real time to audience response.",
+        "images": ["/hosteevent.mp4", "/universityEvent.jpeg"]
       },
       {
-        "id": "qnx-1",
-        "category": "internship",
-        "title": "Real-Time Kernel Concepts & Scheduling Log",
-        "subtitle": "QNX Learning Journey",
-        "description": "Visualized breakdown of preemptive scheduling models, resource manager structures, and message-passing protocols under QNX Neutrino.",
-        "date": "Jan 2026",
-        "skills": [
-          "QNX RTOS",
-          "Embedded Systems",
-          "Technical Writing"
-        ],
-        "thumbnailBg": "from-emerald-950/30 via-[#121115] to-emerald-900/10",
-        "mediaType": "presentation",
-        "embedLabel": "Slide deck: RTOS scheduling under QNX",
-        "icon": "Cpu"
-      },
-      {
-        "id": "speak-2",
-        "category": "speaking",
-        "title": "Product Pitch & Strategic Case Study",
-        "subtitle": "National Product Management Hackathon",
-        "description": "Delivered a high-energy startup pitch to venture capitalist judges detailing pricing strategy and the go-to-market plan.",
-        "date": "Dec 2025",
-        "skills": [
-          "Product Pitching",
-          "Market Strategy",
-          "Communication"
-        ],
-        "thumbnailBg": "from-rose-950/30 via-[#121115] to-rose-900/10",
-        "mediaType": "video",
-        "embedLabel": "Case Strategy presentation - StayReal Pitch",
-        "icon": "Mic"
-      },
-      {
-        "id": "lead-2",
-        "category": "leadership",
-        "title": "Sports Committee Management",
-        "subtitle": "University Sports Council Coordination",
-        "description": "Co-managed operations, logistics, budget allocations, and inter-departmental match scheduling for over 1,500 athletes.",
-        "date": "2023 – Present",
-        "skills": [
-          "Event Operations",
-          "Logistics",
-          "Budgeting",
-          "Team Collaboration"
-        ],
-        "thumbnailBg": "from-blue-950/30 via-[#121115] to-blue-900/10",
-        "mediaType": "image",
-        "embedLabel": "Inter-University Sports Coordination Session",
-        "icon": "Users"
+        "id": "hackathons",
+        "category": "Competitions & Innovation",
+        "title": "Hackathons & Case Competitions",
+        "description": "Participated in hackathons focused on innovation, business problem solving, and technology-driven solutions. Actively follow industry trends in product management, automotive tech, and startup ecosystems.",
+        "images": ["/Certificat.png"]
       }
     ]
   },
 
-  "skills": {
-    "sectionTitle": "SKILLS VISUALIZATION",
-    "heading": "A Multi-Disciplinary Toolkit",
+  "achievements": {
+    "sectionTitle": "What Sets Me Apart",
+    "heading": "Highlights & Achievements",
+    "achievementsList": [
+      {
+        "icon": "ti-car",
+        "title": "Automotive Tech Intern",
+        "description": "One of few undergraduates working hands-on with QNX real-time operating systems and software defined vehicle architectures — bridging embedded systems with product thinking."
+      },
+      {
+        "icon": "ti-speakerphone",
+        "title": "Head of Press — Namma Sportika",
+        "description": "Led communications for one of GITAM Bangalore's largest sports events, managing multi-team coordination, media, and real-time information flow under pressure."
+      },
+      {
+        "icon": "ti-microphone",
+        "title": "University Event Host",
+        "description": "Hosted major university events including Prerana — strong stage presence, scripting ability, and confidence under live audience pressure."
+      },
+      {
+        "icon": "ti-robot",
+        "title": "Built AI-Powered Products",
+        "description": "Developed a real browser-based AI fraud detection system using Naive Bayes, K-Means Clustering, and TF-IDF NLP — from concept to working prototype."
+      },
+      {
+        "icon": "ti-chart-line",
+        "title": "8.33 CGPA · Strong Academic Record",
+        "description": "Maintaining a strong GPA while simultaneously pursuing internships, product strategy projects, leadership roles, and university event activities."
+      },
+      {
+        "icon": "ti-message-language",
+        "title": "Multilingual — 5 Languages",
+        "description": "Fluent in English, Kannada, Telugu, Tamil, and Hindi — an asset for user research, cross-regional collaboration, and connecting with diverse teams."
+      }
+    ],
+    "languages": ["English", "Kannada", "Telugu", "Tamil", "Hindi"]
+  },
+
+  "coreSkills": {
+    "labelAbove": "What I Bring",
+    "headingMy": "My",
+    "headingSkills": "Skills",
+    "items": [
+      {
+        "filename": "product_strategy.app",
+        "category": "Product",
+        "name": "Product Strategy",
+        "tags": ["Roadmapping", "PRD Writing", "User Story Mapping", "Feature Prioritisation", "KPI Definition", "GTM Strategy"]
+      },
+      {
+        "filename": "development.app",
+        "category": "Technical",
+        "name": "Development",
+        "tags": ["C Language", "HTML / CSS / JS", "SQL", "QNX RTOS", "Embedded Systems", "Figma"]
+      },
+      {
+        "filename": "leadership.app",
+        "category": "Leadership",
+        "name": "Communication",
+        "tags": ["Public Speaking", "Event Hosting", "Team Management", "Press & Comms", "Crisis Management"]
+      },
+      {
+        "filename": "research.app",
+        "category": "Research",
+        "name": "Market & User Research",
+        "tags": ["Competitive Analysis", "User Research", "Problem Framing", "Data Synthesis"]
+      },
+      {
+        "filename": "content.app",
+        "category": "Content",
+        "name": "Content & Media",
+        "tags": ["Social Media Strategy", "Content Creation", "Canva", "Event Coordination"]
+      },
+      {
+        "filename": "mindset.app",
+        "category": "Mindset",
+        "name": "Analytical Thinking",
+        "tags": ["Strategic Thinking", "Fast Learner", "Resilience", "Cross-functional", "Growth-oriented"]
+      }
+    ]
+  },
+
+  "skillset": {
+    "sectionTitle": "Capabilities",
+    "heading": "Soft Skills, Tech & Tools",
     "categories": [
       {
-        "title": "Technical Systems",
-        "icon": "Terminal",
-        "description": "Writing code, mapping data, and configuring low-level vehicle operating layers.",
-        "skills": [
-          { "name": "QNX RTOS", "level": 85 },
-          { "name": "Embedded Systems", "level": 80 },
-          { "name": "C Language", "level": 85 },
-          { "name": "SQL Database", "level": 85 },
-          { "name": "JavaScript", "level": 80 },
-          { "name": "HTML / CSS", "level": 90 },
-          { "name": "Figma UI/UX", "level": 85 }
+        "filename": "soft_skills.txt",
+        "categoryLabel": "Leadership & People",
+        "title": "Soft Skills",
+        "type": "list",
+        "items": [
+          { "icon": "users", "name": "Public Speaking" },
+          { "icon": "message-circle", "name": "Effective Communication" },
+          { "icon": "friends", "name": "Team Collaboration" },
+          { "icon": "puzzle", "name": "Problem Solving" },
+          { "icon": "brain", "name": "Critical Thinking" },
+          { "icon": "search", "name": "Research Skills" },
+          { "icon": "clock", "name": "Time Management" },
+          { "icon": "refresh", "name": "Adaptability" },
+          { "icon": "check", "name": "Decision Making" },
+          { "icon": "clipboard-list", "name": "Project Coordination" },
+          { "icon": "heart-handshake", "name": "Interpersonal Skills" },
+          { "icon": "sort-ascending", "name": "Organizational Skills" },
+          { "icon": "target", "name": "Strategic Thinking" }
         ]
       },
       {
-        "title": "Product & Business",
-        "icon": "Briefcase",
-        "description": "Bridging the gap between engineering efforts and commercial success metrics.",
-        "skills": [
-          { "name": "Product Roadmapping", "level": 90 },
-          { "name": "PRD Writing", "level": 90 },
-          { "name": "User Story Mapping", "level": 85 },
-          { "name": "Feature Prioritization", "level": 90 },
-          { "name": "Market Research", "level": 85 },
-          { "name": "Competitive Analysis", "level": 85 },
-          { "name": "KPI Definition & Metrics", "level": 80 },
-          { "name": "Go-To-Market Strategy", "level": 80 }
+        "filename": "technical_skills.app",
+        "categoryLabel": "Technical Proficiency",
+        "title": "Tech Skills",
+        "type": "bars",
+        "items": [
+          { "name": "QNX RTOS", "level": "Intermediate", "percentage": 65 },
+          { "name": "Embedded Systems", "level": "Intermediate", "percentage": 62 },
+          { "name": "C Language", "level": "Intermediate", "percentage": 70 },
+          { "name": "SQL Database", "level": "Intermediate", "percentage": 68 },
+          { "name": "JavaScript", "level": "Intermediate", "percentage": 72 },
+          { "name": "HTML / CSS", "level": "Proficient", "percentage": 82 },
+          { "name": "Figma UI/UX", "level": "Proficient", "percentage": 78 },
+          { "name": "Operating Systems", "level": "Intermediate", "percentage": 65 },
+          { "name": "OOPs Concepts", "level": "Intermediate", "percentage": 66 }
         ]
       },
       {
-        "title": "Leadership & Strategy",
-        "icon": "Users",
-        "description": "Coordinating multi-functional efforts and articulating clear strategic visions.",
-        "skills": [
-          { "name": "Public Speaking", "level": 95 },
-          { "name": "Communication", "level": 95 },
-          { "name": "Team Collaboration", "level": 90 },
-          { "name": "Leadership", "level": 90 },
-          { "name": "Crisis Management", "level": 85 },
-          { "name": "Analytical Thinking", "level": 90 }
+        "filename": "tools_apps.app",
+        "categoryLabel": "Daily Toolkit",
+        "title": "Tools & Apps",
+        "type": "grid",
+        "items": [
+          { "name": "VS Code", "icon": "code", "bg": "#007acc", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png", "iconColor": "#fff" },
+          { "name": "Claude", "icon": "robot", "bg": "#d97757", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Claude_AI_logo.svg/512px-Claude_AI_logo.svg.png", "iconColor": "#fff" },
+          { "name": "Figma", "icon": "vector", "bg": "#1e1e1e", "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg", "iconColor": "#fff" },
+          { "name": "Stitch", "icon": "needle-thread", "bg": "#3b82f6", "image": "", "iconColor": "#fff" },
+          { "name": "Perplexity", "icon": "search", "bg": "#1c1c2e", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Perplexity_AI_logo.svg/512px-Perplexity_AI_logo.svg.png", "iconColor": "#fff" },
+          { "name": "Lovable", "icon": "heart", "bg": "#fff3e0", "image": "", "iconColor": "#f97316" }
         ]
       }
     ]
@@ -466,49 +480,6 @@
         ]
       }
     ]
-  },
-
-  "achievements": {
-    "sectionTitle": "HONORS & MILESTONES",
-    "heading": "Key Achievements",
-    "achievementsList": [
-      {
-        "icon": "Shield",
-        "title": "QNX SDV Software Intern",
-        "description": "Working on real-time vehicle systems and exploring hypervisor partition security frameworks.",
-        "badgeText": "Professional",
-        "theme": "mauve"
-      },
-      {
-        "icon": "Award",
-        "title": "Head of Press & Communications",
-        "description": "Appointed to lead all public relations campaigns and media briefings for the Namma Sportika tournament.",
-        "badgeText": "Leadership",
-        "theme": "gold"
-      },
-      {
-        "icon": "Mic",
-        "title": "Event Host & Stage Anchor",
-        "description": "Anchored prestigious university summits, hosted panel discussions, and pitched ideas before VC panels.",
-        "badgeText": "Communication",
-        "theme": "mauve"
-      },
-      {
-        "icon": "LayoutGrid",
-        "title": "Product Strategy Case Studies",
-        "description": "Built end-to-end strategic spec sheets for Amazon Prime Video 2.0 and StayReal vacation platforms.",
-        "badgeText": "Strategy",
-        "theme": "gold"
-      },
-      {
-        "icon": "Flame",
-        "title": "Hackathon Competitor",
-        "description": "Represented GITAM University in national-level product management and software hackathons.",
-        "badgeText": "Innovation",
-        "theme": "mauve"
-      }
-    ],
-    "languages": ["English", "Kannada", "Telugu", "Tamil", "Hindi"]
   },
 
   "currentlyLearning": {

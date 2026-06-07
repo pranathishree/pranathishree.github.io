@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scorptech — Case Study · Pranathi Shree D A · 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#07070f;--bg2:#0d0d1c;--v:#7c5cfc;--vd:rgba(124,92,252,0.12);--vm:rgba(124,92,252,0.28);--white:#eeeaf8;--muted:#6a677f;--text:#aeaac6;--border:rgba(124,92,252,0.15)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4{color:var(--white)}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:#2a2060;border-radius:2px}
+.cover{min-height:100vh;display:flex;flex-direction:column;padding:2.5rem 3rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.cov-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(124,92,252,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(124,92,252,0.04) 1px,transparent 1px);background-size:55px 55px;pointer-events:none}
+.cov-glow{position:absolute;right:-5%;top:10%;width:55vw;height:55vw;border-radius:50%;background:radial-gradient(circle,rgba(124,92,252,0.1) 0%,transparent 65%);pointer-events:none}
+.cov-top{display:flex;align-items:flex-start;justify-content:space-between;position:relative;z-index:2}
+.cov-badge{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--v);border:1px solid var(--vm);background:var(--vd);padding:0.35rem 1rem;border-radius:20px}
+.cov-meta{text-align:right;font-size:0.75rem;color:var(--muted);line-height:1.8}
+.cov-meta strong{color:var(--text);font-weight:500;display:block}
+.cov-mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding:3rem 0;position:relative;z-index:2}
+.cov-eyebrow{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--v);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.7rem}
+.cov-eyebrow::before{content:'';width:24px;height:1px;background:var(--v)}
+.cov-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(5.5rem,15vw,14rem);line-height:0.87;letter-spacing:0.025em;color:var(--white);margin-bottom:2rem}
+.cov-h1 em{font-style:normal;color:var(--v)}
+.cov-desc{font-size:1rem;color:var(--muted);max-width:500px;line-height:1.75}
+.cov-bot{display:flex;align-items:flex-end;justify-content:space-between;border-top:1px solid var(--border);padding-top:2rem;position:relative;z-index:2}
+.cov-author-name{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--white);letter-spacing:0.05em;line-height:1}
+.cov-author-sub{font-size:0.72rem;color:var(--muted);letter-spacing:0.07em;margin-top:0.3rem}
+.cov-toc{display:flex;flex-direction:column;gap:0.35rem}
+.toc-row{display:flex;gap:0.8rem;align-items:center;font-size:0.95rem;color:var(--muted)}
+.toc-n{color:var(--v);font-size:0.8rem;font-weight:700;min-width:1.4rem}
+.cov-year{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:rgba(124,92,252,0.08);line-height:1;letter-spacing:0.04em;border:1px solid var(--border);padding:0.2rem 1.2rem;align-self:flex-end}
+.sec{border-bottom:1px solid var(--border)}
+.wrap{max-width:980px;margin:0 auto;padding:5rem 3rem}
+.pg-tag{display:flex;align-items:center;gap:1.5rem;margin-bottom:3.5rem}
+.pg-n{font-family:'Bebas Neue',sans-serif;font-size:4rem;line-height:1;color:rgba(124,92,252,0.18);min-width:3.5rem}
+.pg-label{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--v);margin-bottom:0.2rem}
+.pg-title{font-size:1.15rem;font-weight:600;color:var(--white)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.gc{background:var(--bg);padding:2rem;transition:background 0.25s}
+.gc:hover{background:var(--bg2)}
+.gc-ey{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--v);margin-bottom:0.9rem}
+.gc h3{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:0.6rem;line-height:1.3}
+.gc p{font-size:0.85rem;color:var(--muted);line-height:1.7}
+.val-icon{width:36px;height:36px;border-radius:50%;background:var(--vd);border:1px solid var(--vm);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1rem}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:3rem}
+.about-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);color:var(--white);line-height:0.95;margin-bottom:1.5rem}
+.about-big em{font-style:normal;color:var(--v)}
+.about-body{font-size:0.9rem;color:var(--muted);line-height:1.8}
+.stats-box{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.stat-c{background:var(--bg);padding:1.8rem;transition:background 0.2s}
+.stat-c:hover{background:var(--bg2)}
+.stat-val{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--v);line-height:1}
+.stat-lbl{font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.3rem}
+.why-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start}
+.why-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,4.5rem);color:var(--white);line-height:0.95;margin-bottom:1.2rem}
+.why-big em{font-style:normal;color:var(--v)}
+.why-sub{font-size:0.9rem;color:var(--muted);line-height:1.75}
+.why-list{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.why-row{background:var(--bg);padding:1.5rem 2rem;transition:background 0.2s}
+.why-row:hover{background:var(--bg2)}
+.why-row-title{font-size:0.9rem;font-weight:600;color:var(--white);margin-bottom:0.3rem}
+.why-row-desc{font-size:0.82rem;color:var(--muted);line-height:1.6}
+.proof{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:3rem}
+.proof-c{background:var(--bg);padding:2rem;text-align:center;transition:background 0.2s}
+.proof-c:hover{background:var(--bg2)}
+.proof-val{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--white);line-height:1}
+.proof-lbl{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:0.4rem}
+.prob-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.prob-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5rem);color:var(--white);line-height:0.92;margin-bottom:1.5rem}
+.prob-big em{font-style:normal;color:var(--v)}
+.prob-body{font-size:0.88rem;color:var(--muted);line-height:1.8}
+.pain-stack{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.pain{background:var(--bg);padding:1.3rem 1.5rem;display:flex;gap:1rem;transition:background 0.2s}
+.pain:hover{background:var(--bg2)}
+.pain-n{font-size:0.68rem;font-weight:700;color:var(--v);min-width:1.8rem;padding-top:0.1rem}
+.pain-t{font-size:0.84rem;color:var(--muted);line-height:1.6}
+.ns{display:grid;grid-template-columns:auto 1fr;border:1px solid var(--border);margin-bottom:1.5rem}
+.ns-left{border-right:1px solid var(--border);padding:2.5rem;display:flex;flex-direction:column;justify-content:center}
+.ns-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--v);margin-bottom:0.5rem}
+.ns-val{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--v);line-height:1}
+.ns-unit{font-size:0.7rem;color:var(--muted);margin-top:0.4rem}
+.ns-right{padding:2.5rem}
+.ns-desc{font-size:0.88rem;color:var(--muted);line-height:1.8;margin-bottom:1.2rem}
+.ns-targets{display:flex;gap:2.5rem;flex-wrap:wrap}
+.ns-t{font-size:0.78rem;font-weight:600;color:var(--v)}
+.ns-t span{display:block;font-size:0.65rem;color:var(--muted);font-weight:400;margin-top:0.1rem}
+.mets{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.met{background:var(--bg);padding:1.5rem;transition:background 0.2s}
+.met:hover{background:var(--bg2)}
+.met-lbl{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem}
+.met-val{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--white);line-height:1}
+.met-sub{font-size:0.68rem;color:var(--v);margin-top:0.3rem}
+.sol-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border)}
+.sol{background:var(--bg);padding:2rem;display:grid;grid-template-columns:2.5rem 1fr auto;gap:2rem;align-items:start;transition:background 0.2s}
+.sol:hover{background:var(--bg2)}
+.sol-n{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--vd);line-height:1}
+.sol-title{font-size:0.95rem;font-weight:600;color:var(--white);margin-bottom:0.4rem}
+.sol-desc{font-size:0.82rem;color:var(--muted);line-height:1.65}
+.pill{font-size:0.58rem;letter-spacing:0.09em;text-transform:uppercase;padding:0.25rem 0.8rem;border-radius:20px;white-space:nowrap;align-self:start;margin-top:0.2rem}
+.phi{background:var(--vd);color:var(--v);border:1px solid var(--vm)}
+.pmd{background:rgba(255,255,255,0.04);color:var(--muted);border:1px solid rgba(255,255,255,0.07)}
+.browser{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:#08081a}
+.bbar{background:#0c0c1e;border-bottom:1px solid var(--border);padding:0.75rem 1.2rem;display:flex;align-items:center;gap:0.9rem}
+.dots{display:flex;gap:5px}
+.dot{width:9px;height:9px;border-radius:50%}
+.dot-r{background:#ff5f57}.dot-y{background:#febc2e}.dot-g{background:#28c840}
+.burl{flex:1;background:rgba(124,92,252,0.07);border:1px solid var(--border);border-radius:4px;padding:0.28rem 1rem;font-size:0.7rem;color:var(--muted);text-align:center;letter-spacing:0.04em}
+.bnav{background:#07070f;border-bottom:1px solid rgba(124,92,252,0.12);padding:0.85rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.blogo{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:0.05em;color:#eee}
+.blogo em{font-style:normal;color:#7c5cfc}
+.bnav-links{display:flex;gap:1.5rem}
+.bnav-links span{font-size:0.62rem;color:#6a677f;text-transform:uppercase;letter-spacing:0.1em}
+.bnav-btn{font-size:0.6rem;background:#7c5cfc;color:#fff;padding:0.3rem 0.9rem;border-radius:3px;text-transform:uppercase;letter-spacing:0.07em;font-weight:600}
+.bhero{background:#07070f;padding:2.5rem 2rem;position:relative;overflow:hidden}
+.bhero-glow{position:absolute;right:-5%;top:-20%;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,252,0.14) 0%,transparent 65%);pointer-events:none}
+.bhero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(124,92,252,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(124,92,252,0.03) 1px,transparent 1px);background-size:36px 36px;pointer-events:none}
+.bhero-inner{position:relative;z-index:1}
+.bhero-tag{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:#7c5cfc;margin-bottom:0.8rem;display:flex;align-items:center;gap:0.5rem}
+.bhero-tag::before{content:'';width:16px;height:1px;background:#7c5cfc}
+.bhero-h{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:0.92;color:#eeeaf8;margin-bottom:0.8rem}
+.bhero-h em{font-style:normal;color:#7c5cfc}
+.bhero-sub{font-size:0.75rem;color:#6a677f;max-width:260px;line-height:1.6;margin-bottom:1.3rem}
+.bhero-ctas{display:flex;gap:0.6rem}
+.bhero-cp{font-size:0.62rem;background:#7c5cfc;color:#fff;padding:0.45rem 1.1rem;border-radius:3px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em}
+.bhero-cs{font-size:0.62rem;background:transparent;color:#7c5cfc;padding:0.45rem 1.1rem;border-radius:3px;border:1px solid rgba(124,92,252,0.3);text-transform:uppercase;letter-spacing:0.07em}
+.bstats{background:#07070f;border-top:1px solid rgba(124,92,252,0.1);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background-image:linear-gradient(rgba(124,92,252,0.1),rgba(124,92,252,0.1))}
+.bstat{background:#07070f;padding:1.2rem 1.5rem;text-align:center}
+.bstat-v{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#7c5cfc;line-height:1}
+.bstat-l{font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#6a677f;margin-top:0.2rem}
+.bwhy{background:#0d0d1c;border-top:1px solid rgba(124,92,252,0.12);padding:1.5rem 2rem}
+.bwhy-lbl{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:#6a677f;margin-bottom:1rem}
+.bwhy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.7rem}
+.bwhy-card{background:#0a0a1a;border:1px solid rgba(124,92,252,0.12);border-radius:4px;padding:1rem}
+.bwhy-dot{width:5px;height:5px;border-radius:50%;background:#7c5cfc;margin-bottom:0.6rem}
+.bwhy-t{font-size:0.68rem;font-weight:600;color:#b0acca;margin-bottom:0.2rem}
+.bwhy-s{font-size:0.6rem;color:#6a677f;line-height:1.4}
+.btesti{background:#0a0a1a;border-top:1px solid rgba(124,92,252,0.1);padding:1.2rem 2rem;display:flex;gap:0.9rem;align-items:flex-start}
+.bav{width:26px;height:26px;border-radius:50%;background:rgba(124,92,252,0.2);border:1px solid rgba(124,92,252,0.3);display:flex;align-items:center;justify-content:center;font-size:0.55rem;font-weight:700;color:#7c5cfc;flex-shrink:0}
+.bstars{display:flex;gap:2px;margin-bottom:0.25rem}
+.bstar{width:6px;height:6px;background:#7c5cfc;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.bq{font-size:0.68rem;color:#b0acca;font-style:italic;line-height:1.5}
+.ba{font-size:0.58rem;color:#6a677f;margin-top:0.25rem}
+.bfooter{background:#0c0c1e;border-top:1px solid rgba(124,92,252,0.12);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.bfooter-logo{font-family:'Bebas Neue',sans-serif;font-size:0.9rem;color:#eee;letter-spacing:0.05em}
+.bfooter-logo em{font-style:normal;color:#7c5cfc}
+.bfooter-links{display:flex;gap:1.2rem}
+.bfooter-links span{font-size:0.55rem;color:#6a677f;text-transform:uppercase;letter-spacing:0.08em}
+.bfooter-cta{font-size:0.58rem;color:#7c5cfc;border:1px solid rgba(124,92,252,0.28);padding:0.28rem 0.7rem;border-radius:3px;text-transform:uppercase;letter-spacing:0.07em}
+.roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.rp{background:var(--bg);padding:2rem;transition:background 0.2s}
+.rp:hover{background:var(--bg2)}
+.rp-tag{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--v);margin-bottom:0.5rem}
+.rp-title{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:1rem}
+.rp-items{display:flex;flex-direction:column;gap:0.5rem}
+.rp-item{font-size:0.82rem;color:var(--muted);display:flex;gap:0.6rem;line-height:1.5}
+.rp-item::before{content:'→';color:var(--v);min-width:1rem}
+.back{min-height:45vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 3rem;position:relative;overflow:hidden}
+.back-glow{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(124,92,252,0.08) 0%,transparent 60%);pointer-events:none}
+.back-inner{position:relative;z-index:1}
+.back-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,4rem);color:var(--white);letter-spacing:0.05em;line-height:1;margin-bottom:0.4rem}
+.back-sub{font-size:0.75rem;color:var(--muted);letter-spacing:0.1em;margin-bottom:2rem}
+.back-line{width:50px;height:1px;background:var(--v);margin:0 auto 2rem}
+.back-url{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--v);letter-spacing:0.06em;text-decoration:none;transition:opacity 0.2s}
+.back-url:hover{opacity:0.7}
+.site-link{color:var(--v);text-decoration:none;border-bottom:1px solid var(--vm);padding-bottom:1px;transition:opacity 0.2s}
+.site-link:hover{opacity:0.7}
+.back-yr{font-family:'Bebas Neue',sans-serif;font-size:9rem;color:rgba(124,92,252,0.05);position:absolute;bottom:-1.5rem;left:50%;transform:translateX(-50%);white-space:nowrap;pointer-events:none}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.55s ease,transform 0.55s ease}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:700px){
+  .cover,.wrap,.back{padding-left:1.5rem;padding-right:1.5rem}
+  .cov-h1{font-size:4.5rem}
+  .cov-toc,.cov-year{display:none}
+  .g3,.g2,.mets,.proof,.roadmap,.about-layout,.prob-layout,.why-layout,.stats-box{grid-template-columns:1fr}
+  .ns{grid-template-columns:1fr}
+  .ns-left{border-right:none;border-bottom:1px solid var(--border)}
+  .sol{grid-template-columns:2rem 1fr}
+  .pill{display:none}
+  .bwhy-grid,.bstats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cov-grid"></div><div class="cov-glow"></div>
+  <div class="cov-top">
+    <div class="cov-badge">Product Strategy Case Study</div>
+    <div style="text-align:right">
+      <div style="font-size:0.72rem;color:var(--muted);letter-spacing:0.08em;margin-bottom:0.4rem">Submitted by</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--white);letter-spacing:0.04em;line-height:1">Pranathi Shree D A</div>
+    </div>
+  </div>
+  <div class="cov-mid">
+    <div class="cov-eyebrow">Startup Case Study — <a href="https://www.scorptech.co" target="_blank" rel="noopener" class="site-link">scorptech.co ↗</a></div>
+    <div class="cov-h1">SCORP<em>TECH</em></div>
+    <p class="cov-desc">A product strategy case study on Scorptech — analysed from my perspective as a student. I explore their company identity, the core growth challenge they face, the metrics that matter, my recommended marketing strategy, and a design prototype for their website.</p>
+  </div>
+  <div class="cov-bot">
+    <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:1rem">
+      <div style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)">Product Strategy · 2026</div>
+      <div style="width:40px;height:1px;background:var(--v)"></div>
+      <div style="font-size:0.78rem;color:var(--muted);max-width:260px;line-height:1.65">An independent case study analysing Scorptech's growth strategy, marketing approach, and digital product design.</div>
+    </div>
+    <div class="cov-toc">
+      <div class="toc-row"><span class="toc-n">01</span><span>About Scorptech</span></div>
+      <div class="toc-row"><span class="toc-n">02</span><span>Mission, Vision &amp; Values</span></div>
+      <div class="toc-row"><span class="toc-n">03</span><span>Why Scorptech</span></div>
+      <div class="toc-row"><span class="toc-n">04</span><span>Problem Statement</span></div>
+      <div class="toc-row"><span class="toc-n">05</span><span>Goals &amp; North Star Metrics</span></div>
+      <div class="toc-row"><span class="toc-n">06</span><span>Solutions — B2B &amp; Marketing</span></div>
+      <div class="toc-row"><span class="toc-n">07</span><span>Design Prototype</span></div>
+      <div class="toc-row"><span class="toc-n">08</span><span>90-Day Roadmap</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec"><div class="wrap reveal">
+  <div class="pg-tag"><div class="pg-n">01</div><div><div class="pg-label">About</div><div class="pg-title">We Build Digital Products That Matter</div></div></div>
+  <div class="about-layout">
+    <div>
+      <div class="about-big">Founded to<br><em>revolutionise</em><br>tech.</div>
+      <p class="about-body">Founded with a vision to revolutionize the tech industry, Scorptech has grown into a rising innovator in AI, Web, Mobile, and Cloud solutions. They combine cutting-edge technology with creative thinking to deliver solutions that genuinely transform businesses.</p>
+    </div>
+    <div class="stats-box">
+      <div class="stat-c"><div class="stat-val">2020</div><div class="stat-lbl">Year Founded</div></div>
+      <div class="stat-c"><div class="stat-val">50+</div><div class="stat-lbl">Happy Clients</div></div>
+      <div class="stat-c"><div class="stat-val">100+</div><div class="stat-lbl">Projects Delivered</div></div>
+      <div class="stat-c"><div class="stat-val">10+</div><div class="stat-lbl">Team Members</div></div>
+    </div>
+  </div>
+</div></div>
+
+<div class="sec"><div class="wrap reveal">
+  <div class="pg-tag"><div class="pg-n">02</div><div><div class="pg-label">Identity</div><div class="pg-title">Mission, Vision &amp; Core Values</div></div></div>
+  <div class="g2" style="margin-bottom:1px">
+    <div class="gc"><div class="gc-ey">Mission</div><h3>Empower through technology</h3><p>Their mission is to empower businesses with innovative technology solutions that drive growth, efficiency, and competitive advantage — as the trusted partner for digital transformation.</p></div>
+    <div class="gc"><div class="gc-ey">Vision</div><h3>Global leader in innovation</h3><p>Their vision is to be the global leader in innovative technology solutions, recognized for excellence, creativity, and customer success — where technology enhances every aspect of business.</p></div>
+  </div>
+  <div class="g3">
+    <div class="gc"><div class="val-icon">&#128161;</div><div class="gc-ey">Value</div><h3>Innovation</h3><p>They constantly push the boundaries of what's possible, embracing new technologies and approaches to stay ahead.</p></div>
+    <div class="gc"><div class="val-icon">&#129309;</div><div class="gc-ey">Value</div><h3>Collaboration</h3><p>They believe in the power of teamwork — within their company and deeply with every client they serve.</p></div>
+    <div class="gc"><div class="val-icon">&#11088;</div><div class="gc-ey">Value</div><h3>Excellence</h3><p>They strive for excellence in everything — delivering solutions that consistently exceed client expectations.</p></div>
+    <div class="gc"><div class="val-icon">&#127919;</div><div class="gc-ey">Value</div><h3>Purpose-Driven</h3><p>They create technology with purpose — solutions that make a real, measurable difference to businesses.</p></div>
+    <div class="gc"><div class="val-icon">&#9201;</div><div class="gc-ey">Value</div><h3>Timeliness</h3><p>They respect deadlines and deliver projects on time, every single time. No excuses, no exceptions.</p></div>
+    <div class="gc"><div class="val-icon">&#128260;</div><div class="gc-ey">Value</div><h3>Adaptability</h3><p>They embrace change and quickly adapt to new challenges and opportunities as they arise.</p></div>
+  </div>
+</div></div>
+
+<div class="sec"><div class="wrap reveal">
+  <div class="pg-tag"><div class="pg-n">03</div><div><div class="pg-label">Differentiator</div><div class="pg-title">Why Choose Scorptech</div></div></div>
+  <div class="why-layout" style="margin-bottom:3rem">
+    <div>
+      <div class="why-big">Not a vendor.<br>A <em>partner.</em></div>
+      <p class="why-sub">Scorptech values long-term partnerships over short-term delivery, and outcomes over buzzwords. In my view, what sets them apart is their commitment to being invested in their client's success — not just delivering a project and moving on.</p>
+    </div>
+    <div class="why-list">
+      <div class="why-row"><div class="why-row-title">Business-First Thinking</div><div class="why-row-desc">Every technical decision they make is tied to a business goal. They don't build features — they solve problems.</div></div>
+      <div class="why-row"><div class="why-row-title">Partnership, Not Vendor</div><div class="why-row-desc">They work as an extension of their client's team, invested in long-term success — not just project delivery.</div></div>
+      <div class="why-row"><div class="why-row-title">Outcome-Driven Delivery</div><div class="why-row-desc">Their success is measured by impact on the client's business — not lines of code or hours billed.</div></div>
+      <div class="why-row"><div class="why-row-title">Technical Excellence</div><div class="why-row-desc">Their skilled team brings cutting-edge technologies and global standards to every single project.</div></div>
+    </div>
+  </div>
+  <div class="proof">
+    <div class="proof-c"><div class="proof-val">98%</div><div class="proof-lbl">Client Satisfaction</div></div>
+    <div class="proof-c"><div class="proof-val">2x</div><div class="proof-lbl">Faster Delivery</div></div>
+    <div class="proof-c"><div class="proof-val">100%</div><div class="proof-lbl">Dedicated Team</div></div>
+    <div class="proof-c"><div class="proof-val">24/7</div><div class="proof-lbl">Support Available</div></div>
+  </div>
+</div></div>
+
+<div class="sec"><div class="wrap reveal">
+  <div class="pg-tag"><div class="pg-n">04</div><div><div class="pg-label">Problem Statement</div><div class="pg-title">The core growth challenge I identified in Scorptech</div></div></div>
+  <div class="prob-layout">
+    <div>
+      <div class="prob-big">Great product.<br><em>Invisible</em><br>to the world.</div>
+      <p class="prob-body">From my analysis, Scorptech's biggest challenge isn't what they build — it's who knows they build it. They have the skills, the values, and the work ethic. What they lack is a front door. In a market full of noise, a great studio without a distribution strategy stays hidden — no matter how good they are.</p>
+    </div>
+    <div class="pain-stack">
+      <div class="pain"><div class="pain-n">P1</div><div class="pain-t">Their brand awareness is near zero — potential clients can't find them without a direct referral.</div></div>
+      <div class="pain"><div class="pain-n">P2</div><div class="pain-t">They lack trust signals — without a visible portfolio or testimonials, converting visitors is very difficult.</div></div>
+      <div class="pain"><div class="pain-n">P3</div><div class="pain-t">Their distribution is weak — no active channel is pushing qualified leads toward them.</div></div>
+      <div class="pain"><div class="pain-n">P4</div><div class="pain-t">They haven't tapped the creator economy — influencers wanting to go digital are a perfect fit, yet unreached.</div></div>
+    </div>
+  </div>
+</div></div>
+
+<div class="sec"><div class="wrap reveal">
+  <div class="pg-tag"><div class="pg-n">05</div><div><div class="pg-label">Goals &amp; Metrics</div><div class="pg-title">What success should look like for Scorptech</div></div></div>
+  <div class="mets">
+    <div class="met"><div class="met-lbl">Brand Impressions</div><div class="met-val">500K</div><div class="met-sub">by month 6</div></div>
+    <div class="met"><div class="met-lbl">Referral Rate</div><div class="met-val">30%</div><div class="met-sub">clients via referral</div></div>
+    <div class="met"><div class="met-lbl">Influencer Partners</div><div class="met-val">10+</div><div class="met-sub">active by Q3</div></div>
+    <div class="met"><div class="met-lbl">NPS Score</div><div class="met-val">70+</div><div class="met-sub">client satisfaction</div></div>
+  </div>
+</div></div>
+
+<div class="sec"><div class="wrap reveal">
+  <div class="pg-tag"><div class="pg-n">06</div><div><div class="pg-label">Solutions &amp; Prioritisation</div><div class="pg-title">My recommended strategy for Scorptech's growth</div></div></div>
+  <div class="sol-list">
+    <div class="sol"><div class="sol-n">01</div><div><div class="sol-title">Target Businesses with Existing Customers</div><div class="sol-desc">In my view, their best early opportunity is reaching out directly to restaurants, local businesses, and service providers who already have a strong customer base and great products — but no digital presence. Helping them go online increases sales and user experience, and gives Scorptech a clear, tangible pitch.</div></div><div class="pill phi">High Priority</div></div>
+    <div class="sol"><div class="sol-n">02</div><div><div class="sol-title">YouTube &amp; Web Advertising</div><div class="sol-desc">They should run targeted YouTube pre-roll ads showcasing their builds, and retarget website visitors via Google Display. Focusing on intent keywords like "build business website" and "app for my restaurant" will bring the right audience to them.</div></div><div class="pill phi">High Priority</div></div>
+    <div class="sol"><div class="sol-n">03</div><div><div class="sol-title">Client Referral Programme</div><div class="sol-desc">Once they have happy clients, they should build a structured referral loop — both parties earn a discount when a referral converts. Featuring testimonials and case studies prominently will do a lot of the selling for them. One delighted business owner can organically bring three more.</div></div><div class="pill phi">High Priority</div></div>
+    <div class="sol"><div class="sol-n">04</div><div><div class="sol-title">Influencer &amp; Creator Partnerships</div><div class="sol-desc">They should partner with mid-tier creators (10K to 200K followers) who are building personal brands or online businesses. A co-build or affiliate deal — where Scorptech builds their site in exchange for a dedicated post or video — gives them credible, authentic reach.</div></div><div class="pill phi">High Priority</div></div>
+    <div class="sol"><div class="sol-n">05</div><div><div class="sol-title">SEO Content &amp; Community Presence</div><div class="sol-desc">They should publish case studies and guides, and engage actively on ProductHunt, IndieHackers, and Reddit. Offering free website audits is a smart way to demonstrate their value and build reputation organically over time.</div></div><div class="pill pmd">Medium Priority</div></div>
+  </div>
+</div></div>
+
+<div class="sec"><div class="wrap reveal">
+  <div class="pg-tag"><div class="pg-n">07</div><div><div class="pg-label">Design</div><div class="pg-title">My prototype concept — <a href="https://www.scorptech.co" target="_blank" rel="noopener" class="site-link">scorptech.co ↗</a></div></div></div>
+
+  <!-- Review highlight section only -->
+  <div style="display:flex;flex-direction:column;gap:1.5rem">
+
+    <!-- Section label -->
+    <div style="font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)">What clients say — Review Highlight Design</div>
+
+    <!-- Featured big review -->
+    <div style="border:1px solid var(--border);background:var(--bg2);padding:3rem;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-30px;left:2rem;font-family:'Bebas Neue',sans-serif;font-size:12rem;color:rgba(124,92,252,0.05);line-height:1;pointer-events:none">"</div>
+      <div style="position:relative;z-index:1">
+        <div style="display:flex;gap:4px;margin-bottom:1.5rem">
+          <div class="bstar" style="width:14px;height:14px"></div>
+          <div class="bstar" style="width:14px;height:14px"></div>
+          <div class="bstar" style="width:14px;height:14px"></div>
+          <div class="bstar" style="width:14px;height:14px"></div>
+          <div class="bstar" style="width:14px;height:14px"></div>
+        </div>
+        <p style="font-size:1.25rem;color:var(--white);font-weight:500;line-height:1.55;max-width:680px;margin-bottom:2rem">"Scorptech delivered our platform in 3 weeks. Exactly what we envisioned — and then some. They think like a business partner, not just a developer."</p>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <div style="width:42px;height:42px;border-radius:50%;background:rgba(124,92,252,0.2);border:1px solid rgba(124,92,252,0.35);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:#7c5cfc">AK</div>
+          <div>
+            <div style="font-size:0.88rem;font-weight:600;color:var(--white)">Arjun K.</div>
+            <div style="font-size:0.75rem;color:var(--muted)">Founder, Shopbrand.in</div>
+          </div>
+          <div style="margin-left:auto;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--v);background:var(--vd);border:1px solid var(--vm);padding:0.3rem 0.9rem;border-radius:20px">Verified Client</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 smaller review cards -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)">
+
+      <div style="background:var(--bg);padding:1.8rem;transition:background 0.25s" onmouseenter="this.style.background='#0d0d1c'" onmouseleave="this.style.background='var(--bg)'">
+        <div style="display:flex;gap:3px;margin-bottom:1rem">
+          <div class="bstar"></div><div class="bstar"></div><div class="bstar"></div><div class="bstar"></div><div class="bstar"></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--text);line-height:1.65;margin-bottom:1.2rem">"They understood our restaurant's needs immediately. Our online ordering app went live in under a month — and reservations doubled."</p>
+        <div style="display:flex;align-items:center;gap:0.7rem">
+          <div style="width:30px;height:30px;border-radius:50%;background:rgba(124,92,252,0.15);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;color:#7c5cfc">SR</div>
+          <div><div style="font-size:0.78rem;font-weight:600;color:var(--white)">Sunita R.</div><div style="font-size:0.65rem;color:var(--muted)">Owner, Rasoi Kitchen</div></div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg);padding:1.8rem;transition:background 0.25s" onmouseenter="this.style.background='#0d0d1c'" onmouseleave="this.style.background='var(--bg)'">
+        <div style="display:flex;gap:3px;margin-bottom:1rem">
+          <div class="bstar"></div><div class="bstar"></div><div class="bstar"></div><div class="bstar"></div><div class="bstar"></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--text);line-height:1.65;margin-bottom:1.2rem">"We had loyal customers but no website. Scorptech changed that fast. The site looks premium and our sales from new customers jumped 40%."</p>
+        <div style="display:flex;align-items:center;gap:0.7rem">
+          <div style="width:30px;height:30px;border-radius:50%;background:rgba(124,92,252,0.15);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;color:#7c5cfc">MV</div>
+          <div><div style="font-size:0.78rem;font-weight:600;color:var(--white)">Meera V.</div><div style="font-size:0.65rem;color:var(--muted)">Co-founder, Veda Wellness</div></div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg);padding:1.8rem;transition:background 0.25s" onmouseenter="this.style.background='#0d0d1c'" onmouseleave="this.style.background='var(--bg)'">
+        <div style="display:flex;gap:3px;margin-bottom:1rem">
+          <div class="bstar"></div><div class="bstar"></div><div class="bstar"></div><div class="bstar"></div><div class="bstar"></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--text);line-height:1.65;margin-bottom:1.2rem">"Not just developers — genuine partners. They asked the right questions from day one and built exactly what our users needed."</p>
+        <div style="display:flex;align-items:center;gap:0.7rem">
+          <div style="width:30px;height:30px;border-radius:50%;background:rgba(124,92,252,0.15);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;color:#7c5cfc">RT</div>
+          <div><div style="font-size:0.78rem;font-weight:600;color:var(--white)">Rahul T.</div><div style="font-size:0.65rem;color:var(--muted)">Founder, TrackEase App</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Summary bar -->
+    <div style="border:1px solid var(--border);background:var(--bg2);padding:1.5rem 2rem;display:flex;align-items:center;gap:3rem;flex-wrap:wrap">
+      <div><div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--v);line-height:1">5.0</div><div style="font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:0.2rem">Average Rating</div></div>
+      <div style="width:1px;height:40px;background:var(--border)"></div>
+      <div><div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--white);line-height:1">98%</div><div style="font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:0.2rem">Would Recommend</div></div>
+      <div style="width:1px;height:40px;background:var(--border)"></div>
+      <div><div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--white);line-height:1">50+</div><div style="font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:0.2rem">Happy Clients</div></div>
+      <div style="margin-left:auto">
+        <a href="https://www.scorptech.co" target="_blank" rel="noopener" style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#fff;background:var(--v);padding:0.6rem 1.4rem;border-radius:3px;text-decoration:none;transition:opacity 0.2s" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">Visit scorptech.co ↗</a>
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+<div class="sec"><div class="wrap reveal">
+  <div class="pg-tag"><div class="pg-n">08</div><div><div class="pg-label">Execution</div><div class="pg-title">My recommended 90-day growth roadmap for Scorptech</div></div></div>
+  <div class="roadmap">
+    <div class="rp"><div class="rp-tag">Days 1 to 30</div><div class="rp-title">Foundation</div><div class="rp-items"><div class="rp-item">Identify and list target restaurants and local businesses</div><div class="rp-item">First direct outreach to 20 businesses</div><div class="rp-item">Referral programme live</div><div class="rp-item">Analytics and tracking set up</div></div></div>
+    <div class="rp"><div class="rp-tag">Days 31 to 60</div><div class="rp-title">Amplify</div><div class="rp-items"><div class="rp-item">First B2B clients onboarded</div><div class="rp-item">YouTube ad campaign live</div><div class="rp-item">2 influencer deals closed</div><div class="rp-item">Case studies published from early clients</div></div></div>
+    <div class="rp"><div class="rp-tag">Days 61 to 90</div><div class="rp-title">Compound</div><div class="rp-items"><div class="rp-item">Client referrals begin arriving</div><div class="rp-item">Optimise spend by channel ROI</div><div class="rp-item">NPS survey sent to all clients</div><div class="rp-item">Scale highest-performing channel</div></div></div>
+  </div>
+</div></div>
+
+<div class="back">
+  <div class="back-glow"></div>
+  <div class="back-inner">
+    <div class="back-sub">Product Strategy Case Study · 2026</div>
+    <div class="back-line"></div>
+    <a href="https://www.scorptech.co" target="_blank" rel="noopener" class="back-url">SCORPTECH.CO ↗</a>
+  </div>
+  <div class="back-yr">2026</div>
+</div>
+
+<script>
+const io=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('in'),i*50)});
+},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

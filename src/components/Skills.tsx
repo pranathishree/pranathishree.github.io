@@ -1,95 +1,125 @@
 "use client";
-
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React from "react";
 import portfolioData from "@/data/portfolio.json";
-import LucideIcon from "@/components/LucideIcon";
 
 export default function Skills() {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-  const { skills } = portfolioData;
+  const { coreSkills, skillset } = portfolioData;
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden dot-pattern">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C] via-[#121115]/10 to-[#0A0A0C] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        {/* Header */}
-        <div className="flex flex-col mb-16 md:mb-20">
-          <span className="text-xs font-mono tracking-[0.25em] text-[#8c889e] uppercase mb-3 flex items-center gap-2">
-            <span className="h-[1px] w-8 bg-mauve-accent"></span>
-            {skills.sectionTitle}
-          </span>
-          <h2 className="font-serif text-4xl md:text-6xl text-gold-highlight font-normal">
-            {skills.heading}
-          </h2>
+    <>
+      {/* ── SKILLS (6 windows) ── */}
+      <section className="section-wrap skills-section" id="skills">
+        <span className="skills-label-above">{coreSkills.labelAbove}</span>
+        <div className="skills-heading-wrap">
+          <div className="skills-heading-icon-wrap"><i className="ti ti-bolt"></i></div>
+          <span className="skills-heading-my">{coreSkills.headingMy}</span>
+          <span className="skills-heading-skills">{coreSkills.headingSkills}</span>
         </div>
-
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {skills.categories.map((category, catIdx) => (
-            <motion.div
-              key={catIdx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: catIdx * 0.15 }}
-              className="glass-card p-8 rounded-3xl border border-charcoal-border flex flex-col justify-between"
-            >
-              {/* Category Header */}
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="h-10 w-10 rounded-xl bg-charcoal-surface border border-charcoal-border flex items-center justify-center flex-shrink-0">
-                    <LucideIcon name={category.icon} className={catIdx % 2 === 0 ? "text-mauve-accent" : "text-gold-highlight"} size={20} />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gold-highlight">
-                    {category.title}
-                  </h3>
+        <div className="skills-grid">
+          {coreSkills.items.map((item, i) => (
+            <div className="skill-window" key={i}>
+              <div className="window-bar">
+                <div className="window-bar-btns">
+                  <div className="window-bar-btn close"></div>
+                  <div className="window-bar-btn min"></div>
+                  <div className="window-bar-btn max"></div>
                 </div>
-                <p className="text-xs text-[#b2adc4] leading-relaxed mb-8">
-                  {category.description}
-                </p>
+                <span className="window-title">{item.filename}</span>
               </div>
-
-              {/* Skills Bars */}
-              <div className="flex flex-col gap-5">
-                {category.skills.map((skill, skillIdx) => (
-                  <div
-                    key={skillIdx}
-                    onMouseEnter={() => setHoveredSkill(skill.name)}
-                    onMouseLeave={() => setHoveredSkill(null)}
-                    className="group flex flex-col gap-1.5"
-                  >
-                    <div className="flex justify-between items-center text-xs">
-                      <span className="text-[#e0ddf0] font-medium group-hover:text-mauve-accent transition-colors duration-200">
-                        {skill.name}
-                      </span>
-                      <span className="font-mono text-[10px] text-[#8c889e]">
-                        {skill.level}%
-                      </span>
-                    </div>
-
-                    {/* Progress Track */}
-                    <div className="h-1.5 w-full bg-charcoal-surface rounded-full overflow-hidden border border-charcoal-border/30">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: skillIdx * 0.05 + 0.2 }}
-                        className={`h-full rounded-full bg-gradient-to-r ${
-                          catIdx % 2 === 0 
-                            ? "from-mauve-accent to-mauve-hover" 
-                            : "from-gold-highlight to-gold-hover"
-                        }`}
-                      />
-                    </div>
-                  </div>
-                ))}
+              <div className="window-body">
+                <p className="sk-cat">{item.category}</p>
+                <p className="sk-name">{item.name}</p>
+                <div className="sk-tags">
+                  {item.tags.map((tag, j) => (
+                    <span className="sk-tag" key={j}>{tag}</span>
+                  ))}
+                </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ── SOFT / TECH / TOOLS (3 windows) ── */}
+      <section className="section-wrap skillset-section" id="skillset">
+        <div className="desk-section-head">
+          <div className="desk-section-icon"><i className="ti ti-layout-grid"></i></div>
+          <div>
+            <p className="desk-section-label">{skillset.sectionTitle}</p>
+            <h2 className="desk-section-title">Soft Skills, Tech &amp; <em>Tools</em></h2>
+          </div>
+        </div>
+        <div className="skillset-grid">
+          {skillset.categories.map((cat, i) => (
+            <div className="skillset-window" key={i}>
+              <div className="window-bar">
+                <div className="window-bar-btns">
+                  <div className="window-bar-btn close"></div>
+                  <div className="window-bar-btn min"></div>
+                  <div className="window-bar-btn max"></div>
+                </div>
+                <span className="window-title">{cat.filename}</span>
+              </div>
+              <div className="skillset-window-body">
+                <p className="skillset-cat-label">{cat.categoryLabel}</p>
+                <p className="skillset-title">{cat.title}</p>
+                
+                {cat.type === "list" && (
+                  <ul className="soft-skills-list">
+                    {cat.items.map((skill: any, j: number) => (
+                      <li className="soft-skill-item" key={j}>
+                        <i className={`ti ti-${skill.icon}`}></i>
+                        {skill.name}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {cat.type === "bars" && (
+                  <div className="tech-skills-list">
+                    {cat.items.map((skill: any, j: number) => (
+                      <div className="tech-skill-item" key={j}>
+                        <span className="tech-skill-name">
+                          {skill.name}
+                          <span className="tech-skill-lv">{skill.level}</span>
+                        </span>
+                        <div className="tech-skill-bar-bg">
+                          <div className="tech-skill-bar-fill" style={{ width: `${skill.percentage}%` }}></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {cat.type === "grid" && (
+                  <div className="tools-grid">
+                    {cat.items.map((tool: any, j: number) => (
+                      <div className="tool-item" key={j}>
+                        <ToolIcon tool={tool} />
+                        <span className="tool-name">{tool.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
+
+const ToolIcon = ({ tool }: { tool: any }) => {
+  const [imgError, setImgError] = React.useState(false);
+  return (
+    <div className="tool-icon-wrap" style={{ background: tool.bg }}>
+      {tool.image && !imgError ? (
+        <img src={tool.image} alt={tool.name} onError={() => setImgError(true)} />
+      ) : (
+        <i className={`ti ti-${tool.icon}`} style={{ color: tool.iconColor, fontSize: "18px" }}></i>
+      )}
+    </div>
+  );
+};

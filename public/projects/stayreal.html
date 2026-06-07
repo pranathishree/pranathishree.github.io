@@ -1,0 +1,507 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#F7F4EF;--surf:#FFFFFF;--card:#F0EBE3;--card2:#E8E1D8;
+  --gold:#B8956A;--gold-dim:#8C6D4F;--dark:#1C1814;
+  --text:#2C2620;--muted:#7A6E65;--border:#DDD5C8;
+  --accent:#8C6D4F;--green:#2D6A4F;--red:#8B2E2E;
+}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;}
+.page{max-width:920px;margin:0 auto;padding:48px 32px 80px;}
+.nav{display:flex;justify-content:space-between;align-items:center;padding-bottom:36px;border-bottom:1px solid var(--border);margin-bottom:56px;}
+.nav-brand{font-family:'Playfair Display',serif;font-size:22px;letter-spacing:1px;color:var(--dark);}
+.nav-brand span{color:var(--gold);}
+.nav-meta{font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
+.hero{margin-bottom:80px;}
+.hero-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.hero-title{font-family:'Playfair Display',serif;font-size:72px;line-height:.95;color:var(--dark);margin-bottom:0;font-weight:600;}
+.hero-title span{color:var(--gold);}
+.hero-sub{font-size:16px;color:var(--muted);max-width:540px;margin-top:20px;line-height:1.75;}
+.hero-context{margin-top:24px;background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:16px 20px;}
+.hero-context p{font-size:13px;color:var(--muted);line-height:1.65;}
+.hero-context strong{color:var(--text);font-weight:500;}
+.hero-meta{margin-top:28px;display:flex;gap:40px;padding-top:24px;border-top:1px solid var(--border);}
+.hero-meta label{display:block;font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px;}
+.hero-meta span{font-size:14px;color:var(--text);}
+.sec{margin-bottom:72px;}
+.sec-num{font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.sec-title{font-family:'Playfair Display',serif;font-size:38px;color:var(--dark);margin-bottom:20px;font-weight:600;}
+.divider{width:40px;height:1px;background:var(--gold);margin-bottom:32px;}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px;}
+.stat-card{background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:22px 16px;}
+.stat-val{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);line-height:1;}
+.stat-label{font-size:12px;color:var(--muted);margin-top:5px;}
+.card-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.card{background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:22px;}
+.card-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.card-body{font-size:14px;color:var(--muted);line-height:1.65;}
+.hl{border-left:2px solid var(--gold);background:var(--surf);padding:18px 22px;border-radius:0 8px 8px 0;margin:24px 0;}
+.hl p{font-size:15px;color:var(--text);font-style:italic;}
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+.prob-card{background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:20px;}
+.prob-card-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.prob-card-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0;}
+.prob-list{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.prob-list li{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:flex-start;}
+.prob-list li::before{content:'—';color:var(--border);flex-shrink:0;}
+.metric-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.metric-card{background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:20px;}
+.badge{display:inline-block;font-size:10px;letter-spacing:1px;text-transform:uppercase;background:#F5EFE7;color:var(--gold-dim);padding:4px 10px;border-radius:4px;margin-bottom:12px;border:1px solid var(--border);}
+.metric-card .val{font-family:'Playfair Display',serif;font-size:30px;color:var(--gold);}
+.metric-card .desc{font-size:13px;color:var(--muted);margin-top:4px;}
+.sol-wrap{display:flex;flex-direction:column;gap:32px;margin-top:8px;}
+.sol-block{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--surf);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.sol-info{padding:28px;}
+.sol-num{font-family:'Playfair Display',serif;font-size:48px;color:var(--border);line-height:1;margin-bottom:8px;}
+.sol-info h4{font-size:17px;font-weight:500;color:var(--dark);margin-bottom:10px;}
+.sol-info p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px;}
+.sol-info ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.sol-info ul li{font-size:13px;color:var(--muted);display:flex;gap:10px;}
+.sol-info ul li::before{content:'→';color:var(--gold);flex-shrink:0;}
+.sol-mock{background:var(--card);padding:20px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--border);}
+.mock-phone{background:#1C1814;border-radius:20px;border:2px solid #3A3028;overflow:hidden;max-width:180px;margin:0 auto;}
+.mock-ph-bar{background:#241E18;padding:8px 14px;display:flex;justify-content:space-between;}
+.mock-ph-bar span{font-size:9px;color:#6A5E55;}
+.mock-ph-body{padding:12px;}
+.mock-card-mini{background:#241E18;border-radius:8px;overflow:hidden;margin-bottom:10px;}
+.mock-img{height:70px;background:#2E2418;display:flex;align-items:center;justify-content:center;font-size:24px;position:relative;}
+.mock-score{position:absolute;top:6px;right:6px;background:rgba(184,149,106,0.9);color:#fff;font-size:9px;padding:2px 6px;border-radius:10px;font-weight:500;}
+.mock-info{padding:8px 10px;}
+.mock-name{font-size:11px;color:#E8D8C4;font-weight:500;}
+.mock-sub{font-size:9px;color:#8A7A6E;margin-top:2px;}
+.mock-badge-row{display:flex;gap:4px;margin-top:6px;}
+.mock-badge{font-size:8px;padding:2px 6px;border-radius:10px;}
+.mb-green{background:rgba(45,106,79,0.25);color:#5EAB83;}
+.mb-gold{background:rgba(184,149,106,0.2);color:#B8956A;}
+.mock-support{background:#241E18;border-radius:8px;padding:10px;}
+.mock-support-title{font-size:10px;color:#B8956A;margin-bottom:8px;letter-spacing:.5px;}
+.mock-chat-row{display:flex;gap:6px;margin-bottom:6px;align-items:flex-end;}
+.mock-chat-bubble{font-size:9px;padding:5px 8px;border-radius:6px;max-width:110px;line-height:1.4;}
+.mock-btn-sos{background:#8B2E2E;color:#fff;font-size:10px;padding:7px;border-radius:6px;text-align:center;width:100%;margin-top:6px;border:none;}
+.priority-table{width:100%;border-collapse:collapse;}
+.priority-table th{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:12px;text-align:left;border-bottom:1px solid var(--border);}
+.priority-table td{font-size:14px;color:var(--muted);padding:13px 12px;border-bottom:1px solid var(--border);}
+.priority-table td:first-child{color:var(--text);font-weight:500;}
+.b-hi{background:#F5EFE7;color:var(--gold-dim);padding:3px 10px;border-radius:4px;font-size:11px;letter-spacing:1px;border:1px solid var(--border);}
+.b-md{background:#F0F5EF;color:var(--green);padding:3px 10px;border-radius:4px;font-size:11px;letter-spacing:1px;border:1px solid #C8DACC;}
+.design-mockup-wrap{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:24px;margin-bottom:20px;}
+.browser-frame{background:#F9F6F2;border-radius:10px;border:1px solid var(--border);overflow:hidden;}
+.browser-bar{background:#EDE8E0;padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);}
+.b-dots{display:flex;gap:5px;}
+.b-dot{width:8px;height:8px;border-radius:50%;}
+.b-url{flex:1;background:#F9F6F2;border:1px solid var(--border);border-radius:20px;padding:4px 14px;font-size:11px;color:var(--muted);margin:0 10px;}
+.br-nav{background:#FFFFFF;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
+.br-brand{font-family:'Playfair Display',serif;font-size:18px;color:var(--dark);}
+.br-brand span{color:var(--gold);}
+.br-links{display:flex;gap:18px;}
+.br-link{font-size:12px;color:var(--muted);}
+.br-link.active{color:var(--dark);font-weight:500;}
+.br-cta{background:var(--gold);color:#fff;font-size:12px;padding:7px 16px;border-radius:5px;border:none;}
+.br-hero{padding:28px 24px 20px;background:#FAF7F3;}
+.br-search{background:#FFFFFF;border:1px solid var(--border);border-radius:8px;padding:14px 18px;display:flex;gap:12px;align-items:center;margin-bottom:20px;}
+.br-search-item{flex:1;border-right:1px solid var(--border);padding-right:12px;}
+.br-search-item:last-child{border-right:none;flex:0;}
+.br-search-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;}
+.br-search-val{font-size:13px;color:var(--text);}
+.br-search-btn{background:var(--gold);color:#fff;padding:10px 18px;border-radius:6px;font-size:12px;border:none;white-space:nowrap;}
+.br-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:0 24px 24px;}
+.br-prop{background:#FFFFFF;border-radius:8px;border:1px solid var(--border);overflow:hidden;}
+.br-prop-img{height:72px;display:flex;align-items:center;justify-content:center;font-size:28px;position:relative;}
+.br-prop-badge{position:absolute;top:6px;left:6px;font-size:9px;padding:3px 8px;border-radius:10px;}
+.br-score-badge{position:absolute;top:6px;right:6px;font-size:9px;padding:3px 8px;border-radius:10px;font-weight:500;}
+.br-prop-info{padding:10px 12px;}
+.br-prop-name{font-size:12px;font-weight:500;color:var(--text);}
+.br-prop-loc{font-size:10px;color:var(--muted);margin-top:2px;}
+.br-prop-price{font-size:13px;color:var(--gold);font-weight:500;margin-top:4px;}
+.br-prop-tags{display:flex;gap:4px;margin-top:6px;}
+.br-tag{font-size:9px;padding:2px 6px;border-radius:8px;background:#F5EFE7;color:var(--gold-dim);}
+.design-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.mob-frame{background:#FAF7F3;border-radius:20px;border:1px solid var(--border);overflow:hidden;max-width:190px;margin:0 auto;}
+.mob-status{background:#F0EBE3;padding:8px 14px;display:flex;justify-content:space-between;}
+.mob-status span{font-size:9px;color:var(--muted);}
+.mob-body{padding:12px;}
+.mob-prop-img{background:#E8E1D8;border-radius:8px;height:80px;display:flex;align-items:center;justify-content:center;font-size:32px;position:relative;margin-bottom:10px;}
+.mob-prop-score{position:absolute;bottom:6px;right:6px;background:rgba(184,149,106,0.9);color:#fff;font-size:9px;padding:2px 8px;border-radius:10px;}
+.mob-prop-name{font-size:12px;font-weight:500;color:var(--dark);margin-bottom:3px;}
+.mob-prop-sub{font-size:10px;color:var(--muted);margin-bottom:10px;}
+.mob-badges{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
+.mob-badge{font-size:9px;padding:3px 8px;border-radius:10px;}
+.mob-emergency{background:#1C1814;border-radius:8px;padding:10px;}
+.mob-sos-title{font-size:10px;color:#B8956A;margin-bottom:6px;}
+.mob-sos-btn{background:#8B2E2E;color:#fff;font-size:11px;padding:8px;border-radius:6px;text-align:center;width:100%;}
+.scope-wrap{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:24px;margin-bottom:32px;}
+.scope-title{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.platform-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.platform-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 12px;text-align:center;}
+.platform-icon{font-size:22px;margin-bottom:6px;}
+.platform-name{font-size:12px;font-weight:500;color:var(--text);}
+.platform-sub{font-size:11px;color:var(--muted);margin-top:3px;}
+.footer{margin-top:72px;padding-top:32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.footer-name{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold);}
+.footer-tag{font-size:12px;color:var(--muted);font-style:italic;}
+</style>
+
+<div class="page">
+<nav class="nav">
+  <div class="nav-brand">Stay<span>Real</span></div>
+  <div class="nav-meta">Product Strategy · 2026</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">Product Strategy</div>
+  <div class="hero-title">Trust Every<br><span>Stay.</span></div>
+  <p class="hero-sub">A product strategy for how stay-booking platforms — hotels, villas, rooms, and homes — can close the trust gap and deliver experiences that actually match what users were promised.</p>
+  <div class="hero-context">
+    <p><strong>About this project —</strong> This is an industry-wide product strategy, not specific to one company. It covers platforms like Airbnb, Booking.com, MakeMyTrip, OYO, and similar apps and websites where users discover and book stays. The goal is to identify the deepest user pain points across these platforms and define solutions that any of them could adopt to meaningfully improve user experience.</p>
+  </div>
+  <div class="hero-meta">
+    <div><label>Prepared by</label><span>Pranathi Shree D A</span></div>
+    <div><label>Year</label><span>2026</span></div>
+    <div><label>Domain</label><span>Travel / Stay Platforms</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-num">01</div>
+  <div class="sec-title">Platform Overview</div>
+  <div class="divider"></div>
+  <div class="scope-wrap">
+    <div class="scope-title">Platforms this strategy applies to</div>
+    <div class="platform-grid">
+      <div class="platform-card"><div class="platform-icon">🏡</div><div class="platform-name">Airbnb</div><div class="platform-sub">Homes & Villas</div></div>
+      <div class="platform-card"><div class="platform-icon">🏨</div><div class="platform-name">Booking.com</div><div class="platform-sub">Hotels & Rooms</div></div>
+      <div class="platform-card"><div class="platform-icon">🛏</div><div class="platform-name">OYO</div><div class="platform-sub">Budget Stays</div></div>
+      <div class="platform-card"><div class="platform-icon">🌴</div><div class="platform-name">MakeMyTrip</div><div class="platform-sub">All Stay Types</div></div>
+    </div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-val">180M+</div><div class="stat-label">Active Listings</div></div>
+    <div class="stat-card"><div class="stat-val">220+</div><div class="stat-label">Countries Covered</div></div>
+    <div class="stat-card"><div class="stat-val">$1.2T</div><div class="stat-label">Travel Market Size</div></div>
+    <div class="stat-card"><div class="stat-val">4 in 1</div><div class="stat-label">Hotels, Villas, Rooms, Homes</div></div>
+  </div>
+  <div class="card-grid">
+    <div class="card"><div class="card-label">Mission</div><div class="card-body">Make every property booking honest, safe, and stress-free for every traveler.</div></div>
+    <div class="card"><div class="card-label">Vision</div><div class="card-body">Become the most trusted category for finding and booking any stay, anywhere.</div></div>
+    <div class="card"><div class="card-label">Goal</div><div class="card-body">Bridge the gap between what platforms advertise and what travelers actually experience.</div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-num">02</div>
+  <div class="sec-title">Problem Statement</div>
+  <div class="divider"></div>
+  <div class="hl"><p>Travelers book based on photos and promises — but far too often, reality doesn't match. Trust is broken at every stage of the journey, across every major platform.</p></div>
+  <div class="prob-grid">
+    <div class="prob-card">
+      <div class="prob-card-title">Fake Listings & Misleading Photos</div>
+      <ul class="prob-list">
+        <li>Luxurious photos hide dirty or tiny rooms</li>
+        <li>Wide-angle edits create false expectations</li>
+        <li>"Sea-view villa" has a distant window crack</li>
+        <li>Advertised amenities missing on arrival</li>
+        <li>Fake reviews inflate property trust scores</li>
+      </ul>
+    </div>
+    <div class="prob-card">
+      <div class="prob-card-title">Scam & Fraud Risks</div>
+      <ul class="prob-list">
+        <li>Fake payment links and phishing emails</li>
+        <li>Fraudulent WhatsApp booking messages</li>
+        <li>Fake host accounts and duplicate listings</li>
+        <li>Hackers exploiting booking and messaging systems</li>
+        <li>Fake customer support numbers online</li>
+      </ul>
+    </div>
+    <div class="prob-card">
+      <div class="prob-card-title">Property Doesn't Match Description</div>
+      <ul class="prob-list">
+        <li>"Private pool" is actually shared</li>
+        <li>"WiFi available" but completely unusable</li>
+        <li>"Breakfast included" not provided</li>
+        <li>"AC room" with broken air conditioning</li>
+        <li>"Parking" available but severely limited</li>
+      </ul>
+    </div>
+    <div class="prob-card">
+      <div class="prob-card-title">Poor Customer Support</div>
+      <ul class="prob-list">
+        <li>No quick human agent when needed</li>
+        <li>Endless chatbot loops, no resolution</li>
+        <li>Support unavailable during emergencies</li>
+        <li>Users stranded with no help late at night</li>
+        <li>No ownership of dispute resolution</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-num">03</div>
+  <div class="sec-title">Goals & North Star Metrics</div>
+  <div class="divider"></div>
+  <div class="hl"><p>North Star: Increase verified booking confidence score to 90%+ within 18 months across all stay platforms.</p></div>
+  <div class="metric-row">
+    <div class="metric-card"><div class="badge">Trust</div><div class="val">90%+</div><div class="desc">Listings with verified media and accuracy score</div></div>
+    <div class="metric-card"><div class="badge">Retention</div><div class="val">−25%</div><div class="desc">Reduce post-booking complaints and disputes</div></div>
+    <div class="metric-card"><div class="badge">Support</div><div class="val">&lt;2 min</div><div class="desc">Emergency human agent response time</div></div>
+    <div class="metric-card"><div class="badge">Safety</div><div class="val">3×</div><div class="desc">Growth in women solo traveler bookings</div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-num">04</div>
+  <div class="sec-title">Solutions</div>
+  <div class="divider"></div>
+  <div class="sol-wrap">
+
+    <div class="sol-block">
+      <div class="sol-info">
+        <div class="sol-num">01</div>
+        <h4>Real Verification System</h4>
+        <p>AI-powered listing verification that compares uploaded photos against reality. Hosts must submit verified media before a listing goes live on any platform.</p>
+        <ul>
+          <li>360° video walkthroughs with timestamps</li>
+          <li>AI image comparison — flags mismatches instantly</li>
+          <li>Verified Host badge on passing listings</li>
+          <li>Warning badge + ranking penalty on mismatches</li>
+          <li>Reality Match Score™ shown on every property</li>
+        </ul>
+      </div>
+      <div class="sol-mock">
+        <div class="mock-phone">
+          <div class="mock-ph-bar"><span>9:41</span><span>●●●</span></div>
+          <div class="mock-ph-body">
+            <div class="mock-card-mini">
+              <div class="mock-img" style="background:#2A2018;">🏡<div class="mock-score">92% Match</div></div>
+              <div class="mock-info">
+                <div class="mock-name">Ocean Villa, Goa</div>
+                <div class="mock-sub">3BR · Private Pool · Sea View</div>
+                <div class="mock-badge-row">
+                  <span class="mock-badge mb-green">✓ Verified Host</span>
+                  <span class="mock-badge mb-gold">360° Tour</span>
+                </div>
+              </div>
+            </div>
+            <div class="mock-card-mini">
+              <div class="mock-img" style="background:#201A14;">🏨<div class="mock-score" style="background:rgba(139,46,46,0.9);">54% Match</div></div>
+              <div class="mock-info">
+                <div class="mock-name">Sea Breeze Hotel</div>
+                <div class="mock-sub">Deluxe Room · City View</div>
+                <div class="mock-badge-row">
+                  <span class="mock-badge" style="background:rgba(139,46,46,0.2);color:#C07070;">⚠ Under Review</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;font-size:11px;color:var(--muted);text-align:center;">Reality Match Score™ on every listing</div>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-info">
+        <div class="sol-num">02</div>
+        <h4>Travel Rescue Support</h4>
+        <p>24/7 emergency human support built into every stay platform. One tap connects to a real agent — no bots, no loops, no waiting when it matters most.</p>
+        <ul>
+          <li>One-tap SOS emergency call inside the app</li>
+          <li>AI handles routine queries, humans handle crises</li>
+          <li>Fast relocation and refund assistance</li>
+          <li>Hotel dispute resolution within hours</li>
+          <li>Available even offline via SMS fallback</li>
+        </ul>
+      </div>
+      <div class="sol-mock">
+        <div class="mock-phone">
+          <div class="mock-ph-bar"><span>11:32 PM</span><span>●●●</span></div>
+          <div class="mock-ph-body">
+            <div class="mock-support">
+              <div class="mock-support-title">Travel Rescue Support</div>
+              <div class="mock-chat-row">
+                <div class="mock-chat-bubble" style="background:#2A2018;color:#C8B89A;">The room is nothing like the photos.</div>
+              </div>
+              <div class="mock-chat-row" style="justify-content:flex-end;">
+                <div class="mock-chat-bubble" style="background:#B8956A;color:#fff;">Connecting you to a real agent. Est. wait: 45 sec.</div>
+              </div>
+              <div style="font-size:9px;color:#6A8A7A;text-align:center;margin:6px 0;">Agent Riya joined the chat</div>
+              <div class="mock-chat-row">
+                <div class="mock-chat-bubble" style="background:#1A2A1E;color:#7EC8A0;">I'm arranging alternate accommodation right now.</div>
+              </div>
+            </div>
+            <button class="mock-btn-sos">🆘 Emergency SOS</button>
+          </div>
+        </div>
+        <div style="margin-top:12px;font-size:11px;color:var(--muted);text-align:center;">Real agent in under 2 minutes</div>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-info">
+        <div class="sol-num">03</div>
+        <h4>Safety-First Certification</h4>
+        <p>Every property earns a neighborhood safety score. Special certifications for solo travelers and women — making underserved travelers feel genuinely secure before they book.</p>
+        <ul>
+          <li>Women-Safe Property certification badge</li>
+          <li>Verified neighborhood safety score</li>
+          <li>User-rated: lighting, entry security, staff behavior</li>
+          <li>Solo-travel friendliness rating</li>
+          <li>Hidden camera policy enforcement and reporting</li>
+        </ul>
+      </div>
+      <div class="sol-mock">
+        <div class="mock-phone">
+          <div class="mock-ph-bar"><span>9:41</span><span>●●●</span></div>
+          <div class="mock-ph-body">
+            <div style="background:#1A2A1E;border-radius:8px;padding:12px;">
+              <div style="font-size:10px;color:#5EAB83;margin-bottom:8px;">Safety Score — Ocean Villa</div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                  <span style="font-size:9px;color:#8A9E90;">Neighborhood</span>
+                  <div style="display:flex;gap:2px;"><div style="width:8px;height:8px;border-radius:2px;background:#2D6A4F;"></div><div style="width:8px;height:8px;border-radius:2px;background:#2D6A4F;"></div><div style="width:8px;height:8px;border-radius:2px;background:#2D6A4F;"></div><div style="width:8px;height:8px;border-radius:2px;background:#2D6A4F;"></div><div style="width:8px;height:8px;border-radius:2px;background:#2A3828;"></div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                  <span style="font-size:9px;color:#8A9E90;">Entry Security</span>
+                  <div style="display:flex;gap:2px;"><div style="width:8px;height:8px;border-radius:2px;background:#2D6A4F;"></div><div style="width:8px;height:8px;border-radius:2px;background:#2D6A4F;"></div><div style="width:8px;height:8px;border-radius:2px;background:#2D6A4F;"></div><div style="width:8px;height:8px;border-radius:2px;background:#2D6A4F;"></div><div style="width:8px;height:8px;border-radius:2px;background:#2D6A4F;"></div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                  <span style="font-size:9px;color:#8A9E90;">Solo-Friendly</span>
+                  <div style="display:flex;gap:2px;"><div style="width:8px;height:8px;border-radius:2px;background:#2D6A4F;"></div><div style="width:8px;height:8px;border-radius:2px;background:#2D6A4F;"></div><div style="width:8px;height:8px;border-radius:2px;background:#2D6A4F;"></div><div style="width:8px;height:8px;border-radius:2px;background:#2A3828;"></div><div style="width:8px;height:8px;border-radius:2px;background:#2A3828;"></div></div>
+                </div>
+              </div>
+              <div style="margin-top:8px;padding-top:8px;border-top:1px solid #2A3828;display:flex;gap:4px;">
+                <span style="font-size:8px;background:rgba(45,106,79,0.25);color:#5EAB83;padding:2px 6px;border-radius:8px;">Women-Safe ✓</span>
+                <span style="font-size:8px;background:rgba(45,106,79,0.25);color:#5EAB83;padding:2px 6px;border-radius:8px;">Verified ✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;font-size:11px;color:var(--muted);text-align:center;">Safety scores rated by real travelers</div>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-info">
+        <div class="sol-num">04</div>
+        <h4>Reality Match Score™</h4>
+        <p>A unique trust metric shown on every listing. Each property earns a score based on user-uploaded media, complaint history, and amenity accuracy — visible before booking.</p>
+        <ul>
+          <li>Score built from real guest photos and reviews</li>
+          <li>Amenity accuracy and complaint tracking</li>
+          <li>Cleanliness consistency tracked over time</li>
+          <li>Low-score properties flagged automatically</li>
+          <li>Hosts incentivized to maintain high scores</li>
+        </ul>
+      </div>
+      <div class="sol-mock">
+        <div class="mock-phone">
+          <div class="mock-ph-bar"><span>9:41</span><span>●●●</span></div>
+          <div class="mock-ph-body">
+            <div style="background:#1E1A14;border-radius:8px;padding:12px;">
+              <div style="font-size:10px;color:#B8956A;margin-bottom:10px;">Reality Match Score™</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div><div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:9px;color:#C8B89A;">Villa A — Luxury</span><span style="font-size:9px;color:#5EAB83;font-weight:500;">92%</span></div><div style="background:#2A2018;height:4px;border-radius:2px;"><div style="background:#5EAB83;height:4px;border-radius:2px;width:92%;"></div></div></div>
+                <div><div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:9px;color:#C8B89A;">Hotel B — Sea View</span><span style="font-size:9px;color:#C07070;font-weight:500;">54%</span></div><div style="background:#2A2018;height:4px;border-radius:2px;"><div style="background:#C07070;height:4px;border-radius:2px;width:54%;"></div></div></div>
+                <div><div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:9px;color:#C8B89A;">Home C — Budget</span><span style="font-size:9px;color:#B8956A;font-weight:500;">78%</span></div><div style="background:#2A2018;height:4px;border-radius:2px;"><div style="background:#B8956A;height:4px;border-radius:2px;width:78%;"></div></div></div>
+              </div>
+              <div style="margin-top:10px;padding-top:8px;border-top:1px solid #2A2018;font-size:9px;color:#6A5E55;">Scored from real guest media + reviews</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;font-size:11px;color:var(--muted);text-align:center;">Transparency before you book</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-num">05</div>
+  <div class="sec-title">Prioritisation</div>
+  <div class="divider"></div>
+  <table class="priority-table">
+    <thead><tr><th>Feature</th><th>Impact</th><th>Effort</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td>Real Verification System</td><td>Very High</td><td>High</td><td><span class="b-hi">P1</span></td></tr>
+      <tr><td>Travel Rescue Support</td><td>Very High</td><td>Medium</td><td><span class="b-hi">P1</span></td></tr>
+      <tr><td>Reality Match Score™</td><td>High</td><td>Medium</td><td><span class="b-hi">P1</span></td></tr>
+      <tr><td>Safety-First Certification</td><td>High</td><td>Medium</td><td><span class="b-md">P2</span></td></tr>
+      <tr><td>AI Fraud Detection</td><td>High</td><td>High</td><td><span class="b-md">P2</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="sec">
+  <div class="sec-num">06</div>
+  <div class="sec-title">Design</div>
+  <div class="divider"></div>
+
+  <div class="design-mockup-wrap">
+    <div style="font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Proposed Web Experience</div>
+    <div class="browser-frame">
+      <div class="browser-bar">
+        <div class="b-dots"><div class="b-dot" style="background:#FF5F57;"></div><div class="b-dot" style="background:#FEBC2E;"></div><div class="b-dot" style="background:#28C840;"></div></div>
+        <div class="b-url">stayreal.com/search</div>
+      </div>
+      <div class="br-nav">
+        <div class="br-brand">Stay<span>Real</span></div>
+        <div class="br-links"><span class="br-link active">Search</span><span class="br-link">Villas</span><span class="br-link">Hotels</span><span class="br-link">Homes</span></div>
+        <button class="br-cta">Book Now</button>
+      </div>
+      <div class="br-hero">
+        <div class="br-search">
+          <div class="br-search-item"><div class="br-search-label">Where</div><div class="br-search-val">Goa, India</div></div>
+          <div class="br-search-item"><div class="br-search-label">Check in</div><div class="br-search-val">Jun 12</div></div>
+          <div class="br-search-item"><div class="br-search-label">Check out</div><div class="br-search-val">Jun 15</div></div>
+          <div class="br-search-item" style="border-right:none;"><div class="br-search-label">Guests</div><div class="br-search-val">2</div></div>
+          <button class="br-search-btn">Search</button>
+        </div>
+      </div>
+      <div class="br-grid">
+        <div class="br-prop"><div class="br-prop-img" style="background:#EDE0CC;">🏡<div class="br-prop-badge" style="background:rgba(45,106,79,0.15);color:#2D6A4F;">Verified</div><div class="br-score-badge" style="background:#F5EFE7;color:#8C6D4F;">92% Real</div></div><div class="br-prop-info"><div class="br-prop-name">Ocean Villa</div><div class="br-prop-loc">Calangute, Goa</div><div class="br-prop-price">₹18,500 / night</div><div class="br-prop-tags"><span class="br-tag">Private Pool</span><span class="br-tag">Sea View</span></div></div></div>
+        <div class="br-prop"><div class="br-prop-img" style="background:#E8E0D0;">🏨<div class="br-prop-badge" style="background:rgba(45,106,79,0.15);color:#2D6A4F;">Verified</div><div class="br-score-badge" style="background:#F5EFE7;color:#8C6D4F;">87% Real</div></div><div class="br-prop-info"><div class="br-prop-name">The Palmgrove Hotel</div><div class="br-prop-loc">Anjuna, Goa</div><div class="br-prop-price">₹6,200 / night</div><div class="br-prop-tags"><span class="br-tag">Women-Safe</span><span class="br-tag">Breakfast</span></div></div></div>
+        <div class="br-prop"><div class="br-prop-img" style="background:#DDD5C5;">🏠<div class="br-prop-badge" style="background:rgba(139,46,46,0.1);color:#8B2E2E;">Review</div><div class="br-score-badge" style="background:#FBF0EF;color:#8B2E2E;">54% Real</div></div><div class="br-prop-info"><div class="br-prop-name">Sea Breeze Home</div><div class="br-prop-loc">Vagator, Goa</div><div class="br-prop-price">₹3,400 / night</div><div class="br-prop-tags"><span class="br-tag" style="background:#FBF0EF;color:#8B2E2E;">⚠ Under Review</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="design-mockup-wrap">
+    <div style="font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Proposed Mobile Experience</div>
+    <div class="design-2col">
+      <div>
+        <div class="mob-frame">
+          <div class="mob-status"><span>9:41</span><span>●●●</span></div>
+          <div class="mob-body">
+            <div class="mob-prop-img">🏡<div class="mob-prop-score">92% Match</div></div>
+            <div class="mob-prop-name">Ocean Villa, Goa</div>
+            <div class="mob-prop-sub">3 Bed · Private Pool · Beachside</div>
+            <div class="mob-badges">
+              <span class="mob-badge" style="background:rgba(45,106,79,0.15);color:#2D6A4F;">✓ Verified Host</span>
+              <span class="mob-badge" style="background:#F5EFE7;color:#8C6D4F;">360° Tour</span>
+              <span class="mob-badge" style="background:rgba(45,106,79,0.12);color:#2D6A4F;">Women-Safe</span>
+            </div>
+            <div class="mob-emergency">
+              <div class="mob-sos-title">Travel Rescue</div>
+              <div class="mob-sos-btn">🆘 Emergency Support</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;justify-content:center;">
+        <div class="card" style="padding:16px;"><div class="card-label">Honest Discovery</div><div class="card-body" style="font-size:13px;">Reality Match Score™ visible before you tap. Verified-first search by default. No surprises at check-in.</div></div>
+        <div class="card" style="padding:16px;"><div class="card-label">Safety Layer</div><div class="card-body" style="font-size:13px;">Women-safe badges, neighborhood scores, and solo-travel ratings built directly into every listing card.</div></div>
+        <div class="card" style="padding:16px;"><div class="card-label">Emergency Access</div><div class="card-body" style="font-size:13px;">One-tap SOS always visible. Real human agent connects in under 2 minutes — even at midnight.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>
+    <div class="footer-name">Pranathi Shree D A</div>
+    <div class="footer-tag">"Every stay should match what you were promised."</div>
+  </div>
+  <div style="font-size:11px;color:var(--muted);">Stay Platforms · Product Strategy · 2026</div>
+</footer>
+</div>
