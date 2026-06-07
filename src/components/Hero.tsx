@@ -1,268 +1,294 @@
 "use client";
-
 import React from "react";
-import { motion } from "framer-motion";
-import { ArrowDown, ChevronRight } from "lucide-react";
 import portfolioData from "@/data/portfolio.json";
-import LucideIcon from "@/components/LucideIcon";
+import { ArrowUpRight, Camera, MousePointer2 } from "lucide-react";
 
 export default function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  } as const;
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-      },
-    },
-  } as const;
-
-  const handleScrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const offset = el.offsetTop - 80;
-      window.scrollTo({ top: offset, behavior: "smooth" });
-    }
-  };
+  const { personal, hero } = portfolioData;
 
   return (
     <section
-      id="hero"
-      className="relative min-h-screen flex flex-col justify-center pt-24 pb-10 overflow-hidden dot-pattern"
+      id="top"
+      style={{
+        minHeight: "calc(100vh - 28px)",
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        background: "#e8e0d0",
+        borderBottom: "1px solid #c8c0b0",
+        position: "relative",
+        overflow: "hidden",
+      }}
+      className="hero-grid"
     >
-      {/* Background soft rose, mauve, and gold ambient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-rose-accent/10 via-mauve-accent/10 to-gold-highlight/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+      {/* ── FANTASTIC BACKGROUND EFFECTS ── */}
+      {/* Base warm overlay */}
+      <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "radial-gradient(ellipse 80% 80% at 30% 50%, rgba(200,148,10,0.03) 0%, transparent 70%)", zIndex: 0 }} />
+      
+      {/* Animated glowing orbs */}
+      <div style={{
+        position: "absolute", top: "-10%", left: "-10%", width: "60vw", height: "60vw",
+        background: "radial-gradient(circle, rgba(45,90,142,0.12) 0%, transparent 70%)",
+        filter: "blur(60px)", pointerEvents: "none", zIndex: 0,
+        animation: "pulseGlow 8s ease-in-out infinite alternate"
+      }} />
+      <div style={{
+        position: "absolute", bottom: "-20%", right: "-10%", width: "70vw", height: "70vw",
+        background: "radial-gradient(circle, rgba(220,100,120,0.08) 0%, transparent 70%)",
+        filter: "blur(80px)", pointerEvents: "none", zIndex: 0,
+        animation: "pulseGlow 12s ease-in-out infinite alternate-reverse"
+      }} />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-        {/* Hero Left Content */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="lg:col-span-7 flex flex-col justify-center"
-        >
-          {/* Internship Badge */}
-          <motion.div variants={itemVariants} className="inline-flex mb-4">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-charcoal-surface border border-charcoal-border hover:border-rose-accent/30 text-xs font-mono text-rose-accent tracking-wider shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-colors">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-accent opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-accent"></span>
-              </span>
-              {portfolioData.hero.internshipBadge}
-            </span>
-          </motion.div>
+      {/* ── LEFT: Bio ── */}
+      <div style={{
+        padding: "80px 5vw 60px",
+        display: "flex", flexDirection: "column", justifyContent: "center",
+        borderRight: "1px solid rgba(200,192,176,0.5)",
+        position: "relative", zIndex: 1,
+      }}>
+        {/* Traffic light buttons */}
+        <div style={{ display: "flex", gap: 7, marginBottom: 40, animation: "fadeIn 0.6s ease-out both" }}>
+          {["#ff5f57","#febc2e","#28c840"].map((c, i) => (
+            <div key={c} style={{ width: 13, height: 13, borderRadius: "50%", background: c, boxShadow: `0 1px 4px ${c}80`, animation: `slideUp 0.4s ${i * 0.1}s both` }} />
+          ))}
+        </div>
 
-          {/* Large Statement */}
-          <motion.h1
-            variants={itemVariants}
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] text-gold-highlight font-normal mb-4 text-glow"
-          >
-            {portfolioData.hero.mainHeading.prefix}{" "}
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-rose-accent to-mauve-accent">
-              {portfolioData.hero.mainHeading.gradient}
-            </span>{" "}
-            {portfolioData.hero.mainHeading.suffix}
-          </motion.h1>
+        {/* Amber accent bar */}
+        <div className="amber-bar" style={{ width: 48, height: 4, borderRadius: 2, background: "linear-gradient(90deg, #febc2e, #ff5f57)", boxShadow: "0 2px 8px rgba(254,188,46,0.4)" }} />
 
-          {/* Subtitle */}
-          <motion.p
-            variants={itemVariants}
-            className="text-[#b2adc4] text-sm md:text-base max-w-xl font-normal leading-relaxed mb-6"
-          >
-            {portfolioData.hero.subtitle}
-          </motion.p>
+        {/* Eyebrow */}
+        <p style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase", color: "#8a7060", marginBottom: 22, animation: "slideUp 0.6s 0.1s both" }}>
+          Portfolio · 2026 · CSBS · GITAM Bangalore
+        </p>
 
-          {/* Call-to-action buttons */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap gap-4 mb-6"
-          >
-            <button
-              onClick={() => handleScrollTo("projects")}
-              className="inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-rose-accent to-mauve-accent text-[#0a0a0c] font-medium tracking-wide rounded-full cursor-pointer hover:shadow-[0_0_25px_rgba(255,197,217,0.35)] transition-all duration-300 group"
+        {/* Name */}
+        <h1 style={{
+          fontFamily: "var(--font-serif)",
+          fontSize: "clamp(4.2rem, 8.5vw, 7.8rem)",
+          lineHeight: 0.88,
+          letterSpacing: "-0.03em",
+          color: "#1a1610",
+          marginBottom: 0,
+          animation: "slideUp 0.7s 0.2s both"
+        }}>
+          <span className="hero-name-word" style={{ display: "block" }}>
+            {personal.name.split(" ")[0]}
+          </span>
+          <span className="hero-name-word" style={{ display: "block" }}>
+            <em style={{ 
+              fontStyle: "italic", 
+              color: "#2d5a8e",
+              display: "inline-block",
+            }}>
+              {personal.name.split(" ")[1]}
+            </em>
+          </span>
+        </h1>
+
+        {/* Role pill */}
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: 8,
+          background: "linear-gradient(135deg, #1a1610 0%, #2a241a 100%)", color: "#f5f2ec",
+          fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase",
+          padding: "8px 16px 8px 12px", borderRadius: 100,
+          marginTop: 24, marginBottom: 28, alignSelf: "flex-start",
+          boxShadow: "0 8px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.15)",
+          animation: "slideUp 0.6s 0.3s both",
+          border: "1px solid rgba(255,255,255,0.08)"
+        }}>
+          <span className="live-dot" style={{ background: "#28c840", boxShadow: "0 0 10px #28c840" }} />
+          {hero.internshipBadge}
+        </div>
+
+        {/* Subtitle — italic serif */}
+        <p style={{
+          fontFamily: "var(--font-serif)",
+          fontStyle: "italic",
+          fontSize: "1.3rem",
+          color: "#3a3228",
+          lineHeight: 1.6,
+          maxWidth: 440,
+          marginBottom: 40,
+          animation: "slideUp 0.6s 0.4s both",
+        }}>
+          {hero.subtitle}
+        </p>
+
+        {/* CTAs */}
+        <div style={{ display: "flex", gap: 16, flexWrap: "wrap", animation: "slideUp 0.6s 0.5s both" }}>
+          <div style={{ position: "relative" }}>
+            <div style={{ position: "absolute", inset: 0, background: "rgba(45,90,142,0.6)", filter: "blur(12px)", borderRadius: 8, animation: "pulseGlow 3s infinite" }} />
+            <a href="#projects" className="hero-btn-primary" style={{
+              position: "relative",
+              display: "inline-flex", alignItems: "center", gap: 6,
+              fontSize: 11.5, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
+              textDecoration: "none", padding: "14px 28px",
+              background: "linear-gradient(to bottom, #2a241a, #1a1610)", color: "#f5f2ec",
+              borderRadius: 8, border: "1px solid #3a3228",
+              boxShadow: "0 8px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15)",
+              transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+            }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 28px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.25)"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15)"; }}
             >
-              {portfolioData.hero.ctaExplore}
-              <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
-            <button
-              onClick={() => handleScrollTo("contact")}
-              className="inline-flex items-center gap-2 px-7 py-3 bg-charcoal-surface border border-charcoal-border hover:border-rose-accent/40 text-gold-highlight font-medium tracking-wide rounded-full cursor-pointer transition-all duration-300"
-            >
-              {portfolioData.hero.ctaContact}
-            </button>
-          </motion.div>
-        </motion.div>
-
-        {/* Hero Right Visuals (Dreamy Celestial & Sparkles Graphic) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          className="lg:col-span-5 relative flex justify-center items-center h-[300px] md:h-[380px]"
-        >
-          {/* Main Visual Circle Frame with Glow */}
-          <div className="w-[260px] h-[260px] md:w-[320px] md:h-[320px] rounded-full border border-charcoal-border bg-[#121115]/40 backdrop-blur-md relative overflow-hidden flex items-center justify-center shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
-            {/* Ambient vector details using soft rose-gold/mauve radial blend */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,197,217,0.15)_0%,rgba(212,191,249,0.08)_45%,transparent_75%)]" />
-            
-            {/* Celestial Starry orbits (outer ring spinning slowly) */}
-            <svg
-              width="100%"
-              height="100%"
-              viewBox="0 0 200 200"
-              fill="none"
-              className="absolute opacity-50 animate-[spin_180s_linear_infinite]"
-            >
-              <circle cx="100" cy="100" r="88" stroke="rgba(255, 197, 217, 0.18)" strokeWidth="0.5" strokeDasharray="3 6" />
-              <circle cx="100" cy="100" r="75" stroke="rgba(212, 191, 249, 0.25)" strokeWidth="0.75" />
-              <circle cx="100" cy="100" r="58" stroke="rgba(245, 230, 201, 0.18)" strokeWidth="0.5" strokeDasharray="12 4" />
-              
-              {/* Star-like dots along the orbits */}
-              <circle cx="100" cy="12" r="2.5" fill="#FFC5D9" className="animate-pulse" />
-              <circle cx="175" cy="100" r="1.5" fill="#F5E6C9" />
-              <circle cx="25" cy="100" r="2" fill="#D4BFF9" />
-              <circle cx="100" cy="188" r="1.5" fill="#FFC5D9" />
-            </svg>
-
-            {/* Twinkling starburst sparkles (inner layout spinning reverse) */}
-            <svg
-              width="80%"
-              height="80%"
-              viewBox="0 0 100 100"
-              fill="none"
-              className="absolute opacity-40 animate-[spin_60s_linear_infinite_reverse]"
-            >
-              {/* Pinched sparkle 1: Top-Right */}
-              <path
-                d="M 68,22 Q 68,32 58,32 Q 68,32 68,42 Q 68,32 78,32 Q 68,32 68,22 Z"
-                fill="#F5E6C9"
-                className="opacity-80"
-              />
-              {/* Pinched sparkle 2: Bottom-Left */}
-              <path
-                d="M 32,78 Q 32,85 25,85 Q 32,85 32,92 Q 32,85 39,85 Q 32,85 32,78 Z"
-                fill="#FFC5D9"
-                className="opacity-60"
-              />
-              {/* Pinched sparkle 3: Center-Left */}
-              <path
-                d="M 22,35 Q 22,40 17,40 Q 22,40 22,45 Q 22,40 27,40 Q 22,40 22,35 Z"
-                fill="#D4BFF9"
-                className="opacity-70"
-              />
-              {/* Pinched sparkle 4: Center-Right */}
-              <path
-                d="M 78,65 Q 78,70 73,70 Q 78,70 78,75 Q 78,70 83,70 Q 78,70 78,65 Z"
-                fill="#F5E6C9"
-                className="opacity-75"
-              />
-              
-              <circle cx="50" cy="50" r="38" stroke="rgba(255, 197, 217, 0.08)" strokeWidth="0.5" />
-            </svg>
-
-            {/* Profile Avatar Monogram with glowing rose/mauve/gold gradient text */}
-            <div className="absolute flex flex-col items-center justify-center text-center z-10">
-              {/* Glowing background aura */}
-              <div className="absolute w-24 h-24 bg-gradient-to-r from-rose-accent/15 via-mauve-accent/15 to-gold-highlight/15 blur-xl rounded-full -z-10 animate-pulse" />
-              
-              <span className="font-serif text-6xl md:text-7xl bg-gradient-to-br from-rose-accent via-mauve-accent to-gold-highlight bg-clip-text text-transparent select-none drop-shadow-[0_0_15px_rgba(255,197,217,0.25)] font-light leading-none">
-                {portfolioData.personal.monogram}
-              </span>
-              <span className="font-mono text-[8px] tracking-[0.3em] text-[#b2adc4] uppercase mt-2.5">{portfolioData.personal.role}</span>
-            </div>
-
-            {/* Subtle light streaks */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-rose-accent/5 to-transparent pointer-events-none" />
+              View Work <ArrowUpRight size={15} strokeWidth={2.5} />
+            </a>
           </div>
-
-          {/* Floating Card 1: Product Strategy */}
-          <motion.div
-            animate={{ y: [0, -10, 0], x: [0, 5, 0] }}
-            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="absolute top-[8%] left-[-2%] md:left-[2%] glass-card p-3.5 rounded-2xl flex items-center gap-3 shadow-[0_15px_30px_rgba(255,197,217,0.12)] border-rose-accent/10 hover:border-rose-accent/20"
+          <a href="#contact" style={{
+            display: "inline-flex", alignItems: "center", gap: 6,
+            fontSize: 11.5, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
+            textDecoration: "none", padding: "14px 28px",
+            background: "rgba(255,255,255,0.2)", color: "#1a1610",
+            border: "1px solid rgba(0,0,0,0.15)",
+            backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+            borderRadius: 8,
+            boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+            transition: "all 0.25s ease",
+          }}
+            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background="rgba(255,255,255,0.6)"; el.style.transform="translateY(-3px)"; el.style.borderColor="rgba(0,0,0,0.25)"; el.style.boxShadow="0 8px 20px rgba(0,0,0,0.08)"; }}
+            onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background="rgba(255,255,255,0.2)"; el.style.transform=""; el.style.borderColor="rgba(0,0,0,0.15)"; el.style.boxShadow="0 4px 12px rgba(0,0,0,0.05)"; }}
           >
-            <div className="p-2.5 rounded-lg bg-gold-muted text-gold-highlight">
-              <LucideIcon name={portfolioData.hero.floatingCards[0].icon} size={18} />
-            </div>
-            <div>
-              <p className="text-[9px] font-mono tracking-widest text-[#b2adc4] uppercase">{portfolioData.hero.floatingCards[0].label}</p>
-              <p className="text-xs font-semibold text-gold-highlight">{portfolioData.hero.floatingCards[0].value}</p>
-            </div>
-          </motion.div>
+            Let&rsquo;s Talk
+          </a>
+        </div>
 
-          {/* Floating Card 2: SDV & QNX */}
-          <motion.div
-            animate={{ y: [0, 12, 0], x: [0, -6, 0] }}
-            transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-[12%] right-[-2%] md:right-[2%] glass-card p-3.5 rounded-2xl flex items-center gap-3 shadow-[0_15px_30px_rgba(212,191,249,0.12)] border-mauve-accent/10 hover:border-mauve-accent/20"
-          >
-            <div className="p-2.5 rounded-lg bg-mauve-muted text-mauve-accent">
-              <LucideIcon name={portfolioData.hero.floatingCards[1].icon} size={18} />
-            </div>
-            <div>
-              <p className="text-[9px] font-mono tracking-widest text-[#b2adc4] uppercase">{portfolioData.hero.floatingCards[1].label}</p>
-              <p className="text-xs font-semibold text-mauve-accent">{portfolioData.hero.floatingCards[1].value}</p>
-            </div>
-          </motion.div>
-
-          {/* Floating Card 3: Speaker */}
-          <motion.div
-            animate={{ y: [0, -8, 0], x: [0, -4, 0] }}
-            transition={{ repeat: Infinity, duration: 5.5, ease: "easeInOut", delay: 0.5 }}
-            className="absolute bottom-[5%] left-[2%] md:left-[10%] glass-card px-4 py-2.5 rounded-2xl flex items-center gap-2.5 shadow-[0_12px_24px_rgba(255,197,217,0.1)] border-rose-accent/10 hover:border-rose-accent/20"
-          >
-            <LucideIcon name={portfolioData.hero.floatingCards[2].icon} size={14} className="text-rose-accent animate-pulse" />
-            <span className="text-xs font-medium text-gold-highlight tracking-wide">{portfolioData.hero.floatingCards[2].value}</span>
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* Hero Stats Section */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full mt-6 md:mt-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-2 p-6 md:p-8 glass-card rounded-3xl"
-        >
-          {portfolioData.hero.stats.map((stat, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col items-center md:items-start text-center md:text-left px-2 border-r border-charcoal-border last:border-none"
-            >
-              <span className="font-space text-3xl md:text-4xl font-semibold text-gold-highlight tracking-tight mb-1">
-                {stat.value}
-              </span>
-              <span className="text-xs md:text-sm font-semibold text-[#e0ddf0]">{stat.label}</span>
-              <span className="text-[10px] md:text-xs text-[#8c889e] font-mono mt-0.5">{stat.desc}</span>
+        {/* Mini stats row */}
+        <div style={{ display: "flex", gap: 36, marginTop: 56, paddingTop: 32, borderTop: "1px solid rgba(0,0,0,0.08)", animation: "slideUp 0.6s 0.6s both" }}>
+          {hero.stats.slice(0,3).map((s) => (
+            <div key={s.label}>
+              <div style={{ fontFamily: "var(--font-serif)", fontSize: "2rem", color: "#1a1610", lineHeight: 1 }}>{s.value}</div>
+              <div style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#8a7060", marginTop: 8 }}>{s.label}</div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
-      {/* Scroll Down Affordance */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer pointer-events-none opacity-40">
-        <span className="text-[9px] font-mono tracking-[0.2em] text-[#8c889e] uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-        >
-          <ArrowDown size={12} className="text-[#8c889e]" />
-        </motion.div>
+      {/* ── RIGHT: FANTASTIC MAC-OS SCATTER ── */}
+      <div style={{ padding: "72px 4vw 60px", position: "relative", overflow: "hidden", zIndex: 1 }} className="hidden md:block">
+
+        {/* Desktop header label */}
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 32, animation: "fadeIn 1s ease-out both" }}>
+          <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#ff5f57" }} />
+          <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#febc2e" }} />
+          <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#28c840" }} />
+          <span style={{ marginLeft: 8, fontSize: 11, fontWeight: 600, color: "#8a7060", letterSpacing: "0.08em", textTransform: "uppercase" }}>pranathi_shree_os</span>
+        </div>
+
+        <div style={{ position: "relative", width: "100%", height: "calc(100% - 56px)", minHeight: 500 }}>
+
+          {/* Big editorial type */}
+          <div style={{ position: "absolute", top: 120, left: 20, animation: "slideUp 0.8s 0.3s both" }}>
+            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase", color: "#8a7a6a", marginBottom: 6 }}>creative</div>
+            <div style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "clamp(3.8rem, 7.5vw, 6.8rem)",
+              fontStyle: "italic",
+              lineHeight: 0.85,
+              letterSpacing: "-0.05em",
+              color: "rgba(26,22,16,0.9)",
+              textShadow: "0 4px 24px rgba(0,0,0,0.05)"
+            }}>engineer</div>
+            <div style={{ fontSize: 12, color: "#9a8a7a", marginTop: 12, fontWeight: 500, fontStyle: "italic" }}>Crafting systems that work beautifully</div>
+          </div>
+
+          {/* Folders row with continuous floating */}
+          {[
+            { label: "projects",     top: 10,  left: 20,  delay: "0s",   anim: "floatSlow" },
+            { label: "strategy",     top: 10,  left: 140, delay: "1.2s", anim: "floatMedium" },
+            { label: "leadership",   top: 10,  left: 260, delay: "0.5s", anim: "floatFast" },
+          ].map((f) => (
+            <div key={f.label} className="folder" style={{ position: "absolute", top: f.top, left: f.left, animation: `${f.anim} 5s ease-in-out ${f.delay} infinite`, filter: "drop-shadow(0 12px 24px rgba(0,0,0,0.1))" }}>
+              <div className="folder-icon">
+                <div className="folder-back" /><div className="folder-tab" />
+                <div className="folder-front" style={{ background: "linear-gradient(135deg, #a7d0e8, #7eb0cc)" }}><div className="folder-shine" /></div>
+              </div>
+              <span className="folder-label" style={{ fontWeight: 600 }}>{f.label}</span>
+            </div>
+          ))}
+
+          {/* Sticky notes with glassmorphism and floating */}
+          <div className="sticky" style={{ 
+            "--rot": "3deg", position: "absolute", bottom: 170, right: 30, transform: "rotate(3deg)", 
+            background: "rgba(255,248,180,0.85)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.6)",
+            boxShadow: "2px 16px 32px rgba(0,0,0,0.1), inset 0 2px 0 rgba(255,255,255,0.8)",
+            animation: "floatMedium 6s ease-in-out 0.2s infinite"
+          } as React.CSSProperties}>
+            <div className="sticky-title">currently</div>
+            <div className="sticky-body">interning @ QNX /<br />SDV automotive ✓</div>
+          </div>
+
+          <div className="sticky sticky-blue" style={{ 
+            "--rot": "-2deg", position: "absolute", bottom: 90, left: 40, transform: "rotate(-2deg)",
+            background: "rgba(180,220,255,0.85)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.6)",
+            boxShadow: "2px 16px 32px rgba(45,90,142,0.15), inset 0 2px 0 rgba(255,255,255,0.8)",
+            animation: "floatSlow 7s ease-in-out 1.5s infinite"
+          } as React.CSSProperties}>
+            <div className="sticky-title">skills</div>
+            <div className="sticky-body">product strategy<br />embedded systems<br />public speaking</div>
+          </div>
+
+          <div className="sticky sticky-pink" style={{ 
+            "--rot": "-1.5deg", position: "absolute", top: 120, right: 35, transform: "rotate(-1.5deg)",
+            background: "rgba(255,190,210,0.85)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.6)",
+            boxShadow: "2px 16px 32px rgba(220,100,120,0.15), inset 0 2px 0 rgba(255,255,255,0.8)",
+            animation: "floatFast 5s ease-in-out 0.8s infinite"
+          } as React.CSSProperties}>
+            <div className="sticky-title">fun fact</div>
+            <div className="sticky-body">fluent in 5 languages 🌍</div>
+          </div>
+
+          {/* File icon with floating */}
+          <div className="file-icon" style={{ position: "absolute", bottom: 130, left: 240, animation: "floatSlow 6.5s ease-in-out 2s infinite", filter: "drop-shadow(0 12px 24px rgba(0,0,0,0.1))" }}>
+            <div className="file-doc" style={{ background: "linear-gradient(to bottom right, #ffffff, #f0f0f0)", border: "1px solid #d0d0d0" }}>
+              <div className="file-doc-lines">
+                <div className="file-doc-line" /><div className="file-doc-line" />
+                <div className="file-doc-line" /><div className="file-doc-line" />
+              </div>
+            </div>
+            <span className="file-label" style={{ fontWeight: 600 }}>resume_2026.pdf</span>
+          </div>
+
+          {/* Photo frame placeholder with floating */}
+          <div className="photo-frame" style={{ 
+            position: "absolute", top: 10, right: 35, width: 120, height: 90, 
+            background: "rgba(255,255,255,0.9)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.8)",
+            boxShadow: "0 16px 40px rgba(0,0,0,0.12)", animation: "floatMedium 5.5s ease-in-out 1.2s infinite" 
+          }}>
+            <span style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}><Camera size={26} color="#8a7a6a" strokeWidth={1.5} /></span>
+            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#6a6058" }}>portrait</span>
+          </div>
+          <div style={{ position: "absolute", top: 116, right: 35, fontSize: 10.5, fontWeight: 600, color: "#8a8070", textAlign: "center", width: 120, animation: "floatMedium 5.5s ease-in-out 1.2s infinite" }}>portrait.jpeg</div>
+
+          {/* Floating Cursor icon */}
+          <div style={{ position: "absolute", bottom: 195, left: 330, pointerEvents: "none", userSelect: "none", filter: "drop-shadow(0 8px 16px rgba(0,0,0,0.3))", animation: "floatFast 4s ease-in-out infinite" }}>
+            <MousePointer2 size={32} color="#ffffff" fill="#1a1610" strokeWidth={1.5} />
+          </div>
+
+          {/* Floating availability badge (Heavy Glassmorphism) */}
+          <div style={{
+            position: "absolute", bottom: 20, right: 24,
+            background: "linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4))",
+            backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)",
+            border: "1px solid rgba(255,255,255,0.6)",
+            borderRadius: 14,
+            padding: "14px 22px",
+            display: "flex", alignItems: "center", gap: 12,
+            boxShadow: "0 12px 40px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.8)",
+            animation: "slideUp 0.8s 0.5s both, floatSlow 6s ease-in-out 0.5s infinite"
+          }}>
+            <span className="live-dot" style={{ background: "#28c840", boxShadow: "0 0 12px #28c840", width: 10, height: 10 }} />
+            <div>
+              <div style={{ fontSize: 11, fontWeight: 800, color: "#1a1610", letterSpacing: "0.08em" }}>Available</div>
+              <div style={{ fontSize: 9.5, fontWeight: 600, color: "#6a6058", letterSpacing: "0.04em" }}>for 2026 roles</div>
+            </div>
+          </div>
+
+        </div>
       </div>
+
+      <style>{`
+        @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr !important; } }
+      `}</style>
     </section>
   );
 }
+

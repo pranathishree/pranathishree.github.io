@@ -1,106 +1,125 @@
 "use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 import portfolioData from "@/data/portfolio.json";
-import LucideIcon from "@/components/LucideIcon";
+import Reveal from "@/components/Reveal";
+import { User } from "lucide-react";
+
+const LANGUAGES = [
+  { lang: "English",  level: "Native" },
+  { lang: "Kannada",  level: "Fluent" },
+  { lang: "Telugu",   level: "Fluent" },
+  { lang: "Tamil",    level: "Fluent" },
+  { lang: "Hindi",    level: "Fluent" },
+];
+const BADGE_COLORS: Record<string,string> = {
+  Native: "var(--accent)", Fluent: "var(--accent)",
+};
+
+function WinBar({ title }: { title: string }) {
+  return (
+    <div className="window-bar">
+      <div className="window-bar-btns" aria-hidden="true">
+        <div className="window-bar-btn close" /><div className="window-bar-btn min" /><div className="window-bar-btn max" />
+      </div>
+      <span className="window-title">{title}</span>
+    </div>
+  );
+}
 
 export default function About() {
   const { about } = portfolioData;
-
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
-      {/* Background glow element */}
-      <div className="absolute bottom-10 right-0 w-[400px] h-[300px] bg-mauve-muted/5 blur-[120px] rounded-full pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Header */}
-        <div className="flex flex-col mb-16 md:mb-20">
-          <span className="text-xs font-mono tracking-[0.25em] text-[#8c889e] uppercase mb-3 flex items-center gap-2">
-            <span className="h-[1px] w-8 bg-mauve-accent"></span>
-            {about.sectionTitle}
-          </span>
-          <h2 className="font-serif text-4xl md:text-6xl text-gold-highlight font-normal">
-            {about.heading}
-          </h2>
-        </div>
-
-        {/* Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Narrative Column */}
-          <div className="lg:col-span-6 flex flex-col gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-[#e0ddf0] text-lg md:text-xl font-normal leading-relaxed animate-glow-soft"
-            >
-              I am a <span className="text-mauve-accent font-semibold">Computer Science & Business Systems</span> student with a unique academic path that combines technical engineering with business management methodologies. This dual training allows me to look at code through the lens of business value and product longevity.
-            </motion.div>
-
-            {about.descriptionParagraphs.slice(1).map((paragraph, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 + idx * 0.1 }}
-                className="text-[#b2adc4] text-base leading-relaxed"
-              >
-                {paragraph}
-              </motion.div>
-            ))}
-
-            {/* Editorial Serif Blockquote */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative p-8 mt-4 rounded-3xl bg-charcoal-surface border-l-2 border-mauve-accent shadow-inner overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 font-serif text-9xl text-charcoal-border pointer-events-none select-none translate-y-[-20%] translate-x-[20%]">
-                “
-              </div>
-              <p className="font-sans text-xl italic text-gold-highlight leading-relaxed relative z-10">
-                “{about.quote}”
-              </p>
-            </motion.div>
+    <section id="about" style={{ padding: "70px 5vw", background: "var(--desk)", borderTop: "1px solid var(--border)" }}>
+      <Reveal>
+        <div className="desk-section-head">
+          <div className="desk-section-icon"><User size={20} color="var(--win)" strokeWidth={1.5} /></div>
+          <div>
+            <p className="desk-section-label">Who I Am</p>
+            <h2 className="desk-section-title">
+              Strategy, <em>Tech</em> &amp; Everything In Between.
+            </h2>
           </div>
+        </div>
+      </Reveal>
 
-          {/* Interests Column */}
-          <div className="lg:col-span-6 flex flex-col gap-6">
-            <h3 className="text-xs font-mono tracking-widest text-[#8c889e] uppercase mb-2">
-              AREAS OF INTEREST & STUDY
-            </h3>
-            
-            <div className="grid grid-cols-1 gap-4">
-              {about.interests.map((interest, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="glass-card p-6 rounded-2xl flex gap-4 transition-all duration-300 hover:translate-x-1"
-                >
-                  <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-charcoal-surface border border-charcoal-border flex-shrink-0">
-                    <LucideIcon name={interest.icon} className="text-mauve-accent" size={20} />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-gold-highlight mb-1.5">
-                      {interest.title}
-                    </h4>
-                    <p className="text-xs text-[#b2adc4] leading-relaxed">
-                      {interest.description}
-                    </p>
-                  </div>
-                </motion.div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }} className="about-cols">
+        {/* Bio window */}
+        <Reveal delay={80}>
+          <div className="window">
+            <WinBar title="about_pranathi.txt" />
+            <div className="window-body">
+              {about.descriptionParagraphs.map((p, i) => (
+                <p key={i} style={{ fontSize: 13.5, color: "var(--ink2)", lineHeight: 1.88, fontWeight: 300, marginBottom: i < about.descriptionParagraphs.length - 1 ? 14 : 0 }}>
+                  {p}
+                </p>
               ))}
+              {/* Quote pull */}
+              <blockquote style={{
+                fontFamily: "var(--font-serif)", fontStyle: "italic",
+                fontSize: "1.05rem", color: "var(--accent)",
+                borderLeft: "3px solid var(--accent)",
+                paddingLeft: 16, marginTop: 20, lineHeight: 1.6,
+              }}>
+                &ldquo;{about.quote}&rdquo;
+              </blockquote>
             </div>
           </div>
+        </Reveal>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+          {/* Languages window */}
+          <Reveal delay={160}>
+            <div className="window">
+              <WinBar title="languages.txt" />
+              <div style={{ padding: "18px 24px" }}>
+                <p style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--ink3)", marginBottom: 12 }}>
+                  🌍 Multilingual — 5 Languages
+                </p>
+                {LANGUAGES.map((l, i) => (
+                  <div key={l.lang} style={{
+                    display: "flex", justifyContent: "space-between", alignItems: "center",
+                    padding: "10px 0",
+                    borderBottom: i < LANGUAGES.length - 1 ? "1px solid #e0d8cc" : "none",
+                  }}>
+                    <span style={{ fontSize: 13.5, fontWeight: 500, color: "var(--ink)" }}>{l.lang}</span>
+                    <span style={{
+                      fontSize: 9, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase",
+                      color: BADGE_COLORS[l.level] ?? "var(--accent)",
+                      background: "rgba(96,165,250,0.15)",
+                      border: "1px solid rgba(96,165,250,0.15)",
+                      padding: "2px 9px", borderRadius: 100,
+                    }}>{l.level}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Interests mini-grid */}
+          <Reveal delay={240}>
+            <div className="window">
+              <WinBar title="interests.txt" />
+              <div style={{ padding: "18px 24px" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+                  {about.interests.map((item) => (
+                    <div key={item.title} style={{
+                      padding: "10px 12px",
+                      background: "rgba(96,165,250,0.15)",
+                      border: "1px solid rgba(96,165,250,0.15)",
+                      borderRadius: 8,
+                    }}>
+                      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--ink)", marginBottom: 3, lineHeight: 1.2 }}>{item.title}</div>
+                      <div style={{ fontSize: 11, color: "var(--ink3)", lineHeight: 1.5, fontWeight: 300 }}>{item.description.split(" ").slice(0,8).join(" ")}…</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </div>
+
+      <style>{`@media(max-width:900px){.about-cols{grid-template-columns:1fr!important;}}`}</style>
     </section>
   );
 }
