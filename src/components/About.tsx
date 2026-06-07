@@ -10,7 +10,7 @@ export default function About() {
 
   return (
     <section id="about" className="py-24 relative overflow-hidden">
-      {/* Background glow element */}
+
       <div className="absolute bottom-10 right-0 w-[400px] h-[300px] bg-mauve-muted/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
