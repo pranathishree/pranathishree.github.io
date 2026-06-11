@@ -54,9 +54,7 @@
     "sectionTitle": "ABOUT ME",
     "heading": "Bridging Code, Product, & Business",
     "descriptionParagraphs": [
-      "I am a Computer Science & Business Systems student with a unique academic path that combines technical engineering with business management methodologies. This dual training allows me to look at code through the lens of business value and product longevity.",
-      "Currently, I am working as a Software Intern exploring QNX-based Software Defined Vehicle systems. Learning real-time operating systems (RTOS) and studying how vehicle systems are transitioning to standardized software stacks has opened my eyes to the future of automotive IoT and embedded architectures.",
-      "My goal is to step into product leadership, taking product concepts from early user research and technical specification writing through design iterations in Figma, all the way to launch and go-to-market execution."
+      
     ],
     "quote": "Building technology is exciting, but building technology that aligns with commercial logic and solves core user problems is what truly drives change.",
     "interests": [
