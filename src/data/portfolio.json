@@ -363,11 +363,11 @@
         "title": "Tools & Apps",
         "type": "grid",
         "items": [
-          { "name": "VS Code", "icon": "code", "bg": "#007acc", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png", "iconColor": "#fff" },
-          { "name": "Claude", "icon": "robot", "bg": "#d97757", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Claude_AI_logo.svg/512px-Claude_AI_logo.svg.png", "iconColor": "#fff" },
-          { "name": "Figma", "icon": "vector", "bg": "#1e1e1e", "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg", "iconColor": "#fff" },
+          { "name": "VS Code", "icon": "code", "bg": "#007acc", "image": "https://cdn.simpleicons.org/visualstudiocode/white", "iconColor": "#fff" },
+          { "name": "Claude", "icon": "robot", "bg": "#d97757", "image": "https://cdn.simpleicons.org/claude/white", "iconColor": "#fff" },
+          { "name": "Figma", "icon": "vector", "bg": "#1e1e1e", "image": "https://cdn.simpleicons.org/figma/white", "iconColor": "#fff" },
           { "name": "Stitch", "icon": "needle-thread", "bg": "#3b82f6", "image": "", "iconColor": "#fff" },
-          { "name": "Perplexity", "icon": "search", "bg": "#1c1c2e", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Perplexity_AI_logo.svg/512px-Perplexity_AI_logo.svg.png", "iconColor": "#fff" },
+          { "name": "Perplexity", "icon": "search", "bg": "#1c1c2e", "image": "https://cdn.simpleicons.org/perplexity/white", "iconColor": "#fff" },
           { "name": "Lovable", "icon": "heart", "bg": "#fff3e0", "image": "", "iconColor": "#f97316" }
         ]
       }
