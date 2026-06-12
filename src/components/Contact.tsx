@@ -56,7 +56,6 @@ export default function Contact() {
               <span className="window-title">contact_info.vcf</span>
             </div>
             <div className="window-body">
-              <h2 className="ct-head">Let&apos;s<br/><em>Connect</em></h2>
               <p className="ct-sub">{contact.description}</p>
               <div className="ct-links">
                 {/* Email */}

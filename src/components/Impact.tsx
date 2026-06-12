@@ -59,6 +59,13 @@ export default function Impact() {
                           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} 
                         />
                       )}
+                      <div className="corner-brackets">
+                        <div className="bracket tl"></div>
+                        <div className="bracket tr"></div>
+                        <div className="bracket bl"></div>
+                        <div className="bracket br"></div>
+                        <i className={`ti ${imgSrc.endsWith('.mp4') ? 'ti-player-play-filled' : 'ti-camera'} center-icon`}></i>
+                      </div>
                     </div>
                   ))
                 ) : (

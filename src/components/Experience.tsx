@@ -12,13 +12,15 @@ export default function Experience() {
       {internships.map((internship: any, index: number) => (
         <section key={index} className="section-wrap intern-section" id={index === 0 ? "experience" : undefined} style={index > 0 ? { paddingTop: 0 } : {}}>
           <span className="intern-bg-text">{internship.bgText}</span>
-          <div className="desk-section-head">
-            <div className="desk-section-icon"><i className="ti ti-briefcase"></i></div>
-            <div>
-              <p className="desk-section-label">{internship.sectionLabel}</p>
-              <h2 className="desk-section-title">{internship.sectionTitlePrefix} <em>{internship.sectionTitleHighlight}</em></h2>
+          {index === 0 && (
+            <div className="desk-section-head">
+              <div className="desk-section-icon"><i className="ti ti-briefcase"></i></div>
+              <div>
+                <p className="desk-section-label">{internship.sectionLabel}</p>
+                <h2 className="desk-section-title">{internship.sectionTitlePrefix} <em>{internship.sectionTitleHighlight}</em></h2>
+              </div>
             </div>
-          </div>
+          )}
           <div className="intern-grid">
             <div className="intern-window">
               <div className="window-bar">

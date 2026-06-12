@@ -89,17 +89,17 @@
   "internships": [
     {
       "bgText": "QNX",
-    "sectionLabel": "Current Role · 2025 – Present",
-    "sectionTitlePrefix": "Software Intern —",
-    "sectionTitleHighlight": "QNX / SDV",
-    "detailsWindow": {
-      "title": "internship_details.txt",
-      "tag": "Currently Active",
-      "role": "Software Intern —",
-      "company": "QNX / SDV",
-      "keywords": "Software Defined Vehicles · Embedded Systems · Real-Time OS"
-    },
-    "responsibilitiesWindow": {
+      "sectionLabel": "PROFESSIONAL JOURNEY",
+      "sectionTitlePrefix": "My",
+      "sectionTitleHighlight": "Experience",
+      "detailsWindow": {
+        "title": "internship_details.txt",
+        "tag": "Currently Active",
+        "role": "Software Intern —",
+        "company": "QNX / SDV",
+        "keywords": "Software Defined Vehicles · Embedded Systems · Real-Time OS"
+      },
+      "responsibilitiesWindow": {
       "title": "responsibilities.md",
       "bullets": [
         "Working on QNX-based software defined vehicle systems with exposure to real-time OS concepts and automotive software architecture",
